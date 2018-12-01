@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from 'Theme/';
 
 const StyledComment = styled.div`
 	margin: 15px 0;

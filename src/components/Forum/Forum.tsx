@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from 'Theme/';
 
 import Posts from './Posts/Posts';
 import Aside from './Aside/Aside';

@@ -7,6 +7,10 @@ export interface IThemeInterface {
 	fontColor: string;
 	iconColor: string;
 	mainBgColor: string;
+	secondaryBgColor: string;
+	searchBoxBgColor: string;
+	buttonBgColor: string;
+	secondButtonBgColor: string;
 	borderColor: string;
 }
 

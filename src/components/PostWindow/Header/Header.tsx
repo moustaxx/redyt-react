@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from 'Theme/';
 import Vote from 'Components/Shared/Vote/Vote';
 
 const StyledHeader = styled.div`

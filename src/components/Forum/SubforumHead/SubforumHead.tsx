@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from 'Theme/';
 
 import Header from './Header/Header';
 import Settings from './Settings/Settings';

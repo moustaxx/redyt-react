@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'Theme/';
 
 const StyledAsideComponent = styled.div`
 	margin-bottom: 27px;

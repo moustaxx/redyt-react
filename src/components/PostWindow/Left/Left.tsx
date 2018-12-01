@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from 'Theme/';
 import Discussion from './Discussion/Discussion';
 
 const StyledLeft = styled.div`

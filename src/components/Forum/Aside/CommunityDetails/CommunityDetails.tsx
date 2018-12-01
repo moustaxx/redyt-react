@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from 'Theme/';
 
 import AsideComponent from '../AsideComponent/AsideComponent';
 import { niceButton } from 'Components/Shared/Button/Button';
