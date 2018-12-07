@@ -2,9 +2,7 @@ import { ApolloClient } from 'apollo-client';
 
 import { ApolloLink } from 'apollo-link';
 import { onError } from 'apollo-link-error';
-// import { BatchHttpLink } from 'apollo-link-batch-http';
-// import { WebSocketLink } from 'apollo-link-ws';
-// import { getOperationAST } from 'graphql/utilities/getOperationAST';
+import { BatchHttpLink } from 'apollo-link-batch-http';
 
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { withClientState } from 'apollo-link-state';
@@ -34,22 +32,10 @@ const client = new ApolloClient({
 			if (networkError) console.log(`[Network error (logout)]: ${networkError}`);
 		}),
 		stateLink,
-		// ApolloLink.split(
-		// 	operation => {
-		// 		const operationAST = getOperationAST(operation.query, operation.operationName);
-		// 		return !!operationAST && operationAST.operation === 'subscription';
-		// 	},
-		// 	new WebSocketLink({
-		// 		uri: `ws://localhost:3000/graphql`,
-		// 		options: {
-		// 			reconnect: true
-		// 		}
-		// 	}),
-		// 	new BatchHttpLink({
-		// 		uri: 'http://localhost:3000/graphql',
-		// 		credentials: 'include'
-		// 	}),
-		// )
+		new BatchHttpLink({
+			uri: 'http://localhost:4000/graphql',
+			// credentials: 'include'
+		})
 	])
 });
 client.onResetStore(stateLink.writeDefaults as any);
