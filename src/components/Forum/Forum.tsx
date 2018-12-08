@@ -1,9 +1,12 @@
 import * as React from 'react';
 import styled from 'Theme/';
+import { Query } from 'react-apollo';
 
 import Posts from './Posts/Posts';
 import Aside from './Aside/Aside';
 import SubforumHead from './SubforumHead/SubforumHead';
+import Error from 'Components/Error/Error';
+import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
 
 const StyledForum = styled.div`
 	box-sizing: border-box;
@@ -29,16 +32,38 @@ const Cnt = styled.div`
 	margin: 5px 0;
 `;
 
-class Forum extends React.Component {
+interface IForumProps {
+	match: {
+		params: {
+			subforumName: string;
+		}
+	};
+	location: {
+		pathname: string;
+	};
+}
+
+class Forum extends React.Component<IForumProps> {
 	public render() {
+		const subforumName = this.props.match.params.subforumName;
 		return (
+			<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{name: subforumName}}>{
+				({loading, error, data}) => {
+					if (loading) return 'Loading...';
+					if (error || !data) return <Error path={this.props.location.pathname}/>;
+					console.log('data', data);
+					return (
 			<StyledForum>
 				<SubforumHead />
-				<Cnt>
+							<Cnt>
 					<Aside />
 					<Posts />
-				</Cnt>
-			</StyledForum >
+							</Cnt>
+						</StyledForum>
+					);
+				}
+			}
+			</Query>
 		);
 	}
 }
