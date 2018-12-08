@@ -24,21 +24,20 @@ class UpdateBlocker extends React.Component<{ children: (href: string) => React.
 	}
 }
 
-const App = () =>
-	(
-		<BrowserRouter>
-			<UpdateBlocker>
-				{locationHref =>
-					<div id='app'>
-						<TopBar />
-						<Switch>
-							<Redirect exact from='/' to='/redyt' />
-							<Route component={PostWindow} path='/redyt/post' />
-							<Route component={Forum} path='/redyt' />
-							<Route component={Error} />
-						</Switch>
-					</div>}
-			</UpdateBlocker>
-		</BrowserRouter>
-	);
+const App = () => (
+	<BrowserRouter>
+		<UpdateBlocker>
+			{locationHref =>
+				<div id='app'>
+					<TopBar />
+					<Switch>
+						<Redirect exact from='/' to='/r/Popular' />
+						<Route component={PostWindow} path='/r/:subforumName/post' />
+						<Route component={Forum} path='/r/:subforumName' />
+						<Route component={Error} />
+					</Switch>
+				</div>}
+		</UpdateBlocker>
+	</BrowserRouter>
+);
 export default React.memo(App);
