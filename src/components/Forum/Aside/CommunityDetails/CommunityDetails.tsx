@@ -3,6 +3,7 @@ import styled from 'Theme/';
 
 import AsideComponent from '../AsideComponent/AsideComponent';
 import { niceButton } from 'Components/Shared/Button/Button';
+import { ISubforum } from 'components/Forum/Forum.apollo';
 
 const StyledCommunityDetails = styled.div`
 	.subForumName {
@@ -36,15 +37,19 @@ const Button = styled(niceButton)`
 	margin: 2px 0;
 `;
 
-
-class CommunityDetails extends React.Component {
+interface ICommunityDetailsProps {
+	subforum?: ISubforum;
+}
+class CommunityDetails extends React.Component<ICommunityDetailsProps> {
 	public render() {
+		const subforumName = this.props.subforum ? this.props.subforum.name : null;
+		const description = this.props.subforum ? this.props.subforum.description : null;
 		return (
 			<StyledCommunityDetails>
 				<AsideComponent>
 					<div className='componentName'>Community Details</div>
 					<div className='cnt'>
-						<div className='subForumName'>'r/'</div>
+						<div className='subForumName'>r/{subforumName}</div>
 						<div className='stats'>
 							<div className='subs'>
 								<p>8.2k</p>
@@ -55,7 +60,7 @@ class CommunityDetails extends React.Component {
 								<p>online</p>
 							</div>
 						</div>
-						<div className='description'>Halo halo raz raz raz dwa raz</div>
+						<div className='description'>{description}</div>
 						<Button text='SUBSCRIBE'></Button>
 						<Button text='CREATE POST'></Button>
 					</div>

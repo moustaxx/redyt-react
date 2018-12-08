@@ -14,11 +14,15 @@ const Title = styled.div`
 	align-self: flex-end;
 `;
 
-class Header extends React.Component {
+interface IHeaderProps {
+	subforumName: string;
+}
+
+class Header extends React.Component<IHeaderProps> {
 	public render() {
 		return (
 			<StyledHeader>
-				<Title>SubforumName</Title>
+				<Title>{this.props.subforumName}</Title>
 			</StyledHeader >
 		);
 	}
