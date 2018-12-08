@@ -10,20 +10,33 @@ const StyledError = styled.div`
 	align-items: center;
 	flex-direction: column;
 	font-size: 21px;
+	a {
+		margin-top: 10px;
+	}
 `;
 
 const Button = styled(niceButton)`
 	width: 145px;
 	height: 39px;
-	margin: 30px 0 0 0;
+`;
+
+const Caption = styled.div`
+	margin: 20px 0;
+	.link {
+		color: ${props => props.theme.secondarySubforumColor};
+	}
 `;
 
 const Error = (props: any) => {
-	console.log('props', props);
-	return <StyledError>
-		<div>r{ props.location.pathname } does not exist</div>
-		<Link to='/'><Button>Back home</Button></Link>
-	</StyledError>;
+	const pathname = props.path ? props.path : props.location.pathname;
+	return (
+		<StyledError>
+			<Caption>
+				<span className='link'>{pathname}</span> does not exist
+			</Caption>
+			<Link to='/'><Button>Back home</Button></Link>
+		</StyledError>
+	);
 };
 
 export default Error;
