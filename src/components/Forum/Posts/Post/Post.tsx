@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'Theme/';
 import Vote from 'Components/Shared/Vote/Vote';
 import { Link } from 'react-router-dom';
+import { IPost } from '../Posts.apollo';
 
 const StyledPost = styled.div`
 
@@ -12,6 +13,7 @@ const StyledPost = styled.div`
 	margin-bottom: -1px;
 	cursor: pointer;
 	box-sizing: border-box;
+	transition: .1s;
 	&:hover {
 		border: 1px solid #898989 !important;
 		z-index: 1;
@@ -19,7 +21,6 @@ const StyledPost = styled.div`
 	&:first-child {
 		border-top-left-radius: 4px;
 		border-top-right-radius: 4px;
-		border-top: 1px solid ${props => props.theme.borderColor};
 	}
 	&:last-child {
 		border-bottom-left-radius: 4px;
@@ -125,8 +126,13 @@ const PostDate = styled.div`
 	color: #7c7c7c;
 `;
 
-class Post extends React.Component {
+interface IPostProps {
+	post: IPost;
+}
+
+class Post extends React.Component<IPostProps> {
 	public render() {
+		console.log(this.props.post);
 		return (
 			<Link to={'/post'} >
 				<StyledPost>
@@ -138,7 +144,7 @@ class Post extends React.Component {
 							<PostContent>
 								<div className='postHeading'>
 									<div className='tag'></div>
-									<span className='postTitle'>Post title</span>
+									<span className='postTitle'>{this.props.post.title}</span>
 									<span className='attachedLink'></span>
 								</div>
 							</PostContent>
@@ -150,7 +156,7 @@ class Post extends React.Component {
 								<div className='postSettings icon'></div>
 							</Stats>
 						</FirstLine>
-						<PostDate>Posted by u/Username</PostDate>
+						<PostDate>Posted by u/{this.props.post.author.name} {this.props.post.createdOn}</PostDate>
 					</Cnt>
 				</StyledPost>
 			</Link>

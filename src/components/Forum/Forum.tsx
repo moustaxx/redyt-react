@@ -51,14 +51,12 @@ class Forum extends React.Component<IForumProps> {
 				({loading, error, data}) => {
 					if (loading) return 'Loading...';
 					if (error || !data) return <Error path={this.props.location.pathname}/>;
-					console.log('data', data);
 					return (
 						<StyledForum>
 							<SubforumHead subforumName={data.getSubforum.name}/>
 							<Cnt>
 								<Aside subforum={data.getSubforum}/>
-					<Aside />
-					<Posts />
+								<Posts subforum={data.getSubforum}/>
 							</Cnt>
 						</StyledForum>
 					);
