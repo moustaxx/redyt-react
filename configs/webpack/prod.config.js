@@ -1,7 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -20,36 +19,9 @@ module.exports = merge(baseConfig, {
 			chunks: 'all'
 		}
 	},
-	module: {
-		rules: [
-			{
-				test: /\.(sa|sc|c)ss$/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: 'css-loader',
-						options: {
-							sourceMap: true
-						}
-					},
-					{
-						loader: 'sass-loader',
-						options: {
-							sourceMap: true,
-							data: '@import \'~Stylesheets/variables\';'
-						}
-					}
-				]
-			}
-		]
-	},
 	plugins: [
 		new CleanWebpackPlugin(['dist'], {
 			root: path.resolve(__dirname, '../../')
-		}),
-		new MiniCssExtractPlugin({
-			filename: 'css/[name].css',
-			chunkFilename: 'css/[id].css'
 		}),
 		new FaviconsWebpackPlugin({
 			logo: './assets/img/favicon.png',
