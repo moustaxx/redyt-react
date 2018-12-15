@@ -31,7 +31,6 @@ class Posts extends React.Component<IPostsProps> {
 			<StyledPosts>
 				<Query<IGetPostsRes> query={GET_POSTS} variables={{ subforumID: this.props.subforum.id }}>{
 					({ loading, error, data }) => {
-						console.log('data.getPostsBySubforum', data!.getPostsBySubforum);
 						if (loading) return 'Loading...';
 						if (error || !data) return <span className='warn'>{error}</span>;
 						if (!data.getPostsBySubforum.length) return <span className='warn'>I've got puppies to show you...</span>;
