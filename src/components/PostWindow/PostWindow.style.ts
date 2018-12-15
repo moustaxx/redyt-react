@@ -1,0 +1,40 @@
+import styled from 'Theme/';
+
+export const StyledPostWindow = styled.div`
+	position: fixed;
+	background: #4c4c4c;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+`;
+
+export const Content = styled.div`
+	width: 90%;
+	height: calc(100% - 50px);
+	max-width: 1400px;
+	margin: 0 auto;
+	background: ${props => props.theme.mainBgColor};
+	/* .apolloDiv {
+		height: 100%;
+		background: #dae0e6;
+		display: flex;
+		flex-direction: column;
+	} */
+	@media screen and (max-width: 550px) {
+		margin: 0 auto;
+		width: 100%;
+	}
+`;
+
+export const Container = styled.div`
+	height: calc(100% - 50px);
+	padding-top: 30px;
+	justify-content: center;
+	display: flex;
+	overflow: auto;
+	box-sizing: border-box;
+	.right {
+		margin: 0;
+		height: 100%;
+	}
+`;
