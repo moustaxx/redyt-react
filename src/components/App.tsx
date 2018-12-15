@@ -32,7 +32,7 @@ const App = () => (
 					<TopBar />
 					<Switch>
 						<Redirect exact from='/' to='/r/Popular' />
-						<Route component={PostWindow} path='/r/:subforumName/post' />
+						<Route component={PostWindow} path='/r/:subforumName/:postID' />
 						<Route component={Forum} path='/r/:subforumName' />
 						<Route component={Error} />
 					</Switch>
