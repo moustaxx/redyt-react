@@ -12,7 +12,7 @@ export const GET_POSTS = gql`
 				name
 				id
 			}
-			createdOn
+			createdAt
 		}
 	}
 `;
@@ -25,7 +25,7 @@ export interface IPost {
 		name: string;
 		id: string;
 	};
-	createdOn: string;
+	createdAt: string;
 }
 
 export interface IGetPostsRes {

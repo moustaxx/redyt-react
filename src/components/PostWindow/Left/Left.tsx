@@ -17,7 +17,7 @@ class Left extends React.Component<ILeftProps> {
 					<Interior>
 						<div>
 							<span className='subForumName'>r/SubforumName</span>
-							<span className='postTime'>Posted by u/{post.author.name} {post.createdOn}</span>
+							<span className='postTime'>Posted by u/{post.author.name} {post.createdAt}</span>
 						</div>
 						<div className='title'>{post.title}</div>
 						<div className='essence'>{post.content}</div>

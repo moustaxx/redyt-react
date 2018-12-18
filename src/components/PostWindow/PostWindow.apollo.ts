@@ -12,7 +12,7 @@ export const GET_POST = gql`
 				name
 			}
 			content
-			createdOn
+			createdAt
 		}
 	}
 `;
@@ -25,7 +25,7 @@ export interface IWindowPost {
 		name: string;
 		id: string;
 	};
-	createdOn: string;
+	createdAt: string;
 }
 
 

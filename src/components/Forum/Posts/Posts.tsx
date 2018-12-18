@@ -35,13 +35,13 @@ class Posts extends React.Component<IPostsProps> {
 						if (error || !data) return <span className='warn'>{error}</span>;
 						if (!data.getPostsBySubforum.length) return <span className='warn'>I've got puppies to show you...</span>;
 						return (
-							data.getPostsBySubforum.map(({ id, title, content, author, createdOn }) =>
+							data.getPostsBySubforum.map(({ id, title, content, author, createdAt }) =>
 								<Post key={id} post={{
 									id,
 									title,
 									content,
 									author,
-									createdOn}} />
+									createdAt}} />
 								)
 						);
 					}

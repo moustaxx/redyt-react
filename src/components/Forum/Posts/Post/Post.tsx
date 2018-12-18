@@ -10,8 +10,9 @@ interface IPostProps extends RouteComponentProps<{ subforumName: string}> {
 
 class Post extends React.Component<IPostProps> {
 	public render() {
+		const post = this.props.post;
 		return (
-			<Link to={`${this.props.match.params.subforumName}/${this.props.post.id}`} >
+			<Link to={`${this.props.match.params.subforumName}/${post.id}`} >
 				<StyledPost>
 					<Vote />
 					<Cnt>
@@ -20,7 +21,7 @@ class Post extends React.Component<IPostProps> {
 							<PostContent>
 								<div className='postHeading'>
 									<div className='tag'></div>
-									<span className='postTitle'>{this.props.post.title}</span>
+									<span className='postTitle'>{post.title}</span>
 									<span className='attachedLink'></span>
 								</div>
 							</PostContent>
@@ -32,7 +33,7 @@ class Post extends React.Component<IPostProps> {
 								<div className='postSettings icon'></div>
 							</Stats>
 						</FirstLine>
-						<PostDate>Posted by u/{this.props.post.author.name} {this.props.post.createdOn}</PostDate>
+						<PostDate>Posted by u/{post.author.name} {post.createdAt}</PostDate>
 					</Cnt>
 				</StyledPost>
 			</Link>
