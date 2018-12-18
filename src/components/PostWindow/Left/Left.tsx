@@ -1,9 +1,15 @@
 import * as React from 'react';
 import Discussion from './Discussion/Discussion';
 import { StyledLeft, Interior, PostToolbar } from './Left.style';
+import { IWindowPost } from '../PostWindow.apollo';
 
-class Left extends React.Component {
+interface ILeftProps {
+	post: IWindowPost;
+}
+
+class Left extends React.Component<ILeftProps> {
 	public render() {
+		const post = this.props.post;
 		return (
 			<StyledLeft>
 				<div className='gg1'>
@@ -11,10 +17,10 @@ class Left extends React.Component {
 					<Interior>
 						<div>
 							<span className='subForumName'>r/SubforumName</span>
-							<span className='postTime'>Posted by u/username 21:20 21 May 2018</span>
+							<span className='postTime'>Posted by u/{post.author.name} {post.createdOn}</span>
 						</div>
-						<div className='title'>Post title</div>
-						<div className='essence'>Post content</div>
+						<div className='title'>{post.title}</div>
+						<div className='essence'>{post.content}</div>
 						<PostToolbar>
 							<button>
 								<div className='commentIco icon'></div>

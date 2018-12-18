@@ -54,14 +54,19 @@ const ExitButton = styled.div`
 	}
 `;
 
-class Header extends React.Component {
+interface IHeaderProps {
+	postTitle: string;
+}
+
+class Header extends React.Component<IHeaderProps> {
 	public render() {
+		const postTitle = this.props.postTitle;
 		return (
 			<StyledHeader>
 				<div className='group'>
 					{/* <Vote className='voteHere'></Vote> */}
 					<Vote />
-					<div className='title'> Post title goes here </div>
+					<div className='title'>{postTitle}</div>
 					<div className='space' />
 					<ExitButton>
 						<svg width='15' fill='grey' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>

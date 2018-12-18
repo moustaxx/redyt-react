@@ -6,6 +6,14 @@ export const StyledPostWindow = styled.div`
 	width: 100%;
 	height: 100%;
 	z-index: 100;
+
+	.warn {
+		height: 30vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 21px;
+	}
 `;
 
 export const Content = styled.div`
