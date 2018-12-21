@@ -6,6 +6,7 @@ import Error from './Error/Error';
 import TopBar from './TopBar/TopBar';
 import Forum from './Forum/Forum';
 import PostWindow from './PostWindow/PostWindow';
+import LoginForm from './LoginForm/LoginForm';
 
 class UpdateBlocker extends React.Component<{ children: (href: string) => React.ReactNode }> {
 	private locationHref = location.href.replace(/\/$/, '');
@@ -34,6 +35,7 @@ const App = () => (
 						<Redirect exact from='/' to='/r/Popular' />
 						<Route component={PostWindow} path='/r/:subforumName/:postID' />
 						<Route component={Forum} path='/r/:subforumName' />
+						<Route component={LoginForm} path='/login' />
 						<Route component={Error} />
 					</Switch>
 				</div>}
