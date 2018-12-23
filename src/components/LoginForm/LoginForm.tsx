@@ -1,7 +1,7 @@
 import * as React from 'react';
 import withApollo, { WithApolloClient } from 'react-apollo/withApollo';
 import { StyledLoginForm, Heading, Input, Button } from './LoginForm.style';
-import { VERIFY_LOGIN } from './LoginForm.apollo';
+import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
 // interface ILoginFormProps {
 // }
@@ -40,7 +40,7 @@ class LoginForm extends React.Component<WithApolloClient<{}>, ILoginFormState> {
 		const password = this.state.passwordInput;
 		const { client } = this.props;
 		try {
-			const res = await client.query({
+			const res = await client.query<ILoginRes>({
 				query: VERIFY_LOGIN,
 				fetchPolicy: 'no-cache',
 				variables: { name, password },

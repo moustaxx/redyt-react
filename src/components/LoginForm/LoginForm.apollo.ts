@@ -7,3 +7,11 @@ export const VERIFY_LOGIN = gql`
 		}
 	}
 `;
+
+interface ILogin {
+	token: string;
+}
+
+export interface ILoginRes {
+	verifyLogin: ILogin;
+}
