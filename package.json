@@ -14,6 +14,7 @@
 		"@types/react": "^16.7.18",
 		"@types/react-dom": "^16.0.10",
 		"@types/react-hot-loader": "^4.1.0",
+		"@types/react-portal": "^4.0.1",
 		"@types/react-router": "^4.4.3",
 		"@types/react-router-dom": "^4.3.1",
 		"@types/styled-components": "^4.1.4",
@@ -52,6 +53,7 @@
 		"react": "^16.7.0",
 		"react-apollo": "^2.3.3",
 		"react-dom": "^16.7.0",
+		"react-portal": "^4.2.0",
 		"react-router": "^4.3.1",
 		"react-router-dom": "^4.3.1",
 		"subscriptions-transport-ws": "^0.9.15"

@@ -10,6 +10,7 @@ export const Button = styled(niceButton)`
 export const StyledLoginForm = styled.div`
 	width: 100%;
 	height: 100%;
+	top: 0;
 	background: hsla(0, 0%, 0%, 0.38);
 	position: absolute;
 	z-index: 101;

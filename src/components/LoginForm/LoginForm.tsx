@@ -3,8 +3,9 @@ import withApollo, { WithApolloClient } from 'react-apollo/withApollo';
 import { StyledLoginForm, Heading, Input, Button } from './LoginForm.style';
 import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
-// interface ILoginFormProps {
-// }
+interface ILoginFormProps {
+	closeLoginForm: () => void;
+}
 
 interface ILoginFormState {
 	usernameInput: string;
@@ -14,7 +15,7 @@ interface ILoginFormState {
 	success: boolean;
 }
 
-class LoginForm extends React.Component<WithApolloClient<{}>, ILoginFormState> {
+class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILoginFormState> {
 	public state = {
 		usernameInput: '',
 		passwordInput: '',
@@ -59,9 +60,9 @@ class LoginForm extends React.Component<WithApolloClient<{}>, ILoginFormState> {
 
 	public render() {
 		return (
-			<StyledLoginForm>
-				<div className='window'>
-					<div className='xButton'>
+			<StyledLoginForm onClick={() => this.props.closeLoginForm()}>
+				<div className='window' onClick={e => e.stopPropagation()}>
+					<div className='xButton' onClick={() => this.props.closeLoginForm()}>
 						<svg width='17' fill='grey' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
 							<polygon fill='inherit'
 								points='11.649 9.882 18.262 3.267 16.495 1.5 9.881 8.114 3.267 1.5
