@@ -1,11 +1,7 @@
-import * as React from 'react';
 import styled from 'Theme/';
 import Color = require('color');
 
-const Button = (props: any) =>
-	<button className={props.className}>{props.text}{props.children}</button>;
-
-const niceButton = styled(Button)`
+const niceButton = styled.button`
 	width: 200px;
 	height: 34px;
 	border-radius: 4px;
@@ -23,7 +19,7 @@ const niceButton = styled(Button)`
 	}
 `;
 
-const invertedButton = styled(Button)`
+const invertedButton = styled.button`
 	width: 200px;
 	height: 34px;
 	border-radius: 4px;

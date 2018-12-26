@@ -61,8 +61,8 @@ class CommunityDetails extends React.Component<ICommunityDetailsProps> {
 							</div>
 						</div>
 						<div className='description'>{description}</div>
-						<Button text='SUBSCRIBE'></Button>
-						<Button text='CREATE POST'></Button>
+						<Button>SUBSCRIBE</Button>
+						<Button>CREATE POST</Button>
 					</div>
 				</AsideComponent>
 			</StyledCommunityDetails>
