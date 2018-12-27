@@ -34,9 +34,11 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 				Log in
 			</Button>
 			<Button2>Sign up</Button2>
-			<Portal>
-				{this.state.isLoginFormOpen ? <LoginForm closeLoginForm={this.closeLoginForm} /> : null}
-			</Portal>
+			{this.state.isLoginFormOpen ?
+				<Portal>
+					<LoginForm closeLoginForm={this.closeLoginForm} />
+				</Portal>
+			: null}
 		</StyledTopBar >
 	);
 	}
