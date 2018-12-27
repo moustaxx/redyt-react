@@ -34,7 +34,7 @@ const client = new ApolloClient({
 		stateLink,
 		new BatchHttpLink({
 			uri: 'http://localhost:4000/graphql',
-			// credentials: 'include'
+			credentials: 'include'
 		})
 	])
 });
