@@ -32,7 +32,7 @@ class Posts extends React.Component<IPostsProps> {
 				<Query<IGetPostsRes> query={GET_POSTS} variables={{ subforumID: this.props.subforum.id }}>{
 					({ loading, error, data }) => {
 						if (loading) return 'Loading...';
-						if (error || !data) return <span className='warn'>{error}</span>;
+						if (error || !data) return <span className='warn'>{error!.message}</span>;
 						if (!data.getPostsBySubforum.length) return <span className='warn'>I've got puppies to show you...</span>;
 						return (
 							data.getPostsBySubforum.map(({ id, title, content, author, createdAt }) =>
