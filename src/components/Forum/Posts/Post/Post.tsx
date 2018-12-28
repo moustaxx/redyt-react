@@ -4,15 +4,16 @@ import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
 import { IPost } from '../Posts.apollo';
 import { StyledPost, Cnt, FirstLine, PostContent, Stats, Comments, PostDate } from './Post.style';
 
-interface IPostProps extends RouteComponentProps<{ subforumName: string}> {
+interface IPostProps extends RouteComponentProps<{ subforumName: string }> {
 	post: IPost;
 }
 
 class Post extends React.Component<IPostProps> {
 	public render() {
-		const post = this.props.post;
+		const { id, title, author, createdAt } = this.props.post;
+		const date = new Date(createdAt).toLocaleString();
 		return (
-			<Link to={`${this.props.match.params.subforumName}/${post.id}`} >
+			<Link to={`${this.props.match.params.subforumName}/${id}`} >
 				<StyledPost>
 					<Vote />
 					<Cnt>
@@ -21,7 +22,7 @@ class Post extends React.Component<IPostProps> {
 							<PostContent>
 								<div className='postHeading'>
 									<div className='tag'></div>
-									<span className='postTitle'>{post.title}</span>
+									<span className='postTitle'>{title}</span>
 									<span className='attachedLink'></span>
 								</div>
 							</PostContent>
@@ -33,7 +34,7 @@ class Post extends React.Component<IPostProps> {
 								<div className='postSettings icon'></div>
 							</Stats>
 						</FirstLine>
-						<PostDate>Posted by u/{post.author.name} {post.createdAt}</PostDate>
+						<PostDate>Posted by u/{author.name} {date}</PostDate>
 					</Cnt>
 				</StyledPost>
 			</Link>

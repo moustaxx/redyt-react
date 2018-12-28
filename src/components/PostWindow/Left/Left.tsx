@@ -9,7 +9,8 @@ interface ILeftProps {
 
 class Left extends React.Component<ILeftProps> {
 	public render() {
-		const post = this.props.post;
+		const { title, author, content, createdAt } = this.props.post;
+		const date = new Date(createdAt).toLocaleString();
 		return (
 			<StyledLeft>
 				<div className='gg1'>
@@ -17,10 +18,10 @@ class Left extends React.Component<ILeftProps> {
 					<Interior>
 						<div>
 							<span className='subForumName'>r/SubforumName</span>
-							<span className='postTime'>Posted by u/{post.author.name} {post.createdAt}</span>
+							<span className='postTime'>Posted by u/{author.name} {date}</span>
 						</div>
-						<div className='title'>{post.title}</div>
-						<div className='essence'>{post.content}</div>
+						<div className='title'>{title}</div>
+						<div className='essence'>{content}</div>
 						<PostToolbar>
 							<button>
 								<div className='commentIco icon'></div>
