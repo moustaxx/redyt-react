@@ -68,8 +68,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: require('../../package.json').name,
-			template: 'index.html.ejs',
+			template: 'index.html',
 			favicon: 'favicon.png',
 
 		}),
