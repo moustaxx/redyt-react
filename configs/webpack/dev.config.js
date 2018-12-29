@@ -14,28 +14,6 @@ module.exports = merge(baseConfig, {
 		progress: true,
 		overlay: true,
 	},
-	module: {
-		rules: [
-			{
-				test: /\.(sa|sc|c)ss$/,
-				use: [
-					'style-loader',
-					{
-						loader: 'css-loader',
-						options: {
-							sourceMap: true
-						}
-					},
-					{
-						loader: 'sass-loader',
-						options: {
-							sourceMap: true
-						}
-					}
-				]
-			}
-		]
-	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()
 	]
