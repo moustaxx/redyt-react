@@ -5,8 +5,8 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: 100%;
 		font: inherit;
+		font-size: 100%;
 		vertical-align: baseline;
 	}
 	body {
@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 		url(https://www.redditstatic.com/desktop2x/fonts/redesignIcon/redesignFont.b10d3d7903a1a7648d62918000ab5a6c.svg);
 	}
 	.icon {
-		font-family: redesignFont;
+		font-family: redesignFont, serif;
 		color: ${props => props.theme.iconColor};
 	}
 `;
