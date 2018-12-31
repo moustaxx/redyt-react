@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'Theme/';
-// import './Logo.style.scss';
 
 interface INavProps {
 	classNameName?: string;
