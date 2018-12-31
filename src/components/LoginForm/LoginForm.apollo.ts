@@ -3,13 +3,13 @@ import gql from 'graphql-tag';
 export const VERIFY_LOGIN = gql`
 	query($name: String! $password: String!) {
 		verifyLogin(name: $name, password: $password) {
-			token
+			id
 		}
 	}
 `;
 
 interface ILogin {
-	token: string;
+	id: string;
 }
 
 export interface ILoginRes {
