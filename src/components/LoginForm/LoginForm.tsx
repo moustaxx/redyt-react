@@ -3,6 +3,8 @@ import withApollo, { WithApolloClient } from 'react-apollo/withApollo';
 import { StyledLoginForm, Heading, Input, Button } from './LoginForm.style';
 import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
+import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
+
 interface ILoginFormProps {
 	closeLoginForm: () => void;
 }
@@ -87,7 +89,7 @@ class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILogi
 								<Button>Log in</Button>
 							</form>
 						: null}
-						{this.state.loading ? <div className='comunicate'>Loading...</div> : null}
+						{this.state.loading ? <LoadingAnim /> : null}
 						{this.state.success ? <div className='comunicate'>Success!!!</div> : null}
 					</div>
 				</div>
