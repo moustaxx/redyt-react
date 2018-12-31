@@ -57,10 +57,7 @@ module.exports = {
 						}
 					},
 					{
-						loader: 'img-loader',
-						options: {
-							disable: true
-						},
+						loader: 'img-loader'
 					}
 				]
 			}
