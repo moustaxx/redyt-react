@@ -49,7 +49,9 @@ class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILogi
 			});
 			if (res.errors) throw res.errors;
 			this.setState({ success: true });
-			// location.reload();
+			setTimeout(() => {
+				location.reload();
+			}, 200);
 		} catch (err) {
 			this.setState({ error: true });
 			console.error('Login error! Wrong username or password!');
