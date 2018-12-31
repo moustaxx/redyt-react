@@ -19,7 +19,7 @@ export const StyledLoginForm = styled.div`
 	align-items: center;
 	.window {
 		width: 360px;
-		/* height: 300px; */
+		min-height: 285px;
 		background: ${props => props.theme.secondaryBgColor};
 		position: fixed;
 		box-shadow: hsla(0, 0%, 0%, 0.4) 1px 7px 17px 2px;
