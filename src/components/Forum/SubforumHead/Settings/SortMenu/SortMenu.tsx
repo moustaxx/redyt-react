@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'Theme/';
-import Color = require('color');
+import Color from 'color';
 
 const StyledSortMenu = styled.div`
 	position: relative;
