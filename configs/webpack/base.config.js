@@ -72,6 +72,7 @@ module.exports = {
 		new ForkTsCheckerWebpackPlugin({
 			checkSyntacticErrors: true,
 			async: false,
+			useTypescriptIncrementalApi: true,
 			tsconfig: tsconfigPath
 		}),
 	]
