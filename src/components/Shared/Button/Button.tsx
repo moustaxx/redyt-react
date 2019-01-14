@@ -1,5 +1,5 @@
 import styled from 'Theme/';
-import Color from 'color';
+import * as Color from 'color';
 
 const niceButton = styled.button`
 	width: 200px;
