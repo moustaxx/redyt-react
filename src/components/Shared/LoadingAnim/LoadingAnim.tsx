@@ -90,10 +90,10 @@ const Loading = styled.div`
 const LoadingAnim = () => (
 	<Loading>
 		<div className='dots-loading-container'>
-			<div className='dot dot-a'></div>
-			<div className='dot dot-b'></div>
-			<div className='dot dot-c'></div>
-			<div className='dot dot-d'></div>
+			<div className='dot dot-a' />
+			<div className='dot dot-b' />
+			<div className='dot dot-c' />
+			<div className='dot dot-d' />
 		</div>
 	</Loading>
 );

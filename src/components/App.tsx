@@ -28,7 +28,7 @@ class UpdateBlocker extends React.Component<{ children: (href: string) => React.
 const App = () => (
 	<BrowserRouter>
 		<UpdateBlocker>
-			{locationHref =>
+			{_locationHref => // tslint:disable-line:variable-name
 				<div id='app'>
 					<TopBar />
 					<Switch>
