@@ -1,4 +1,5 @@
 import { createGlobalStyle } from './theme';
+import 'typeface-source-sans-pro';
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -10,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 		vertical-align: baseline;
 	}
 	body {
-		font-family: 'Roboto', sans-serif;
+		font-family: ${props => props.theme.defaultFont}, sans-serif;
 		color: ${props => props.theme.fontColor};
 		background: ${props => props.theme.mainBgColor};
 		overflow: hidden;
