@@ -13,6 +13,7 @@ module.exports = merge(baseConfig, {
 		historyApiFallback: true,
 		progress: true,
 		overlay: true,
+		port: 80,
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()
