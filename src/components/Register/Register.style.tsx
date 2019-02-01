@@ -5,6 +5,8 @@ export const Button = styled(niceButton)`
 	margin: 10px 0;
 	height: 45px;
 	width: 100%;
+	border-radius: 0;
+	background: #0067b8;
 `;
 
 export const StyledRegister = styled.div`
@@ -23,7 +25,6 @@ export const StyledRegister = styled.div`
 		background: ${props => props.theme.secondaryBgColor};
 		position: fixed;
 		box-shadow: hsla(0, 0%, 0%, 0.4) 1px 7px 17px 2px;
-		border-radius: 5px;
 		animation: fadein 0.5s;
 		.xButton {
 			position: absolute;
@@ -61,7 +62,6 @@ export const Input = styled.input`
 	height: 45px;
 	width: 100%;
 	border: 1px solid transparent;
-	border-radius: 5px;
 	background: ${props => props.theme.mainBgColor};
 	padding-left: 15px;
 	margin: 6px 0;
@@ -73,47 +73,8 @@ export const Input = styled.input`
 	}
 `;
 export const Checkbox = styled.input`
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 25px;
-	width: 25px;
-	background-color: #eee;
-
-	/* On mouse-over, add a grey background color */
-	.container:hover input ~ .checkmark {
-		background-color: #ccc;
-	}
-
-	/* When the checkbox is checked, add a blue background */
-	.container input:checked ~ .checkmark {
-		background-color: #2196F3;
-	}
-
-	/* Create the checkmark/indicator (hidden when not checked) */
-	.checkmark:after {
-		content: "";
-		position: absolute;
-		display: none;
-	}
-
-	/* Show the checkmark when checked */
-	.container input:checked ~ .checkmark:after {
-		display: block;
-	}
-
-	/* Style the checkmark/indicator */
-	.container .checkmark:after {
-		left: 9px;
-		top: 5px;
-		width: 5px;
-		height: 10px;
-		border: solid white;
-		border-width: 0 3px 3px 0;
-		-webkit-transform: rotate(45deg);
-		-ms-transform: rotate(45deg);
-		transform: rotate(45deg);
-	}
+	margin: 5px;
+	vertical-align: middle;
 `;
 export const Agreement = styled.span`
 	vertical-align: middle;
