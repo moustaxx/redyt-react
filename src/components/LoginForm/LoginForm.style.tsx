@@ -5,6 +5,8 @@ export const Button = styled(niceButton)`
 	margin: 10px 0;
 	height: 45px;
 	width: 100%;
+	border-radius: 0;
+	background: #0067b8;
 `;
 
 export const StyledLoginForm = styled.div`
@@ -23,7 +25,6 @@ export const StyledLoginForm = styled.div`
 		background: ${props => props.theme.secondaryBgColor};
 		position: fixed;
 		box-shadow: hsla(0, 0%, 0%, 0.4) 1px 7px 17px 2px;
-		border-radius: 5px;
 		animation: fadein 0.5s;
 		.xButton {
 			position: absolute;
