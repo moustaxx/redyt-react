@@ -6,7 +6,7 @@ import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
 
 interface ILoginFormProps {
-	closeLoginForm: () => void;
+	closeForm: () => void;
 }
 
 interface ILoginFormState {
@@ -64,9 +64,9 @@ class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILogi
 
 	public render() {
 		return (
-			<StyledLoginForm onClick={() => this.props.closeLoginForm()}>
+			<StyledLoginForm onClick={() => this.props.closeForm()}>
 				<div className='window' onClick={e => e.stopPropagation()}>
-					<div className='xButton' onClick={() => this.props.closeLoginForm()}>
+					<div className='xButton' onClick={() => this.props.closeForm()}>
 						<svg width='17' fill='grey' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
 							<polygon fill='inherit'
 								points='11.649 9.882 18.262 3.267 16.495 1.5 9.881 8.114 3.267 1.5

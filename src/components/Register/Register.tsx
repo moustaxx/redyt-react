@@ -6,7 +6,7 @@ import { IRegisterRes, CREATE_USER } from './Register.apollo';
 import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
 
 interface IRegisterFormProps {
-	closeRegister: () => void;
+	closeForm: () => void;
 }
 
 interface IRegisterFormState {
@@ -113,9 +113,9 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 			</svg>
 		);
 		return (
-			<StyledRegister>
-				<div className='window'>
-					<div className='xButton'><XButton /></div>
+			<StyledRegister onClick={() => this.props.closeForm()}>
+				<div className='window' onClick={e => e.stopPropagation()}>
+					<div className='xButton' onClick={() => this.props.closeForm()}><XButton /></div>
 					<div className='content'>
 						<Heading>Create account</Heading>
 						{!loading && !success ?

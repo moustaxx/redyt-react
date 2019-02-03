@@ -24,8 +24,8 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 		isRegisterOpen: false
 	};
 
-	protected closeLoginForm = () => {
-		this.setState(() => ({ isLoginFormOpen: false }));
+	protected closeForm = () => {
+		this.setState(() => ({ isLoginFormOpen: false, isRegisterOpen: false }));
 	}
 
 	public render() {
@@ -43,12 +43,12 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 			</Button2>
 			{this.state.isLoginFormOpen ?
 				<Portal>
-					<LoginForm closeLoginForm={this.closeLoginForm} />
+					<LoginForm closeForm={this.closeForm} />
 				</Portal>
 			: null}
 			{this.state.isRegisterOpen ?
 				<Portal>
-					<Register closeRegister={this.closeLoginForm}/>
+					<Register closeForm={this.closeForm}/>
 				</Portal>
 			: null}
 		</StyledTopBar >
