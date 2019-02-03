@@ -15,8 +15,6 @@ interface IRegisterFormState {
 		password: string;
 		confirmPassword: string;
 	};
-	agreement: boolean;
-	agreementWarning: boolean;
 	loading: boolean;
 	success: boolean;
 	passwordsNotIdentical: boolean;
@@ -34,8 +32,6 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 			confirmPassword: '',
 			email: ''
 		},
-		agreement: false,
-		agreementWarning: false,
 		loading: false,
 		success: false,
 		passwordsNotIdentical: false,
@@ -52,21 +48,14 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 			}
 		});
 	}
-	
-	private handleAgreementChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const { checked } = event.target;
-		this.setState({ agreement: checked });
-	}
 
 	private handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		this.setState({ passwordsNotIdentical: false, agreementWarning: false });
+		this.setState({ passwordsNotIdentical: false });
 		event.preventDefault();
-		if (this.state.agreement)
-			if (this.isPasswordsIdentical() && this.state.agreement) {
-				console.log('Username: ' + this.state.user.name + ' Password: ' + this.state.user.password);
-				this.createUser();
-			} else return false;
-		else this.setState({ agreementWarning: true });
+		if (this.isPasswordsIdentical()) {
+			console.log('Username: ' + this.state.user.name + ' Password: ' + this.state.user.password);
+			this.createUser();
+		} else return false;
 	}
 
 	private isPasswordsIdentical = () => {
@@ -103,7 +92,7 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 	}
 
 	public render() {
-		const { user, agreementWarning, loading, success, passwordsNotIdentical, GQLErrors } = this.state;
+		const { user, loading, success, passwordsNotIdentical, GQLErrors } = this.state;
 		const XButton = () => (
 			<svg width='17' fill='grey' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
 				<polygon fill='inherit'
@@ -123,7 +112,6 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 								{GQLErrors ?
 									GQLErrors.map((err, index) => <div key={index} className='error'>{err.message}</div>)
 								: null }
-								{agreementWarning ? <div className='error'>You have to accept terms!</div> : null }
 								{passwordsNotIdentical ?
 									<div className='error'>Passwords are not identical!</div> : null }
 								<Input
@@ -138,7 +126,7 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 								<Input
 									value={user.confirmPassword} onChange={this.handleChange} required
 									type='password' name='confirmPassword' placeholder='Confirm password' autoComplete='confirm-pass' />
-								<Checkbox type='checkbox' onChange={this.handleAgreementChange}/>
+								<Checkbox type='checkbox' required/>
 								<Agreement>I accept Terms of Use & Privacy Policy.</Agreement>
 								<Button>Sign up</Button>
 							</form>
