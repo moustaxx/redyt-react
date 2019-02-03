@@ -12,6 +12,7 @@ const StyledPosts = styled.div`
 	height: fit-content;
 	flex-grow: 1;
 	border-radius: 4px;
+	border-top: 1px solid ${props => props.theme.borderColor};
 	margin-right: 8px;
 	.warn {
 		height: 30vh;
