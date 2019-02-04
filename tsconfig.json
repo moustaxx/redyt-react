@@ -25,15 +25,9 @@
 		"moduleResolution": "node",
 		"baseUrl": "src",
 		"paths": {
-			"Components": [
-				"src/components"
-			],
-			"Theme": [
-				"../../src/theme"
-			],
-			"Assets": [
-				"../../src/assets"
-			]	
+			"Components/*": ["components/*"],
+			"Theme/*": ["theme/*"],
+			"Assets/*": ["assets/*"]
 		},
 		"typeRoots": [
 			"/src/typings"
