@@ -4,6 +4,7 @@ import { StyledLoginForm, Heading, Input, Button } from './LoginForm.style';
 import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
 import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
+import XButton from 'Components/Shared/Svgs/XButton';
 
 interface ILoginFormProps {
 	closeForm: () => void;
@@ -61,19 +62,11 @@ class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILogi
 			this.setState({ loading: false });
 		}
 	}
-
 	public render() {
 		return (
 			<StyledLoginForm onClick={() => this.props.closeForm()}>
 				<div className='window' onClick={e => e.stopPropagation()}>
-					<div className='xButton' onClick={() => this.props.closeForm()}>
-						<svg width='17' fill='grey' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
-							<polygon fill='inherit'
-								points='11.649 9.882 18.262 3.267 16.495 1.5 9.881 8.114 3.267 1.5
-								1.5 3.267 8.114 9.883 1.5 16.497 3.267 18.264 9.881 11.65 16.495
-							18.264 18.262 16.497' />
-						</svg>
-					</div>
+					<div className='xButton' onClick={() => this.props.closeForm()}><XButton /></div>
 					<div className='content'>
 						<Heading>Log in</Heading>
 						{!this.state.loading && !this.state.success ?
