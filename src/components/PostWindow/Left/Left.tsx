@@ -24,11 +24,11 @@ class Left extends React.Component<ILeftProps> {
 						<div className='essence'>{content}</div>
 						<PostToolbar>
 							<button>
-								<div className='commentIco icon'></div>
+								<div className='commentIco icon' />
 								<div>17 Comments</div>
 							</button>
 							<button>
-								<div className='shareIco icon'></div>
+								<div className='shareIco icon' />
 								<div>Share</div>
 							</button>
 						</PostToolbar>

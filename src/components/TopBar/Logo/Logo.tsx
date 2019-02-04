@@ -6,16 +6,12 @@ import { StyledLogo, Img } from './Logo.style';
 
 // interface ILogoProps {}
 
-class Logo extends React.Component {
-	public render() {
-		return (
-			<Link to='/'>
-				<StyledLogo>
-					<Img src={logo}/>
-				</StyledLogo>
-			</Link>
-		);
-	}
-}
+const Logo = () => (
+	<Link to='/'>
+		<StyledLogo>
+			<Img src={logo}/>
+		</StyledLogo>
+	</Link>
+);
 
 export default Logo;
