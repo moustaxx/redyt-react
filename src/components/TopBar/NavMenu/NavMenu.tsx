@@ -1,62 +1,9 @@
 import * as React from 'react';
-import styled from 'Theme/';
+import { StyledNavMenu, NavIcon } from './NavMenu.style';
 
 interface INavProps {
 	classNameName?: string;
 }
-
-const StyledNavMenu = styled.div`
-	width: 270px;
-	height: 70%;
-	flex-shrink: 0;
-	border: 1px solid transparent;
-	border-radius: 5px;
-	box-sizing: border-box;;
-	font-size: 15px;
-	cursor: pointer;
-	user-select: none;
-	margin: 0 5px;
-	&:hover, &.active {
-		border: 1px solid ${props => props.theme.iconColor};
-	}
-	.cnt {
-		height: 100%;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding-right: 5px;
-		box-sizing: border-box;
-		.cnt2 {
-			padding-left: 8px;
-		}
-		& > svg {
-			width: 20px;
-			height: 20px;
-			fill: ${props => props.theme.fontColor};
-		}
-		& > * {
-			display: inline;
-			vertical-align: middle;
-		}
-	}
-`;
-
-const NavIcon = styled.div`
-	background: #0079d3;
-	border-radius: 40px;
-	width: 22px;
-	height: 22px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 2px;
-	svg {
-		width: 16px;
-		height: 16px;
-		fill: white;
-	}
-`;
 
 class NavMenu extends React.Component<INavProps> {
 	public render() {
@@ -81,15 +28,15 @@ class NavMenu extends React.Component<INavProps> {
 								16.2868 8.1456,17.0148 10.0166,17.0148 C10.6536,17.0148 11.2746,
 								16.9178 11.8736,16.7518 C13.0856,17.4938 14.3406,18.0318 15.4316,
 								18.0318 C16.1156,18.0318 16.7366,17.8198 17.2426,17.3138 C18.4416,
-								16.1138 18.2706,14.2988 16.7526,11.8998'></path>
+								16.1138 18.2706,14.2988 16.7526,11.8998' />
 							</svg>
 						</NavIcon>
-						<span></span>
+						{/* <span>{subforumName}</span> */}
 					</div>
 					<svg viewBox='0 0 20 20'>
 						<g><path fill='inherit' d='M14.1711599,9.3535 L9.99925636,
 						13.529 L5.82735283,9.3535 C5.51262415,9.0385 5.73543207,8.5 6.18054835,8.5 L13.8179644,
-						8.5 C14.2630807,8.5 14.4858886,9.0385 14.1711599,9.3535'></path></g>
+						8.5 C14.2630807,8.5 14.4858886,9.0385 14.1711599,9.3535' /></g>
 					</svg>
 				</div>
 				{/* <Navigation></Navigation> */}

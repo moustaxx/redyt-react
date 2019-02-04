@@ -1,37 +1,21 @@
 import * as React from 'react';
-import styled from 'Theme/';
 import { Link } from 'react-router-dom';
 
 import * as logo from 'Assets/logo.png';
+import { StyledLogo, Img } from './Logo.style';
 
-interface ILogoProps {
-	className?: string;
-}
+// interface ILogoProps {}
 
-const Img = styled.img`
-	width: 107px;
-	height: 48px;
-`;
-
-class Logo extends React.Component<ILogoProps> {
+class Logo extends React.Component {
 	public render() {
 		return (
 			<Link to='/'>
-				<div className={this.props.className}>
+				<StyledLogo>
 					<Img src={logo}/>
-				</div>
+				</StyledLogo>
 			</Link>
 		);
 	}
 }
 
-const styledLogo = styled(Logo)`
-	font-size: 19px;
-	font-family: "Comic Sans MS", sans-serif;
-	user-select: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 15px;
-`;
-export default styledLogo;
+export default Logo;
