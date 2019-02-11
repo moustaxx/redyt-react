@@ -27,18 +27,18 @@ class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILogi
 		success: false,
 	};
 
-	private handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	private readonly handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		this.setState({ usernameInput: event.target.value });
 	}
-	private handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	private readonly handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		this.setState({ passwordInput: event.target.value });
 	}
-	private handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	private readonly handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		console.log('Login: ' + this.state.usernameInput + ' Password: ' + this.state.passwordInput);
 		event.preventDefault();
 		this.verifyLogin();
 	}
-	private verifyLogin = async () => {
+	private readonly verifyLogin = async () => {
 		this.setState({ loading: true });
 		const name = this.state.usernameInput;
 		const password = this.state.passwordInput;

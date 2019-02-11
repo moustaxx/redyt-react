@@ -39,7 +39,7 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 		GQLErrors: [{name: '', message: ''}]
 	};
 
-	private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	private readonly handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 		const { user } = this.state;
 		this.setState({
@@ -50,7 +50,7 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 		});
 	}
 
-	private handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	private readonly handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		this.setState({ passwordsNotIdentical: false });
 		event.preventDefault();
 		if (this.isPasswordsIdentical()) {
@@ -59,7 +59,7 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 		} else return false;
 	}
 
-	private isPasswordsIdentical = () => {
+	private readonly isPasswordsIdentical = () => {
 		if (this.state.user.password === this.state.user.confirmPassword) return true;
 		else {
 			this.setState({ passwordsNotIdentical: true });
@@ -67,7 +67,7 @@ class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRe
 		}
 	}
 
-	private createUser = async () => {
+	private readonly createUser = async () => {
 		this.setState({ loading: true });
 		const { name, password, email} = this.state.user;
 		const { client } = this.props;

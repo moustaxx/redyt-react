@@ -18,20 +18,20 @@ class Post extends React.Component<IPostProps> {
 					<Vote />
 					<Cnt>
 						<FirstLine>
-							<div className='attachment icon'></div>
+							<div className='attachment icon' />
 							<PostContent>
 								<div className='postHeading'>
-									<div className='tag'></div>
+									<div className='tag' />
 									<span className='postTitle'>{title}</span>
-									<span className='attachedLink'></span>
+									<span className='attachedLink' />
 								</div>
 							</PostContent>
 							<Stats>
 								<Comments>
-									<div className='commentIco icon'></div>
+									<div className='commentIco icon' />
 									<div className='comNumber'>5</div>
 								</Comments>
-								<div className='postSettings icon'></div>
+								<div className='postSettings icon' />
 							</Stats>
 						</FirstLine>
 						<PostDate>Posted by u/{author.name} {date}</PostDate>
