@@ -1,6 +1,6 @@
 {
 	"defaultSeverity": "error",
-	"extends": ["tslint:recommended", "tslint-react"],
+	"extends": ["tslint:recommended", "tslint-react", "tslint-react-hooks"],
 	"jsRules": {
 		"arrow-parens": [true, "ban-single-arg-parens"],
 		"arrow-return-shorthand": [true, "multiline"],
@@ -60,6 +60,7 @@
 		"only-arrow-functions": true,
 		"quotemark": [true, "single"],
 		"prefer-readonly": true,
+		"react-hooks-nesting": "error",
 		"switch-final-break": true,
 		"trailing-comma": false
 	},
