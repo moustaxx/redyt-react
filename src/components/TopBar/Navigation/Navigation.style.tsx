@@ -12,7 +12,7 @@ export const StyledNavMenu = styled.div`
 	user-select: none;
 	margin: 0 5px;
 	&:hover, &.active {
-		border: 1px solid ${props => props.theme.iconColor};
+		border: 1px solid ${props => props.theme.borderColor};
 	}
 	.cnt {
 		height: 100%;
@@ -42,6 +42,7 @@ export const NavIcon = styled.div`
 	border-radius: 40px;
 	width: 22px;
 	height: 22px;
+	vertical-align: middle;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -51,4 +52,10 @@ export const NavIcon = styled.div`
 		height: 16px;
 		fill: white;
 	}
+`;
+
+export const SubforumName = styled.div`
+	display: inline;
+	vertical-align: middle;
+	margin-left: 3px;
 `;
