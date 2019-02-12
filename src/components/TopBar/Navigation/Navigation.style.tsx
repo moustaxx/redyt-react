@@ -1,6 +1,6 @@
 import styled from 'Theme/';
 
-export const StyledNavMenu = styled.div`
+export const StyledNavigation = styled.div`
 	width: 270px;
 	height: 70%;
 	flex-shrink: 0;
@@ -11,8 +11,14 @@ export const StyledNavMenu = styled.div`
 	cursor: pointer;
 	user-select: none;
 	margin: 0 5px;
-	&:hover, &.active {
+	&:hover {
 		border: 1px solid ${props => props.theme.borderColor};
+	}
+	&.active {
+		border: 1px solid ${props => props.theme.borderColor};
+		border-bottom: 1px solid transparent;
+		border-bottom-left-radius: initial;
+		border-bottom-right-radius: initial;
 	}
 	.cnt {
 		height: 100%;
@@ -58,4 +64,13 @@ export const SubforumName = styled.div`
 	display: inline;
 	vertical-align: middle;
 	margin-left: 3px;
+`;
+
+export const ClickOutside = styled.div`
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	cursor: initial;
 `;

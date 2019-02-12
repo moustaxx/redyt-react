@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { StyledNavMenuOpen } from './NavMenu.style';
+import { StyledNavMenu } from './NavMenu.style';
+
+interface INavMenu {
+	onClick: (e: any) => void;
+}
 
 // tslint:disable-next-line: arrow-return-shorthand
-const NavMenuOpen = () => {
+const NavMenu = (_: INavMenu) => {
 	return (
-		<StyledNavMenuOpen>
+		<StyledNavMenu>
 			<div className='content'>
 				<input className='filter' placeholder='Filter' />
 				<div className='feedsCaption'>REDYT FEEDS</div>
@@ -13,8 +17,8 @@ const NavMenuOpen = () => {
 				<Link to={'/r/Popular'}>Popular</Link>
 				<Link to={'/r/MaterialDesign'}>Material Design</Link>
 			</div>
-		</StyledNavMenuOpen>
+		</StyledNavMenu>
 	);
 };
 
-export default NavMenuOpen;
+export default NavMenu;

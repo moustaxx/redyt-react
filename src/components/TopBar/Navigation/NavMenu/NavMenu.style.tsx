@@ -2,12 +2,10 @@ import styled from 'Theme/';
 import * as Color from 'color';
 
 
-export const StyledNavMenuOpen = styled.div`
+export const StyledNavMenu = styled.div`
 	width: 270px;
 	position: absolute;
 	z-index: 100;
-	top: 38px;
-	left: 152px;
 	border-radius: 5px;
 	border-top-left-radius: initial;
 	border-top-right-radius: initial;
@@ -15,6 +13,8 @@ export const StyledNavMenuOpen = styled.div`
 	border-top: none;
 	overflow: hidden;
 	box-sizing: border-box;
+	margin: 0 -1px;
+	cursor: initial;
 	.content {
 		display: flex;
 		flex-direction: column;
