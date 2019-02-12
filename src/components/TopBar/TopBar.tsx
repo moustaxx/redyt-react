@@ -8,8 +8,8 @@ import SearchBox from './SearchBox/SearchBox';
 import Navigation from './Navigation/Navigation';
 import LoginForm from 'Components/LoginForm/LoginForm';
 import Register from 'Components/Register/Register';
-// import { StyledTopBar } from './TopBar.style';
-// import UserArea from './UserArea/UserArea';
+import UserArea from './UserArea/UserArea';
+import { LoginStatusContext } from 'Components/App';
 
 // tslint:disable-next-line:no-empty-interface
 interface ITopBarProps {}
@@ -32,26 +32,33 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 	public render() {
 		return (
 			<StyledTopBar>
-				<Logo />
-				<Navigation />
-				<SearchBox />
-				{/* <UserArea /> */}
-				<Button onClick={() => this.setState(() => ({ isLoginFormOpen: true}))}>
-					Log in
-				</Button>
-				<Button2 onClick={() => this.setState(() => ({ isRegisterOpen: true }))}>
-					Sign up
-				</Button2>
-				{this.state.isLoginFormOpen ?
-					<Portal>
-						<LoginForm closeForm={this.closeForm} />
-					</Portal>
-				: null}
-				{this.state.isRegisterOpen ?
-					<Portal>
-						<Register closeForm={this.closeForm}/>
-					</Portal>
-				: null}
+				<LoginStatusContext.Consumer>{loginStatus => (
+					<>
+						<Logo />
+						<Navigation />
+						<SearchBox />
+						{loginStatus === true ? <UserArea /> : (
+							<>
+								<Button onClick={() => this.setState(() => ({ isLoginFormOpen: true}))}>
+									Log in
+								</Button>
+								<Button2 onClick={() => this.setState(() => ({ isRegisterOpen: true }))}>
+									Sign up
+								</Button2>
+								{this.state.isLoginFormOpen ?
+									<Portal>
+										<LoginForm closeForm={this.closeForm} />
+									</Portal>
+								: null}
+								{this.state.isRegisterOpen ?
+									<Portal>
+										<Register closeForm={this.closeForm}/>
+									</Portal>
+								: null}
+							</>
+						)}
+					</>
+				)}</LoginStatusContext.Consumer>
 			</StyledTopBar>
 		);
 	}
