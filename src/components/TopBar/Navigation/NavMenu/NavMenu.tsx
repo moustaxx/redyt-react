@@ -6,7 +6,6 @@ interface INavMenu {
 	onClick: (e: any) => void;
 }
 
-// tslint:disable-next-line: arrow-return-shorthand
 const NavMenu = (_: INavMenu) => {
 	return (
 		<StyledNavMenu>
