@@ -6,7 +6,7 @@ import Aside from './Aside/Aside';
 import SubforumHead from './SubforumHead/SubforumHead';
 import Error from 'Components/Error/Error';
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
-import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
+import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 import { StyledForum } from './Forum.style';
 
 interface IForumProps {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'Theme/';
 
 import AsideComponent from '../AsideComponent/AsideComponent';
-import { niceButton } from 'Components/Shared/Button/Button';
+import { niceButton } from 'Components/UI/Button/Button';
 import { ISubforum } from 'components/Forum/Forum.apollo';
 
 const StyledCommunityDetails = styled.div`

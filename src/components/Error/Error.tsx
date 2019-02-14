@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'Theme/';
 import { Link } from 'react-router-dom';
-import { niceButton } from 'Components/Shared/Button/Button';
+import { niceButton } from 'Components/UI/Button/Button';
 
 const StyledError = styled.div`
 	display: flex;

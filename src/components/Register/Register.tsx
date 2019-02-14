@@ -3,8 +3,8 @@ import withApollo, { WithApolloClient } from 'react-apollo/withApollo';
 
 import { StyledRegister, Heading, Button, Input, Checkbox, Agreement } from './Register.style';
 import { IRegisterRes, CREATE_USER } from './Register.apollo';
-import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
-import XButton from 'Components/Shared/Svgs/XButton';
+import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
+import XButton from 'Components/UI/Svgs/XButton';
 
 interface IRegisterFormProps {
 	closeForm: () => void;

@@ -1,5 +1,5 @@
 import styled from 'Theme/';
-import { niceButton } from 'Components/Shared/Button/Button';
+import { niceButton } from 'Components/UI/Button/Button';
 
 export const StyledDiscussion = styled.div`
 	width: 95%;

@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 import Post from './Post/Post';
 import { ISubforum } from '../Forum.apollo';
 import { GET_POSTS, IGetPostsRes } from './Posts.apollo';
-import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
+import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 
 const StyledPosts = styled.div`
 	background: ${props => props.theme.secondaryBgColor};

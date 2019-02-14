@@ -7,7 +7,7 @@ import Left from './Left/Left';
 import Aside from 'Components/Forum/Aside/Aside';
 import { Content, Container, StyledPostWindow } from './PostWindow.style';
 import { GET_POST, IGetPostRes } from './PostWindow.apollo';
-import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
+import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 
 interface IPostWindowProps extends RouteComponentProps<{ postID: string }> {
 

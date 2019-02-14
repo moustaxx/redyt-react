@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Vote from 'Components/Shared/Vote/Vote';
+import Vote from 'Components/UI/Vote/Vote';
 import { StyledHeader, ExitButton } from './Header.style';
-import XButton from 'Components/Shared/Svgs/XButton';
+import XButton from 'Components/UI/Svgs/XButton';
 
 interface IHeaderProps {
 	postTitle: string;

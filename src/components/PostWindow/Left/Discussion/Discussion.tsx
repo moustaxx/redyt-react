@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Comment from './Comment';
 import { StyledDiscussion, AddComment, Button, SortOptions } from './Discussion.style';
-import DropDown from 'Components/Shared/Svgs/DropDown';
+import DropDown from 'Components/UI/Svgs/DropDown';
 
 const Discussion = () => (
 	<StyledDiscussion>

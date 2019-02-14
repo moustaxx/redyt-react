@@ -1,6 +1,6 @@
 import styled from 'Theme/';
 
-import { niceButton, invertedButton } from 'Components/Shared/Button/Button';
+import { niceButton, invertedButton } from 'Components/UI/Button/Button';
 
 export const StyledTopBar = styled.div`
 	background: ${props => props.theme.secondaryBgColor};

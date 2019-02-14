@@ -3,8 +3,8 @@ import { Query } from 'react-apollo';
 
 import { StyledNavigation, NavIcon, SubforumName, ClickOutside } from './Navigation.style';
 
-import DropDown from 'Components/Shared/Svgs/DropDown';
-import SubforumIcon from 'Components/Shared/Svgs/SubforumIcon';
+import DropDown from 'Components/UI/Svgs/DropDown';
+import SubforumIcon from 'Components/UI/Svgs/SubforumIcon';
 import { IGetSubforumRes, GET_SUBFORUM } from './Navigation.apollo';
 import NavMenu from './NavMenu/NavMenu';
 

@@ -1,5 +1,5 @@
 import styled from 'Theme/';
-import { niceButton } from 'Components/Shared/Button/Button';
+import { niceButton } from 'Components/UI/Button/Button';
 
 export const Button = styled(niceButton)`
 	margin: 10px 0;

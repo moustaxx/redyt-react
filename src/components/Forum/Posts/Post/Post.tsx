@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Vote from 'Components/Shared/Vote/Vote';
+import Vote from 'Components/UI/Vote/Vote';
 import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
 import { IPost } from '../Posts.apollo';
 import { StyledPost, Cnt, FirstLine, PostContent, Stats, Comments, PostDate } from './Post.style';

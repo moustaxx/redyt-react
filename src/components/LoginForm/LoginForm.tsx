@@ -3,8 +3,8 @@ import withApollo, { WithApolloClient } from 'react-apollo/withApollo';
 import { StyledLoginForm, Heading, Input, Button } from './LoginForm.style';
 import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
-import LoadingAnim from 'Components/Shared/LoadingAnim/LoadingAnim';
-import XButton from 'Components/Shared/Svgs/XButton';
+import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
+import XButton from 'Components/UI/Svgs/XButton';
 
 interface ILoginFormProps {
 	closeForm: () => void;
