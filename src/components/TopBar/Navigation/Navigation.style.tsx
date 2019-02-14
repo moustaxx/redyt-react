@@ -31,11 +31,6 @@ export const StyledNavigation = styled.div`
 		.cnt2 {
 			padding-left: 8px;
 		}
-		& > svg {
-			width: 20px;
-			height: 20px;
-			fill: ${props => props.theme.fontColor};
-		}
 		& > * {
 			display: inline;
 			vertical-align: middle;

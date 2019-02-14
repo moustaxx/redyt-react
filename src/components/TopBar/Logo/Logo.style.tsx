@@ -4,7 +4,7 @@ export const StyledLogo = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 0 15px;
+	margin: 0 8px;
 `;
 
 export const Img = styled.img`
