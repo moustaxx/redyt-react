@@ -1,58 +1,26 @@
 import styled from 'Theme/';
-import * as Color from 'color';
+import DropDown from 'Components/UI/DropDown/DropDown';
 
 
-export const StyledNavMenu = styled.div`
+export const StyledDropDown = styled(DropDown)`
 	width: 270px;
-	position: absolute;
-	z-index: 100;
-	border-radius: 5px;
-	border-top-left-radius: initial;
-	border-top-right-radius: initial;
-	border: 1px solid ${props => props.theme.borderColor};
-	border-top: none;
-	overflow: hidden;
-	box-sizing: border-box;
-	margin: 0 -1px;
-	cursor: initial;
-	.content {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		background: ${props => props.theme.secondaryBgColor};
-		padding-top: 5px;
-		padding-bottom: 10px;
-		.feedsCaption {
-			padding-left: 24px;
-			margin-bottom: 10px;
-			margin-top: 15px;
-			font-size: 12px;
-			font-weight: 500;
-			color: #878a8c;
-		}
-		a {
-			height: 38px;
-			display: flex;
-			align-items: center;
-			padding-left: 24px;
-			transition: 0.2s;
-			cursor: pointer;
-		}
-		a:hover {
-			background: ${props => Color(props.theme.secondaryBgColor).lighten(0.12).string()};
-		}
-		.filter {
-			color: ${props => props.theme.fontColor}
-			margin: 0 auto;
-			margin-top: 5px;
-			padding-left: 8px;
-			width: 85%;
-			height: 30px;
-			box-sizing: border-box;
-			background: ${props => props.theme.searchBoxBgColor};
-			&:hover {
-				border-color: #0079d3;
-			}
+	.heading {
+		padding-left: 24px;
+	}
+	a {
+		padding-left: 24px;
+	}
+	.filter {
+		color: ${props => props.theme.fontColor}
+		margin: 0 auto;
+		margin-top: 5px;
+		padding-left: 8px;
+		width: 85%;
+		height: 30px;
+		box-sizing: border-box;
+		background: ${props => props.theme.searchBoxBgColor};
+		&:hover {
+			border-color: #0079d3;
 		}
 	}
 `;
