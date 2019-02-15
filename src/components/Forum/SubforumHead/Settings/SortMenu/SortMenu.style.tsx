@@ -1,28 +1,15 @@
 import styled from 'Theme/';
-import * as Color from 'color';
+import DropDown from 'Components/UI/DropDown/DropDown';
 
-export const StyledSortMenu = styled.div`
+export const StyledDropDown = styled(DropDown)`
 	position: relative;
 	left: 45px;
 	width: 155px;
-	z-index: 5;
-	ul {
-		list-style-type: none;
-		border: 1px solid ${props => props.theme.borderColor};
-		border-radius: 3px;
-		background: ${props => props.theme.secondaryBgColor};
-		li {
-			height: 40px;
-			padding-left: 10px;
-			line-height: 2;
-			border-bottom: 1px solid ${props => props.theme.borderColor};
-			transition: .3s;
-			&:hover {
-				background: ${props => Color(props.theme.secondaryBgColor).lighten(0.17).string()};
-			}
-			&:last-child {
-				border-bottom: none;
-			}
+	background: ${props => props.theme.secondaryBgColor};
+	li {
+		border-bottom: 1px solid ${props => props.theme.borderColor};
+		&:last-child {
+			border-bottom: none;
 		}
 	}
 `;
@@ -42,11 +29,10 @@ export const SortButton = styled.button`
 	.slide {
 		margin-left: 8px;
 	}
-`;
 
-export const Svg = styled.svg`
-	width: 17px;
-	height: 17px;
-	margin-bottom: 3px;
-	fill:${props => props.theme.secondarySubforumColor};
+	& > svg {
+		width: 20px;
+		height: 20px;
+		color: ${props => props.theme.secondarySubforumColor};
+	}
 `;

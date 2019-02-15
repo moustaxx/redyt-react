@@ -3,11 +3,10 @@ import * as Color from 'color';
 
 export const DropDown = styled.div`
 	width: 200px;
-	position: absolute;
+	position: relative;
 	z-index: 100;
 	border-radius: 5px;
 	border: 1px solid ${props => props.theme.borderColor};
-	border-top: none;
 	overflow: hidden;
 	box-sizing: border-box;
 	margin: 0 -1px;
@@ -17,6 +16,7 @@ export const DropDown = styled.div`
 	justify-content: center;
 	background: ${props => props.theme.secondaryBgColor};
 	padding-bottom: 10px;
+	list-style-type: none;
 	.heading {
 		padding-left: 13px;
 		margin-bottom: 10px;
@@ -26,12 +26,12 @@ export const DropDown = styled.div`
 		color: #878a8c;
 		text-transform: uppercase;
 	}
-	a {
+	a, li {
 		height: 38px;
 		display: flex;
 		align-items: center;
 		padding-left: 7px;
-		transition: 0.2s;
+		transition: .3s;
 		cursor: pointer;
 
 		& > svg {
@@ -41,7 +41,7 @@ export const DropDown = styled.div`
 			color: ${p => p.theme.iconColor}
 		}
 	}
-	a:hover {
+	a:hover, li:hover {
 		background: ${props => Color(props.theme.secondaryBgColor).lighten(0.19).string()};
 	}
 `;

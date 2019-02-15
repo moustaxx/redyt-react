@@ -5,7 +5,7 @@ export const StyledPostWindow = styled.div`
 	background: #0000007a;
 	width: 100%;
 	height: 100%;
-	z-index: 100;
+	z-index: 9;
 
 	.warn {
 		height: 30vh;

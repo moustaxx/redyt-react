@@ -6,7 +6,7 @@ export const StyledNavigation = styled.div`
 	flex-shrink: 0;
 	border: 1px solid transparent;
 	border-radius: 5px;
-	box-sizing: border-box;;
+	box-sizing: border-box;
 	font-size: 15px;
 	cursor: pointer;
 	user-select: none;

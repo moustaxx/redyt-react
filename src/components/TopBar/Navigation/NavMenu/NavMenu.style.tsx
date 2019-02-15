@@ -3,6 +3,7 @@ import DropDown from 'Components/UI/DropDown/DropDown';
 
 
 export const StyledDropDown = styled(DropDown)`
+	border-top: none;
 	width: 270px;
 	.heading {
 		padding-left: 24px;
