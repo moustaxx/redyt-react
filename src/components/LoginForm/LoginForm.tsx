@@ -1,6 +1,6 @@
 import * as React from 'react';
 import withApollo, { WithApolloClient } from 'react-apollo/withApollo';
-import { StyledLoginForm, Heading, Input, Button } from './LoginForm.style';
+import { StyledLoginForm, Heading, StyledTextBox, Button } from './LoginForm.style';
 import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
@@ -72,10 +72,10 @@ class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILogi
 						{!this.state.loading && !this.state.success ?
 							<form onSubmit={this.handleSubmit}>
 								{ this.state.error ? <span className='error'>Wrong username or password!</span> : null }
-								<Input
+								<StyledTextBox
 									value={this.state.usernameInput} onChange={this.handleUsernameChange}
 									type='text' placeholder='Username' required autoComplete='username' />
-								<Input
+								<StyledTextBox
 									value={this.state.passwordInput} onChange={this.handlePasswordChange}
 									type='password' placeholder='Password' required autoComplete='password' />
 								<Button>Log in</Button>

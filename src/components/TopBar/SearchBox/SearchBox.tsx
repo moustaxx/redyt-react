@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { Form, Input } from './SearchBox.style';
+import { Form, StyledTextBox } from './SearchBox.style';
+import { MdSearch } from 'react-icons/md';
 
 const SearchBox = () => (
 	<Form>
-		<Input type='text' placeholder='Search' />
+		<MdSearch />
+		<StyledTextBox type='text' placeholder='Search' />
 	</Form>
 );
 

@@ -1,23 +1,24 @@
 import styled from 'Theme/';
+import TextBox from 'Components/UI/TextBox/TextBox';
 
 export const Form = styled.form`
 	height: 70%;
 	width: 100%;
 	margin: 0 5px;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+
+	& > svg {
+		position: absolute;
+		left: 1%;
+		width: 21px;
+		height: 21px;
+	}
 `;
 
-export const Input = styled.input`
+export const StyledTextBox = styled(TextBox)`
 	height: 100%;
 	width: 100%;
-	background: ${props => props.theme.searchBoxBgColor};
-	border: 1px solid ${props => props.theme.searchBoxBgColor};
-	border-radius: 5px;
-	padding-left: 15px;
-	box-sizing: border-box;
-	color: #b3b3b3;
-
-	&:focus {
-	outline: 0;
-	border: 1px solid ${props => props.theme.mainSubforumColor};
-	}
+	padding-left: 32px;
 `;

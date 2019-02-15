@@ -1,5 +1,6 @@
 import styled from 'Theme/';
 import { niceButton } from 'Components/UI/Button/Button';
+import TextBox from 'Components/UI/TextBox/TextBox';
 
 export const Button = styled(niceButton)`
 	margin: 10px 0;
@@ -58,18 +59,8 @@ export const Heading = styled.div`
 	padding: 0px 0 20px 0;
 	user-select: none;
 `;
-export const Input = styled.input`
+export const StyledTextBox = styled(TextBox)`
 	height: 45px;
 	width: 100%;
-	border: 1px solid transparent;
-	border-radius: 5px;
-	background: ${props => props.theme.mainBgColor};
-	padding-left: 15px;
 	margin: 6px 0;
-	color: ${props => props.theme.fontColor};;
-	box-sizing: border-box;
-	&:focus {
-		outline: 0;
-		border: 1px solid ${props => props.theme.secondarySubforumColor};
-	}
 `;
