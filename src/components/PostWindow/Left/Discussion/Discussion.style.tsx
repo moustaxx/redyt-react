@@ -40,7 +40,7 @@ export const SortOptions = styled.div`
 		svg {
 			width: 17px;
 			height: 17px;
-			margin-bottom: 3px;
+			margin-bottom: 1px;
 			fill: ${props => props.theme.secondarySubforumColor};
 		}
 	}

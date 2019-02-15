@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Query } from 'react-apollo';
+import { MdArrowDropDown } from 'react-icons/md';
 
 import { StyledNavigation, NavIcon, SubforumName, ClickOutside } from './Navigation.style';
 
-import DropDown from 'Components/UI/Svgs/DropDown';
 import SubforumIcon from 'Components/UI/Svgs/SubforumIcon';
 import { IGetSubforumRes, GET_SUBFORUM } from './Navigation.apollo';
 import NavMenu from './NavMenu/NavMenu';
@@ -32,7 +32,7 @@ const Navigation = () => {
 					}
 					</Query>
 				</div>
-				<DropDown />
+				<MdArrowDropDown size={20} />
 			</div>
 			{isNavMenuOpen ? <>
 				<ClickOutside onClick={() => setNavStatus(false)}/>
