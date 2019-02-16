@@ -4,7 +4,7 @@ const StyledAsideComponent = styled.div`
 	margin-bottom: 27px;
 	background: ${props => props.theme.secondaryBgColor};
 	overflow: hidden;
-	border: 1px solid ${props => props.theme.borderColor};
+	/* border: 1px solid ${props => props.theme.borderColor}; */
 	border-radius: 4px;
 	.componentName {
 		text-transform: uppercase;

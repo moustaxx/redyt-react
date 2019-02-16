@@ -38,18 +38,17 @@ const Button = styled(niceButton)`
 `;
 
 interface ICommunityDetailsProps {
-	subforum?: ISubforum;
+	subforum: ISubforum;
 }
 class CommunityDetails extends React.Component<ICommunityDetailsProps> {
 	public render() {
-		const subforumName = this.props.subforum ? this.props.subforum.name : null;
-		const description = this.props.subforum ? this.props.subforum.description : null;
+		const { name, description } = this.props.subforum;
 		return (
 			<StyledCommunityDetails>
 				<AsideComponent>
 					<div className='componentName'>Community Details</div>
 					<div className='cnt'>
-						<div className='subForumName'>r/{subforumName}</div>
+						<div className='subForumName'>r/{name}</div>
 						<div className='stats'>
 							<div className='subs'>
 								<p>8.2k</p>

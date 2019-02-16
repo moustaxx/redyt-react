@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { ISubforum } from 'Components/Forum/Forum.apollo';
 
 export const GET_POST = gql`
 	query($postID: ID!) {
@@ -13,6 +14,10 @@ export const GET_POST = gql`
 			}
 			content
 			createdAt
+			subforum {
+				name
+				description
+			}
 		}
 	}
 `;
@@ -26,6 +31,7 @@ export interface IWindowPost {
 		id: string;
 	};
 	createdAt: string;
+	subforum: ISubforum;
 }
 
 

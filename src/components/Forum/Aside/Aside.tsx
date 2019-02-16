@@ -13,7 +13,7 @@ const StyledAside = styled.div`
 `;
 
 interface IAsideProps {
-	subforum?: ISubforum;
+	subforum: ISubforum;
 }
 
 class Aside extends React.Component<IAsideProps> {

@@ -30,7 +30,7 @@ class PostWindow extends React.Component<IPostWindowProps> {
 								<Header postTitle={data.getPostByID.title} />
 								<Container>
 									<Left post={data.getPostByID}/>
-									<Aside />
+									<Aside subforum={data.getPostByID.subforum}/>
 								</Container>
 							</Content>
 					);
