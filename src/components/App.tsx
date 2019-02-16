@@ -28,6 +28,7 @@ const App = () => {
 						<Redirect exact from='/' to='/r/Popular' />
 						<Route component={PostWindow} path='/r/:subforumName/:postID' />
 						<Route component={Forum} path='/r/:subforumName' />
+						{/* <Route component={ViewAccount} path='/user/:userID' /> */}
 						<Route component={LoginForm} path='/login' />
 						<Route component={Error} />
 					</Switch>

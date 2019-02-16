@@ -30,16 +30,5 @@ const GlobalStyle = createGlobalStyle`
 	svg {
 		color: ${props => props.theme.iconColor};
 	}
-	@font-face{
-		font-family: redesignFont;
-		src: url(https://www.redditstatic.com/desktop2x/fonts/redesignIcon/redesignFont.b10d3d7903a1a7648d62918000ab5a6c.eot),
-		url(https://www.redditstatic.com/desktop2x/fonts/redesignIcon/redesignFont.b10d3d7903a1a7648d62918000ab5a6c.woff),
-		url(https://www.redditstatic.com/desktop2x/fonts/redesignIcon/redesignFont.b10d3d7903a1a7648d62918000ab5a6c.ttf),
-		url(https://www.redditstatic.com/desktop2x/fonts/redesignIcon/redesignFont.b10d3d7903a1a7648d62918000ab5a6c.svg);
-	}
-	.icon {
-		font-family: redesignFont, serif;
-		color: ${props => props.theme.iconColor};
-	}
 `;
 export default GlobalStyle;
