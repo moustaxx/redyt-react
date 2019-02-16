@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { StyledVote, VoteSummary, VoteUp } from './Vote.style';
+import { StyledVote, VoteSummary } from './Vote.style';
+import { MdThumbUp, MdThumbDown } from 'react-icons/md';
 
 const Vote = () => (
 	<StyledVote>
-		<VoteUp className='icon voted' />
+		<MdThumbUp className='voteUp voted' />
 		<VoteSummary>22</VoteSummary>
-		<button className='icon voteDown' />
+		<MdThumbDown className='voteDown' />
 	</StyledVote>
 );
 

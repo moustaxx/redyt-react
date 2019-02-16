@@ -2,17 +2,16 @@ import styled from 'Theme/';
 
 export const StyledVote = styled.div`
 	display: flex;
-	> * {
-		height: 25px;
-		width: 25px;
-		font-size: 17px;
-		background: transparent;
-	}
-	.voteDown::before {
-		content: " \\F108";
+	padding: 8px 5px 0 5px;
+	& > svg {
+		height: 16px;
+		width: 16px;
 	}
 	.voteDown:hover {
 		color: dodgerblue;
+	}
+	.voteUp:hover {
+		color: red;
 	}
 
 	@media screen and (max-width: 500px) {
@@ -25,15 +24,6 @@ export const VoteSummary = styled.div`
 	text-align: center;
 	font-weight: 600;
 	font-size: 13px;
-	line-height: 2em;
+	line-height: 1.5em;
 	cursor: default;
-`;
-
-export const VoteUp = styled.button`
-	&::before {
-		content: "\\F12B";
-	}
-	&:hover {
-		color: red;
-	}
 `;

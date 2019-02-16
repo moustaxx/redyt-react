@@ -33,22 +33,12 @@ export const StyledPost = styled.div`
 
 export const Cnt = styled.div`
 	width: 100%;
+	margin-left: 3px;
 `;
 
 export const FirstLine = styled.div`
 	display: flex;
 	width: 100%;
-	.attachment {
-		width: 40px;
-		flex-shrink: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		color: ${props => props.theme.iconColor};
-	}
-	.attachment:after {
-		content: "\\F118";
-	}
 `;
 
 export const PostContent = styled.div`
@@ -57,11 +47,12 @@ export const PostContent = styled.div`
 	font-size: 14px;
 	padding-top: 7px;
 	.tag {
-		background: #edeff1;
-		padding: 0 3px;
+		background:  ${props => props.theme.mainSubforumColor};
+		padding: 0 4px;
 		margin-right: 5px;
 		float: left;
 		font-weight: normal;
+		border-radius: 4px;
 	}
 	.postHeading {
 		font-weight: 500;
@@ -78,37 +69,37 @@ export const PostContent = styled.div`
 `;
 
 export const Stats = styled.div`
-	width: 85px;
 	flex-shrink: 0;
 	display: inline-flex;
 	justify-content: space-between;
-	.postSettings {
-		height: 25px;
-		line-height: 1.4em;
-		margin-right: 10px;
+	& > * {
+		margin: 0 3px;
+		flex-shrink: 0;
 	}
-	.postSettings::before {
-		content: "\\F11B";
-	}
-`;
-
-export const Comments = styled.div`
-	height: 25px;
-	div {
+	.attachmentIcon {
 		display: inline;
 		vertical-align: middle;
+		width: 22px;
+		height: 22px;
 	}
-	.commentIco {
-		margin-right: 4px;
+	.postOptionsIcon {
+		height: 100%;
+		margin-right: 10px;
 	}
-	.commentIco:before {
-		content: "\\F105";
-	}
-	.comNumber {
-		color: ${props => props.theme.iconColor};
-		font-size: 13px;
-		line-height: 2;
-		font-weight: 500;
+	.comments {
+		div, svg {
+			display: inline;
+			vertical-align: middle;
+		}
+		.commentIcon {
+			margin-right: 4px;
+		}
+		.comNumber {
+			color: ${props => props.theme.iconColor};
+			font-size: 14px;
+			font-weight: 500;
+			vertical-align: bottom;
+		}
 	}
 `;
 
@@ -117,6 +108,5 @@ export const PostDate = styled.div`
 	height: 20px;
 	display: flex;
 	align-items: center;
-	padding-left: 40px;
 	color: #7c7c7c;
 `;

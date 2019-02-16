@@ -2,7 +2,9 @@ import * as React from 'react';
 import Vote from 'Components/UI/Vote/Vote';
 import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
 import { IPost } from '../Posts.apollo';
-import { StyledPost, Cnt, FirstLine, PostContent, Stats, Comments, PostDate } from './Post.style';
+import { StyledPost, Cnt, FirstLine, PostContent, Stats, PostDate } from './Post.style';
+import { MdComment, MdMoreHoriz } from 'react-icons/md';
+import { TiAttachment } from 'react-icons/ti';
 
 interface IPostProps extends RouteComponentProps<{ subforumName: string }> {
 	post: IPost;
@@ -18,23 +20,25 @@ class Post extends React.Component<IPostProps> {
 					<Vote />
 					<Cnt>
 						<FirstLine>
-							<div className='attachment icon' />
 							<PostContent>
 								<div className='postHeading'>
-									<div className='tag' />
+									{/* <div className='tag' /> */}
 									<span className='postTitle'>{title}</span>
 									<span className='attachedLink' />
 								</div>
 							</PostContent>
 							<Stats>
-								<Comments>
-									<div className='commentIco icon' />
+								<TiAttachment className='attachmentIcon' />
+								<div className='comments'>
+									<MdComment className='commentIcon' />
 									<div className='comNumber'>5</div>
-								</Comments>
-								<div className='postSettings icon' />
+								</div>
+								<MdMoreHoriz className='postOptionsIcon' />
 							</Stats>
 						</FirstLine>
-						<PostDate>Posted by u/{author.name} {date}</PostDate>
+						<PostDate>
+							<span>Posted by u/{author.name} {date}</span>
+						</PostDate>
 					</Cnt>
 				</StyledPost>
 			</Link>
