@@ -22,10 +22,9 @@ export const StyledPost = styled.div`
 		border-bottom-right-radius: 4px;
 	}
 	.voteHere {
-		width: 90px;
-		background: #f7f9fa;
+		width: 80px;
 		border-right: 1px solid ${props => props.theme.borderColor};
-		padding-top: 5px;
+		padding-top: 8px;
 		flex-shrink: 0;
 		justify-content: center;
 	}
@@ -33,7 +32,7 @@ export const StyledPost = styled.div`
 
 export const Cnt = styled.div`
 	width: 100%;
-	margin-left: 3px;
+	margin-left: 8px;
 `;
 
 export const FirstLine = styled.div`
@@ -45,7 +44,7 @@ export const PostContent = styled.div`
 	display: flex;
 	flex-grow: 1;
 	font-size: 14px;
-	padding-top: 7px;
+	padding-top: 3px;
 	.tag {
 		background:  ${props => props.theme.mainSubforumColor};
 		padding: 0 4px;

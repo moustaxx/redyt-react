@@ -2,7 +2,7 @@ import styled from 'Theme/';
 
 export const StyledVote = styled.div`
 	display: flex;
-	padding: 8px 5px 0 5px;
+	padding: 0 5px;
 	& > svg {
 		height: 16px;
 		width: 16px;
@@ -24,6 +24,5 @@ export const VoteSummary = styled.div`
 	text-align: center;
 	font-weight: 600;
 	font-size: 13px;
-	line-height: 1.5em;
 	cursor: default;
 `;

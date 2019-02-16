@@ -14,7 +14,7 @@ class Left extends React.Component<ILeftProps> {
 		return (
 			<StyledLeft>
 				<div className='gg1'>
-					{/* <Vote className='voteHere'></Vote> */}
+					<Vote className='voteHere' />
 					<Interior>
 						<div>
 							<span className='subForumName'>r/SubforumName</span>

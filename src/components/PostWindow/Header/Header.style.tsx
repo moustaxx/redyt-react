@@ -10,16 +10,18 @@ export const StyledHeader = styled.div`
 		align-items: center;
 		height: 100%;
 		.voteHere {
-			align-items: center;
 			padding: 0 10px;
-			color: #d7dadc;
 			&::before {
-				border: 1px solid white;
+				border-left: 1px solid ${props => props.theme.iconColor};
+				margin-right: 10px;
 				height: 16px;
+				content: "";
 			}
 			&::after {
-				border: 1px solid white;
+				border-right: 1px solid ${props => props.theme.iconColor};
+				margin-left: 10px;
 				height: 16px;
+				content: "";
 			}
 		}
 		.title {

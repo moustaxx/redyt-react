@@ -4,7 +4,7 @@ export const StyledLeft = styled.div`
 	background: ${props => props.theme.secondaryBgColor};
 	width: 890px;
 	height: fit-content;
-	border: 1px solid #4e4e4e;
+	/* border: 1px solid ${props => props.theme.borderColor}; */
 	border-radius: 4px;
 	margin-left: 5px;
 	.gg1 {
@@ -13,11 +13,19 @@ export const StyledLeft = styled.div`
 		margin-top: 8px;
 		.voteHere {
 			width: 30px;
+			padding: 0;
 			padding-top: 5px;
 			flex-shrink: 0;
 			flex-direction: column;
 			align-items: center;
 			justify-content: unset;
+			* {
+				padding: 6px 0;
+			}
+			svg {
+				height: 19px;
+				width: 19px;
+			}
 		}
 	}
 `;
@@ -61,15 +69,10 @@ export const PostToolbar = styled.div`
 		padding: 5px;
 		margin-right: 5px;
 		color: inherit;
-		div {
+		.el {
+			margin: 0 2px;
 			display: inline;
 			vertical-align: middle;
 		}
-	}
-	.commentIco::after {
-		content: "\\F105";
-	}
-	.shareIco::after {
-		content: "\\F12A";
 	}
 `;

@@ -17,7 +17,7 @@ class Post extends React.Component<IPostProps> {
 		return (
 			<Link to={`${this.props.match.params.subforumName}/${id}`} >
 				<StyledPost>
-					<Vote />
+					<Vote className='voteHere'/>
 					<Cnt>
 						<FirstLine>
 							<PostContent>

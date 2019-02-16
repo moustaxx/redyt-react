@@ -12,8 +12,7 @@ const Header = (props: IHeaderProps) => {
 	return (
 		<StyledHeader>
 			<div className='group'>
-				{/* <Vote className='voteHere'></Vote> */}
-				<Vote />
+				<Vote className='voteHere'/>
 				<div className='title'>{postTitle}</div>
 				<div className='space' />
 				<ExitButton>
