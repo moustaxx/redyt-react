@@ -8,9 +8,6 @@ export const StyledDropDown = styled(DropDown)`
 	.heading {
 		padding-left: 24px;
 	}
-	a {
-		padding-left: 24px;
-	}
 	.filter {
 		color: ${props => props.theme.fontColor}
 		margin: 0 auto;
