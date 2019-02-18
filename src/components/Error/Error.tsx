@@ -27,12 +27,23 @@ const Caption = styled.div`
 	}
 `;
 
-const Error = (props: any) => {
-	const pathname = props.path ? props.path : props.location.pathname;
+interface IError {
+	location?: Location;
+	path?: string;
+	message?: string;
+}
+
+const Error = (props: IError) => {
+	let pathname = {};
+	if (props.path) pathname = props.path;
+	else if (props.location) pathname = props.location.pathname;
 	return (
 		<StyledError>
 			<Caption>
-				<span className='link'>{pathname}</span> does not exist
+				{props.message
+					? <span>{props.message}</span>
+					: <><span className='link'>{pathname}</span><span> does not exist</span></>
+				}
 			</Caption>
 			<Link to='/'><Button>Back home</Button></Link>
 		</StyledError>
