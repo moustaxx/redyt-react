@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "es5",
+		"plugins": [{ "name": "typescript-styled-plugin" }],
 		"module": "esnext",
 		"jsx": "react",
 		"lib": ["esnext", "dom"],
