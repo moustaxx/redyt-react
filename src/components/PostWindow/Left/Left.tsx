@@ -3,7 +3,7 @@ import Discussion from './Discussion/Discussion';
 import { StyledLeft, Interior, PostToolbar } from './Left.style';
 import { IWindowPost } from '../PostWindow.apollo';
 import Vote from 'Components/UI/Vote/Vote';
-import { MdComment, MdScreenShare } from 'react-icons/md';
+import { MdComment, MdShare } from 'react-icons/md';
 
 interface ILeftProps {
 	post: IWindowPost;
@@ -30,7 +30,7 @@ class Left extends React.Component<ILeftProps> {
 								<div className='el'>17 Comments</div>
 							</button>
 							<button>
-								<MdScreenShare className='shareIcon el' />
+								<MdShare className='shareIcon el' />
 								<div className='el'>Share</div>
 							</button>
 						</PostToolbar>

@@ -21,12 +21,12 @@ const Navigation = (props: RouteComponentProps) => {
 				<div className='cnt2'>
 					<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{ name }}>{
 						({ loading, error, data }) => {
-							if (loading) return (
+							if (loading || !data) return (
 								<NavIcon>
 									<SubforumIcon />
 								</NavIcon>
 							);
-							if (error || !data) return <div>Error</div>;
+							if (error) return <div>Error</div>;
 							return (
 								<><NavIcon>
 									<SubforumIcon />
