@@ -9,6 +9,7 @@ import TopBar from './TopBar/TopBar';
 import Forum from './Forum/Forum';
 import PostWindow from './PostWindow/PostWindow';
 import LoginForm from './LoginForm/LoginForm';
+import ViewAccount from './ViewAccount/ViewAccount';
 
 const checkLoginStatus = () => {
 	if (!document.cookie) return false;
@@ -28,7 +29,7 @@ const App = () => {
 						<Redirect exact from='/' to='/r/Popular' />
 						<Route component={PostWindow} path='/r/:subforumName/:postID' />
 						<Route component={Forum} path='/r/:subforumName' />
-						{/* <Route component={ViewAccount} path='/user/:userID' /> */}
+						<Route component={ViewAccount} path='/user/:userID' />
 						<Route component={LoginForm} path='/login' />
 						<Route component={Error} />
 					</Switch>
