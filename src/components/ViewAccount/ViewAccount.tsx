@@ -7,10 +7,10 @@ import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 import { withRouter, RouteComponentProps } from 'react-router';
 import { StyledViewAccount, Avatar, Button } from './ViewAccount.style';
 
-const ViewAccount = (props: RouteComponentProps<{userID: string}>) => {
-	const id = props.match.params.userID;
+const ViewAccount = (props: RouteComponentProps<{userName: string}>) => {
+	const name = props.match.params.userName;
 	const { data, loading, error } = useQuery<IUserRes>(GET_USER_DATA, {
-		variables: { id },
+		variables: { name },
 	});
 	if (loading) return <LoadingAnim />;
 	if (error) return <Error message={'User not found!'} />;
@@ -20,8 +20,8 @@ const ViewAccount = (props: RouteComponentProps<{userID: string}>) => {
 			<div className='container'>
 				<div className='header'>
 					<div className='cnt'>
-						<Avatar>R</Avatar>
-						<div className='heading'>{data.getUserData.name}</div>
+						<Avatar>{data.getUserByName.name[0]}</Avatar>
+						<div className='heading'>{data.getUserByName.name}</div>
 					</div>
 				</div>
 				<div className='content'>

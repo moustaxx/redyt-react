@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const GET_USER_DATA = gql`
-	query($id: ID!) {
-		getUserData(id: $id) {
+	query($name: String!) {
+		getUserByName(name: $name) {
 			name
 			id
 			email
@@ -19,5 +19,5 @@ export interface IUser {
 }
 
 export interface IUserRes {
-	getUserData: IUser;
+	getUserByName: IUser;
 }
