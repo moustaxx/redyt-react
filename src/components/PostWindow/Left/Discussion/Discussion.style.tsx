@@ -1,5 +1,4 @@
 import styled from 'Theme/';
-import { niceButton } from 'Components/UI/Button/Button';
 
 export const StyledDiscussion = styled.div`
 	width: 95%;
@@ -16,6 +15,9 @@ export const AddComment = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	padding: 5px 10px;
+	.cnt {
+		display: flex;
+	}
 `;
 
 export const SortOptions = styled.div`
@@ -43,13 +45,5 @@ export const SortOptions = styled.div`
 			margin-bottom: 1px;
 			fill: ${props => props.theme.secondarySubforumColor};
 		}
-	}
-`;
-
-export const Button = styled(niceButton)`
-	margin: 0 5px;
-	font-size: 14px;
-	@media screen and (min-width: 460px) {
-		width: 100px;
 	}
 `;
