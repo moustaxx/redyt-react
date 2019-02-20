@@ -4,6 +4,7 @@ import { StyledLeft, Interior, PostToolbar } from './Left.style';
 import { IWindowPost } from '../PostWindow.apollo';
 import Vote from 'Components/UI/Vote/Vote';
 import { MdComment, MdShare } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 interface ILeftProps {
 	post: IWindowPost;
@@ -19,8 +20,8 @@ class Left extends React.Component<ILeftProps> {
 					<Vote className='voteHere' />
 					<Interior>
 						<div>
-							<span className='subForumName'>r/{subforum.name}</span>
-							<span className='postTime'>Posted by u/{author.name} {date}</span>
+							<span className='subForumName'>{subforum.name}</span>
+							<span className='postTime'>Posted by <Link to={`/user/${author.name}`}>{author.name}</Link> {date}</span>
 						</div>
 						<div className='title'>{title}</div>
 						<div className='essence'>{content}</div>
