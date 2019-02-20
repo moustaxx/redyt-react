@@ -11,7 +11,7 @@ export const Form = styled.form`
 
 	& > svg {
 		position: absolute;
-		left: 1%;
+		left: 7px;
 		width: 21px;
 		height: 21px;
 	}

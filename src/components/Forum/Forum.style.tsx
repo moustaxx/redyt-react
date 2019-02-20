@@ -12,7 +12,7 @@ export const StyledForum = styled.div`
 	}
 	.content {
 		display: inline-flex;
-		margin: 5px 0;
+		margin: 5px 8px;
 	}
 	.nothingToShow {
 		display: flex;
@@ -20,5 +20,8 @@ export const StyledForum = styled.div`
 		align-items: center;
 		padding: 30px 0;
 		font-size: 24px;
+	}
+	.aside {
+		margin-left: 0;
 	}
 `;

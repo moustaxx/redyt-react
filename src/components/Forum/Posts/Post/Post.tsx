@@ -37,7 +37,7 @@ class Post extends React.Component<IPostProps> {
 							</Stats>
 						</FirstLine>
 						<PostDate>
-							<span>Posted by u/{author.name} {date}</span>
+							<span>Posted by <Link to={`/user/${author.name}`}>{author.name}</Link> {date}</span>
 						</PostDate>
 					</Cnt>
 				</StyledPost>

@@ -7,9 +7,9 @@ import { ISubforum } from 'components/Forum/Forum.apollo';
 
 const StyledCommunityDetails = styled.div`
 	.subForumName {
-		margin-top: 5px;
 		margin-bottom: 15px;
-		font-size: 18px;
+		font-size: 20px;
+		font-weight: 600;
 	}
 	.cnt {
 		padding: 15px;
@@ -48,7 +48,7 @@ class CommunityDetails extends React.Component<ICommunityDetailsProps> {
 				<AsideComponent>
 					<div className='componentName'>Community Details</div>
 					<div className='cnt'>
-						<div className='subForumName'>r/{name}</div>
+						<div className='subForumName'>{name}</div>
 						<div className='stats'>
 							<div className='subs'>
 								<p>8.2k</p>

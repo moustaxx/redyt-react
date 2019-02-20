@@ -17,9 +17,9 @@ export const StyledPostWindow = styled.div`
 `;
 
 export const Content = styled.div`
-	width: 90%;
+	width: 96%;
 	height: calc(100% - 50px);
-	max-width: 1400px;
+	max-width: 1300px;
 	margin: 0 auto;
 	background: ${props => props.theme.mainBgColor};
 	/* .apolloDiv {

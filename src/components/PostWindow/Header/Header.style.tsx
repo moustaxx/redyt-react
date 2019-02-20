@@ -26,6 +26,9 @@ export const StyledHeader = styled.div`
 		}
 		.title {
 			color: #d4d4d4;
+			@media screen and (max-width: 500px) {
+				margin-left: 20px;
+			}
 		}
 		.space {
 			flex-grow: 1;

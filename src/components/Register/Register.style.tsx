@@ -65,7 +65,7 @@ export const Input = styled.input`
 	background: ${props => props.theme.mainBgColor};
 	padding-left: 15px;
 	margin: 6px 0;
-	color: ${props => props.theme.fontColor};;
+	color: ${props => props.theme.fontColor};
 	box-sizing: border-box;
 	&:focus {
 		outline: 0;

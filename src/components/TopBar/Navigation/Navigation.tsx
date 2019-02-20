@@ -16,7 +16,7 @@ const Navigation = (props: RouteComponentProps) => {
 	const name = matchedName ? matchedName[0] : '';
 	const [isNavMenuOpen, setNavStatus] = React.useState(false);
 	return (
-		<StyledNavigation className={`${isNavMenuOpen ? 'active' : null}`}>
+		<StyledNavigation className={`${isNavMenuOpen ? 'active' : ''}`}>
 			<div className='cnt' onClick={() => setNavStatus(!isNavMenuOpen)}>
 				<div className='cnt2'>
 					<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{ name }}>{

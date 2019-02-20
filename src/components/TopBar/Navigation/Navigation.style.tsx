@@ -36,6 +36,12 @@ export const StyledNavigation = styled.div`
 			vertical-align: middle;
 		}
 	}
+	@media screen and (max-width: 800px) {
+		width: 115px;
+	}
+	@media screen and (max-width: 420px) {
+		display: none;
+	}
 `;
 
 export const NavIcon = styled.div`

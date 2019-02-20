@@ -6,7 +6,7 @@ export const StyledLeft = styled.div`
 	height: fit-content;
 	/* border: 1px solid ${props => props.theme.borderColor}; */
 	border-radius: 4px;
-	margin-left: 5px;
+	margin: 0 5px;
 	.gg1 {
 		display: flex;
 		margin: 0 8px;

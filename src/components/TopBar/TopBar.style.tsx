@@ -21,9 +21,21 @@ export const Button = styled(niceButton)`
 	width: 120px;
 	margin: 0 5px;
 	flex-shrink: 0;
+	@media screen and (max-width: 800px) {
+		width: 70px;
+	}
+	@media screen and (max-width: 550px) {
+		display: none;
+	}
 `;
 export const Button2 = styled(invertedButton)`
 	width: 120px;
 	margin: 0 5px;
 	flex-shrink: 0;
+	@media screen and (max-width: 800px) {
+		width: 70px;
+	}
+	@media screen and (max-width: 550px) {
+		display: none;
+	}
 `;

@@ -27,13 +27,13 @@ class Forum extends React.Component<IForumProps> {
 			<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{name: subforumName}}>{
 				({loading, error, data}) => {
 					if (loading) return <LoadingAnim />;
-					if (error || !data) return <Error path={this.props.location.pathname}/>;
+					if (error || !data) return <Error path={this.props.location.pathname} />;
 					return (
 						<StyledForum>
-							<SubforumHead subforumName={data.getSubforum.name}/>
+							<SubforumHead subforumName={data.getSubforum.name} />
 							<div className='content'>
-								<Aside subforum={data.getSubforum}/>
-								<Posts subforum={data.getSubforum}/>
+								<Aside subforum={data.getSubforum} className='aside' />
+								<Posts subforum={data.getSubforum} />
 							</div>
 						</StyledForum>
 					);

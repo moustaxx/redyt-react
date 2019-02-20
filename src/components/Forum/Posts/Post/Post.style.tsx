@@ -76,7 +76,7 @@ export const Stats = styled.div`
 		flex-shrink: 0;
 	}
 	.attachmentIcon {
-		display: inline;
+		display: inline-box;
 		vertical-align: middle;
 		width: 22px;
 		height: 22px;
