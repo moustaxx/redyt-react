@@ -82,7 +82,6 @@ class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILogi
 							</form>
 						: null}
 						{this.state.loading ? <LoadingAnim /> : null}
-						{this.state.success ? <div className='comunicate'>Success!!!</div> : null}
 					</div>
 				</div>
 			</StyledLoginForm>
