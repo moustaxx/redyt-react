@@ -27,7 +27,7 @@ class PostWindow extends React.Component<IPostWindowProps> {
 						</span>;
 						return (
 							<Content onClick={this.stopPropagation}>
-								<Header postTitle={data.getPostByID.title} />
+								<Header postTitle={data.getPostByID.title} subforumName={data.getPostByID.subforum.name} />
 								<Container>
 									<Left post={data.getPostByID}/>
 									<Aside subforum={data.getPostByID.subforum}/>
