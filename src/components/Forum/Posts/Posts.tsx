@@ -5,14 +5,13 @@ import { Query } from 'react-apollo';
 import Post from './Post/Post';
 import { ISubforum } from '../Forum.apollo';
 import { GET_POSTS, IGetPostsRes } from './Posts.apollo';
-import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
+import LoadingSpinner from 'Components/UI/LoadingSpinner/LoadingSpinner';
 
 const StyledPosts = styled.div`
 	background: ${props => props.theme.secondaryBgColor};
 	height: fit-content;
 	flex-grow: 1;
 	border-radius: 4px;
-	border-top: 1px solid ${props => props.theme.borderColor};
 
 	.warn {
 		height: 30vh;
@@ -33,7 +32,7 @@ class Posts extends React.Component<IPostsProps> {
 			<StyledPosts>
 				<Query<IGetPostsRes> query={GET_POSTS} variables={{ subforumID: this.props.subforum.id }}>{
 					({ loading, error, data }) => {
-						if (loading) return <LoadingAnim />;
+						if (loading) return <LoadingSpinner />;
 						if (error || !data) return <span className='warn'>{error!.message}</span>;
 						if (!data.getPostsBySubforum.length) return <span className='warn'>I've got puppies to show you...</span>;
 						return (

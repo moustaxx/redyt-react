@@ -16,6 +16,7 @@ export const StyledPost = styled.div`
 	&:first-child {
 		border-top-left-radius: 4px;
 		border-top-right-radius: 4px;
+		border-top: 1px solid ${props => props.theme.borderColor};
 	}
 	&:last-child {
 		border-bottom-left-radius: 4px;

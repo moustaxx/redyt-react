@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Query } from 'react-apollo';
 
-import Posts from './Posts/Posts';
-import Aside from './Aside/Aside';
+const Posts = React.lazy(() => import('./Posts/Posts'));
+const Aside = React.lazy(() => import('./Aside/Aside'));
+
 import SubforumHead from './SubforumHead/SubforumHead';
 import Error from 'Components/Error/Error';
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
@@ -32,8 +33,12 @@ class Forum extends React.Component<IForumProps> {
 						<StyledForum>
 							<SubforumHead subforumName={data.getSubforum.name} />
 							<div className='content'>
-								<Aside subforum={data.getSubforum} className='aside' />
-								<Posts subforum={data.getSubforum} />
+								<React.Suspense fallback={null}>
+									<Aside subforum={data.getSubforum} className='aside' />
+								</React.Suspense>
+								<React.Suspense fallback={null}>
+									<Posts subforum={data.getSubforum} />
+								</React.Suspense>
 							</div>
 						</StyledForum>
 					);

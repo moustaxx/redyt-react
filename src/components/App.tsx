@@ -3,9 +3,10 @@ import { Route, Redirect } from 'react-router';
 import { Switch } from 'react-router-dom';
 import { parse as parseCookie } from 'cookie';
 
+const TopBar = React.lazy(() => import('./TopBar/TopBar'));
+
 import MyRouter from './RouterUtils/RouterUtils';
 import Error from './Error/Error';
-import TopBar from './TopBar/TopBar';
 import Forum from './Forum/Forum';
 import PostWindow from './PostWindow/PostWindow';
 import LoginForm from './LoginForm/LoginForm';
@@ -24,7 +25,9 @@ const App = () => {
 		<MyRouter>{_locationHref =>
 			<LoginStatusContext.Provider value={checkLoginStatus()}>
 				<div id='app'>
-					<TopBar />
+					<React.Suspense fallback={null}>
+						<TopBar />
+					</React.Suspense>
 					<Switch>
 						<Redirect exact from='/' to='/r/Popular' />
 						<Route component={PostWindow} path='/r/:subforumName/:postID' />
