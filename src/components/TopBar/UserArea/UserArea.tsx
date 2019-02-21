@@ -18,7 +18,7 @@ const UserArea = () => {
 				<Avatar>{data.getSessionOwner.name[0]}</Avatar>
 				<span>{data.getSessionOwner.name}</span>
 				<MdArrowDropDown />
-				{isDropDownOpen ? <UserDropDown /> : null}
+				{isDropDownOpen ? <UserDropDown username={data.getSessionOwner.name} /> : null}
 			</StyledUserArea>
 		);
 	} catch { return null; }

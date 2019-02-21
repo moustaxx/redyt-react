@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import { MdAccountBox, MdSettings, MdWbSunny, MdPowerSettingsNew } from 'react-icons/md';
 import { StyledDropDown } from './UserDropDown.style';
 
-const UserDropDown = () => {
+interface IUserDropDown {
+	username: string;
+}
+
+const UserDropDown = ({ username }: IUserDropDown) => {
 	return (
 		<StyledDropDown>
 			<div className='heading'>Me</div>
-			<Link to={'/'}>
+			<Link to={'/user/' + username}>
 				<MdAccountBox />
 				<span>My profile</span>
 			</Link>
