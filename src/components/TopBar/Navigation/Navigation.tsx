@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Query } from 'react-apollo';
-import { MdArrowDropDown } from 'react-icons/md';
+import { MdArrowDropDown, MdAccountBox } from 'react-icons/md';
 import { withRouter, RouteComponentProps } from 'react-router';
 
 import { StyledNavigation, NavIcon, SubforumName, ClickOutside } from './Navigation.style';
@@ -10,32 +10,40 @@ import { IGetSubforumRes, GET_SUBFORUM } from './Navigation.apollo';
 import NavMenu from './NavMenu/NavMenu';
 
 const Navigation = (props: RouteComponentProps) => {
-	const url = props.location.pathname + '/';
-	const regex = new RegExp(/[^\/r\/]([\w]+?)(?=\/)/);
-	const matchedName = url.match(regex);
-	const name = matchedName ? matchedName[0] : '';
+	const splitedPath = props.location.pathname.split('/');
+	const dispatcher = splitedPath[1];
+	const name = splitedPath[2];
 	const [isNavMenuOpen, setNavStatus] = React.useState(false);
 	return (
 		<StyledNavigation className={`${isNavMenuOpen ? 'active' : ''}`}>
 			<div className='cnt' onClick={() => setNavStatus(!isNavMenuOpen)}>
 				<div className='cnt2'>
-					<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{ name }}>{
-						({ loading, error, data }) => {
-							if (loading || !data) return (
-								<NavIcon>
-									<SubforumIcon />
-								</NavIcon>
-							);
-							if (error) return <div>Error</div>;
-							return (
-								<><NavIcon>
-									<SubforumIcon />
-								</NavIcon>
-								<SubforumName>{data.getSubforum.name}</SubforumName></>
-							);
+
+					{dispatcher === 'r' ?
+						<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{ name }}>{
+							({ loading, error, data }) => {
+								
+								if (loading || !data || error) return (
+									<NavIcon><SubforumIcon /></NavIcon>
+								);
+								return (
+									<>
+										<NavIcon><SubforumIcon /></NavIcon>
+										<SubforumName>{data.getSubforum.name}</SubforumName>
+									</>
+								);
+							}
 						}
-					}
-					</Query>
+						</Query>
+					: null}
+
+					{dispatcher === 'user' ?
+						<>
+							<NavIcon><MdAccountBox /></NavIcon>
+							<SubforumName>{name}</SubforumName>
+						</>
+					: null}
+
 				</div>
 				<MdArrowDropDown size={20} />
 			</div>
