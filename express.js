@@ -2,7 +2,7 @@ const express = require('express');
 const fallback = require('express-history-api-fallback');
 
 const app = express();
-const portNumber = 8080;
+const portNumber = 80;
 const sourceDir = 'dist';
 
 app.use(express.static(sourceDir));
