@@ -7,9 +7,9 @@ import { StyledLogo, Img } from './Logo.style';
 // interface ILogoProps {}
 
 const Logo = () => (
-	<Link to='/'>
+	<Link to='/' aria-label='Go to home page'>
 		<StyledLogo>
-			<Img src={logo}/>
+			<Img src={logo} alt='Redyt'/>
 		</StyledLogo>
 	</Link>
 );

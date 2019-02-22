@@ -5,7 +5,7 @@ import { MdSearch } from 'react-icons/md';
 const SearchBox = () => (
 	<Form>
 		<MdSearch />
-		<StyledTextBox type='text' placeholder='Search' />
+		<StyledTextBox type='text' placeholder='Search' aria-label='Search' />
 	</Form>
 );
 
