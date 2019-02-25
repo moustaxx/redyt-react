@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const getTransformers = require('./ts-transformers.config');
 const tsconfigPath = path.resolve(__dirname, '../../tsconfig.json');
 
 module.exports = {
@@ -42,7 +43,8 @@ module.exports = {
 						loader: 'ts-loader',
 						options: {
 							configFile: tsconfigPath,
-							happyPackMode: true
+							happyPackMode: true,
+							getCustomTransformers: getTransformers
 						}
 					}
 				]

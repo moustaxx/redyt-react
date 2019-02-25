@@ -40,6 +40,7 @@
 		"tslint-react": "^3.6.0",
 		"tslint-react-hooks": "^1.1.0",
 		"typescript": "^3.3.3333",
+		"typescript-plugin-styled-components": "^1.2.0",
 		"typescript-styled-plugin": "^0.13.0",
 		"webpack": "4.29.5",
 		"webpack-bundle-analyzer": "^3.0.4",
