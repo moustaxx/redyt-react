@@ -10,18 +10,30 @@ interface IPostProps extends RouteComponentProps<{ subforumName: string }> {
 	post: IPost;
 }
 
-class Post extends React.Component<IPostProps> {
+interface IPostState {
+	isAttachment: boolean;
+	commentCount: number;
+	voteBalance: number;
+
+}
+
+class Post extends React.Component<IPostProps, IPostState> {
+	public state = {
+		isAttachment: false,
+		commentCount: 0,
+		voteBalance: 0,
+	};
+
 	public render() {
 
 		const { id, title, author, createdAt } = this.props.post;
+		const { isAttachment, commentCount, voteBalance } = this.state;
 		const date = new Date(createdAt).toLocaleString();
 		const subforumName = this.props.match.params.subforumName;
 
 		return (
 			<StyledPost onClick={() => this.props.history.push(subforumName + '/' + id)}>
-			<Link to={`${this.props.match.params.subforumName}/${id}`} >
-				<StyledPost>
-					<Vote className='voteHere'/>
+				<Vote className='voteHere' voteBalance={voteBalance} />
 				<Cnt>
 					<FirstLine>
 						<PostContent>
@@ -32,10 +44,10 @@ class Post extends React.Component<IPostProps> {
 							</div>
 						</PostContent>
 						<Stats>
-								<TiAttachment className='attachmentIcon' />
+							{isAttachment ? <TiAttachment className='attachmentIcon' /> : null }
 							<div className='comments'>
 								<MdComment className='commentIcon' />
-									<div className='comNumber'>5</div>
+								<div className='comNumber'>{commentCount}</div>
 							</div>
 							<MdMoreHoriz className='postOptionsIcon' />
 						</Stats>

@@ -2,10 +2,10 @@ import * as React from 'react';
 import { StyledVote, VoteSummary } from './Vote.style';
 import { MdThumbUp, MdThumbDown } from 'react-icons/md';
 
-const Vote = (props: { className?: string }) => (
-	<StyledVote className={props.className}>
+const Vote = ({ className, voteBalance = 0 }: { className?: string; voteBalance?: number }) => (
+	<StyledVote className={className}>
 		<MdThumbUp className='voteUp voted' />
-		<VoteSummary>22</VoteSummary>
+		<VoteSummary>{voteBalance}</VoteSummary>
 		<MdThumbDown className='voteDown' />
 	</StyledVote>
 );
