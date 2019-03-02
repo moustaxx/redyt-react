@@ -3,16 +3,17 @@ import { Portal } from 'react-portal';
 
 import { StyledTopBar, Button, Button2 } from './TopBar.style';
 
+const LoginForm = React.lazy(() => import('Components/LoginForm/LoginForm'));
+const Register = React.lazy(() => import('Components/Register/Register'));
+
 import Logo from './Logo/Logo';
 import SearchBox from './SearchBox/SearchBox';
 import Navigation from './Navigation/Navigation';
-import LoginForm from 'Components/LoginForm/LoginForm';
-import Register from 'Components/Register/Register';
 import UserArea from './UserArea/UserArea';
 import { LoginStatusContext } from 'Components/App';
 
 // tslint:disable-next-line:no-empty-interface
-interface ITopBarProps {}
+interface ITopBarProps { }
 
 interface ITopBarState {
 	isLoginFormOpen: boolean;
@@ -38,8 +39,8 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 						<Navigation />
 						<SearchBox />
 						{loginStatus === true ? <UserArea /> : (
-							<>
-								<Button onClick={() => this.setState(() => ({ isLoginFormOpen: true}))}>
+							<React.Suspense fallback={null}>
+								<Button onClick={() => this.setState(() => ({ isLoginFormOpen: true }))}>
 									Log in
 								</Button>
 								<Button2 onClick={() => this.setState(() => ({ isRegisterOpen: true }))}>
@@ -49,13 +50,13 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 									<Portal>
 										<LoginForm closeForm={this.closeForm} />
 									</Portal>
-								: null}
+									: null}
 								{this.state.isRegisterOpen ?
 									<Portal>
-										<Register closeForm={this.closeForm}/>
+										<Register closeForm={this.closeForm} />
 									</Portal>
-								: null}
-							</>
+									: null}
+							</React.Suspense>
 						)}
 					</>
 				)}</LoginStatusContext.Consumer>
