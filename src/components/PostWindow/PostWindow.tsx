@@ -16,7 +16,6 @@ interface IPostWindowProps extends RouteComponentProps<{ postID: string }> {
 class PostWindow extends React.Component<IPostWindowProps> {
 	public render() {
 		const postID = this.props.match.params.postID;
-		console.log('this.props.match', this.props.match);
 		return (
 			<StyledPostWindow onClick={this.closePostWindow}>
 				<Query<IGetPostRes> query={GET_POST} variables={{ postID }}>{
