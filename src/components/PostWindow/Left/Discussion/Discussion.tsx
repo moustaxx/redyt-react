@@ -1,11 +1,22 @@
 import * as React from 'react';
+import { useQuery } from 'react-apollo-hooks';
 import { MdArrowDropDown } from 'react-icons/md';
 
+import { StyledDiscussion, SortOptions, CommentError } from './Discussion.style';
+import { IGetCommentsByPostRes, GET_COMMENTS } from './Discussion.apollo';
 import Comment from './Comment';
-import { StyledDiscussion, SortOptions } from './Discussion.style';
 import NotLoggedIn from './NotLoggedIn';
+import LoadingSpinner from 'Components/UI/LoadingSpinner/LoadingSpinner';
 
-const Discussion = () => {
+interface IDiscussionProps {
+	postID: string;
+}
+
+const Discussion = ({ postID }: IDiscussionProps) => {
+	const { data, loading, error } = useQuery<IGetCommentsByPostRes>(GET_COMMENTS, { variables: { postID } });
+	if (loading) return <LoadingSpinner />;
+	if (error) return <CommentError>Error! Could not show comments!</CommentError>;
+	if (!data || !data.getCommentsByPost.length) return null;
 	return (
 		<StyledDiscussion>
 			<NotLoggedIn />
@@ -18,7 +29,9 @@ const Discussion = () => {
 				{/* <SortMenu /> */}
 			</SortOptions>
 			<div className='comments'>
-				<Comment />
+				{data.getCommentsByPost.map(({ id, content, author, createdAt }) =>
+					<Comment key={id} data={{ id, content, author, createdAt}} />
+				)}
 			</div>
 		</StyledDiscussion>
 	);

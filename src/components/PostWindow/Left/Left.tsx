@@ -12,7 +12,7 @@ interface ILeftProps {
 
 class Left extends React.Component<ILeftProps> {
 	public render() {
-		const { title, author, content, createdAt, subforum } = this.props.post;
+		const { title, author, content, createdAt, subforum, id } = this.props.post;
 		const date = new Date(createdAt).toLocaleString();
 		return (
 			<StyledLeft>
@@ -37,7 +37,7 @@ class Left extends React.Component<ILeftProps> {
 						</PostToolbar>
 					</Interior>
 				</div>
-				<Discussion />
+				<Discussion postID={id}/>
 			</StyledLeft>
 		);
 	}

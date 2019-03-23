@@ -1,23 +1,30 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { StyledComment } from './Comment.style';
+import { IComment } from './Discussion.apollo';
 
-const Comment = () => (
-	<StyledComment>
-		<div className='cnt'>
-			{/* <Vote class='voteHere'></Vote> */}
-			<div>
-				<div className='author'>cersit</div>
-				<div className='date'>9 days ago</div>
-				<div className='essence'>Html5 is the standard, it's also hard to not use any tiny
-					part of it, but obviously you utilize more than only html itself.</div>
-				<div className='toolbar'>
-					<div className='share'>Share</div>
-					<div className='reply'>Reply</div>
+interface ICommentProps {
+	data: IComment;
+}
+
+const Comment = ({ data }: ICommentProps) => {
+	const date = new Date(data.createdAt).toLocaleString();
+	return (
+		<StyledComment>
+			<div className='cnt'>
+				{/* <Vote className='voteHere'></Vote> */}
+				<div>
+					<Link className='author' to={'/user/' + data.author.name}>{data.author.name}</Link>
+					<div className='date'>{date}</div>
+					<div className='essence'>{data.content}</div>
+					<div className='toolbar'>
+						<div className='share'>Share</div>
+						<div className='reply'>Reply</div>
+					</div>
 				</div>
 			</div>
-			{/* <Comment /> */}
-		</div>
-	</StyledComment>
-);
+		</StyledComment>
+	);
+};
 
 export default Comment;

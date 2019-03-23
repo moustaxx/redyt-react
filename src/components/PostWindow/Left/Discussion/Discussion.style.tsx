@@ -5,6 +5,13 @@ export const StyledDiscussion = styled.div`
 	margin: 0 auto;
 `;
 
+export const CommentError = styled.div`
+	text-align: center;
+	padding: 20px 0;
+	font-size: 26px;
+	color: #878a8c;
+`;
+
 export const AddComment = styled.div`
 	border: 1px solid  ${props => props.theme.borderColor};
 	border-radius: 5px;
