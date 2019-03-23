@@ -10,9 +10,8 @@ interface ILeftProps {
 	post: IWindowPost;
 }
 
-class Left extends React.Component<ILeftProps> {
-	public render() {
-		const { title, author, content, createdAt, subforum, id } = this.props.post;
+const Left = (props: ILeftProps) => {
+		const { title, author, content, createdAt, subforum, id } = props.post;
 		const date = new Date(createdAt).toLocaleString();
 		return (
 			<StyledLeft>
@@ -40,6 +39,5 @@ class Left extends React.Component<ILeftProps> {
 				<Discussion postID={id}/>
 			</StyledLeft>
 		);
-	}
-}
+};
 export default Left;
