@@ -17,14 +17,14 @@ export const theme = {
 	mainSubforumColor: 'hsl(200, 21%, 39%)',
 	secondarySubforumColor: 'hsl(206, 100%, 41%)',
 	tertiarySubforumColor: 'hsl(169, 44%, 36%)',
-	fontColor: '#cecece',
-	iconColor: '#878a8c',
-	mainBgColor: '#232228',
-	secondaryBgColor: '#2b2a30',
-	searchBoxBgColor: '#232228',
+	fontColor: 'hsl(0, 0%, 81%)',
+	iconColor: 'hsl(204, 2%, 54%)',
+	mainBgColor: 'hsl(250, 8%, 15%)',
+	secondaryBgColor: 'hsl(250, 7%, 18%)',
+	searchBoxBgColor: 'hsl(250, 8%, 15%)',
 	buttonBgColor: 'hsl(169,44%,36%)',
 	secondButtonBgColor: 'hsl(204, 7%, 85%)',
-	borderColor: '#3c3c3c',
+	borderColor: 'hsl(0, 0%, 24%)',
 	defaultFont: 'Source Sans Pro'
 };
 
@@ -32,8 +32,8 @@ export const theme = {
 // 	mainSubforumColor: 'hsl(200, 21%, 39%)',
 // 	secondarySubforumColor: 'hsl(206, 100%, 41%)',
 // 	tertiarySubforumColor: 'hsl(169, 44%, 36%)',
-// 	fontColor: '#1a1a1b',
-// 	iconColor: '#878a8c',
-// 	mainBgColor: '#dae0e6',
-// 	borderColor: '#cccccc'
+// 	fontColor: 'hsl(240, 2%, 10%)',
+// 	iconColor: 'hsl(204, 2%, 54%)',
+// 	mainBgColor: 'hsl(210, 19%, 88%)',
+// 	borderColor: 'hsl(0, 0%, 80%)'
 // };
