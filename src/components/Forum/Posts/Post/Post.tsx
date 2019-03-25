@@ -8,58 +8,45 @@ import { TiAttachment } from 'react-icons/ti';
 
 interface IPostProps extends RouteComponentProps<{ subforumName: string }> {
 	post: IPost;
+	voteBalance?: number;
+	commentCounter?: number;
+	isAttachment?: boolean;
 }
 
-interface IPostState {
-	isAttachment: boolean;
-	commentCount: number;
-	voteBalance: number;
+const Post = (props: IPostProps) => {
+	const { id, title, author, createdAt } = props.post;
+	const date = new Date(createdAt).toLocaleString();
+	const subforumName = props.match.params.subforumName;
 
-}
+	return (
+		<StyledPost onClick={() => props.history.push(subforumName + '/' + id)}>
+			<Vote className='voteHere' voteBalance={props.voteBalance} />
+			<Cnt>
+				<FirstLine>
+					<PostContent>
+						<div className='postHeading'>
+							<div className='tag' />
+							<Link to={id} className='postTitle'>{title}</Link>
+							<span className='attachedLink' />
+						</div>
+					</PostContent>
+					<Stats>
+						{props.isAttachment ? <TiAttachment className='attachmentIcon' /> : null }
+						<div className='comments'>
+							<MdComment className='commentIcon' />
+							<div className='comNumber'>{props.commentCounter}</div>
+						</div>
+						<MdMoreHoriz className='postOptionsIcon' />
+					</Stats>
+				</FirstLine>
+				<PostDate>
+					<span>
+						Posted by <Link onClick={e => e.stopPropagation()} to={'/user/' + author.name}>{author.name}</Link> {date}
+					</span>
+				</PostDate>
+			</Cnt>
+		</StyledPost>
+	);
+};
 
-class Post extends React.Component<IPostProps, IPostState> {
-	public state = {
-		isAttachment: false,
-		commentCount: 0,
-		voteBalance: 0,
-	};
-
-	public render() {
-
-		const { id, title, author, createdAt } = this.props.post;
-		const { isAttachment, commentCount, voteBalance } = this.state;
-		const date = new Date(createdAt).toLocaleString();
-		const subforumName = this.props.match.params.subforumName;
-
-		return (
-			<StyledPost onClick={() => this.props.history.push(subforumName + '/' + id)}>
-				<Vote className='voteHere' voteBalance={voteBalance} />
-				<Cnt>
-					<FirstLine>
-						<PostContent>
-							<div className='postHeading'>
-								<div className='tag' />
-								<Link to={id} className='postTitle'>{title}</Link>
-								<span className='attachedLink' />
-							</div>
-						</PostContent>
-						<Stats>
-							{isAttachment ? <TiAttachment className='attachmentIcon' /> : null }
-							<div className='comments'>
-								<MdComment className='commentIcon' />
-								<div className='comNumber'>{commentCount}</div>
-							</div>
-							<MdMoreHoriz className='postOptionsIcon' />
-						</Stats>
-					</FirstLine>
-					<PostDate>
-						<span>
-							Posted by <Link onClick={e => e.stopPropagation()} to={'/user/' + author.name}>{author.name}</Link> {date}
-						</span>
-					</PostDate>
-				</Cnt>
-			</StyledPost>
-		);
-	}
-}
 export default withRouter(Post);
