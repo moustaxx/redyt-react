@@ -9,12 +9,11 @@ import { TiAttachment } from 'react-icons/ti';
 interface IPostProps extends RouteComponentProps<{ subforumName: string }> {
 	post: IPost;
 	voteBalance?: number;
-	commentCounter?: number;
 	isAttachment?: boolean;
 }
 
 const Post = (props: IPostProps) => {
-	const { id, title, author, createdAt } = props.post;
+	const { id, title, author, commentCounter, createdAt } = props.post;
 	const date = new Date(createdAt).toLocaleString();
 	const subforumName = props.match.params.subforumName;
 
@@ -34,7 +33,7 @@ const Post = (props: IPostProps) => {
 						{props.isAttachment ? <TiAttachment className='attachmentIcon' /> : null }
 						<div className='comments'>
 							<MdComment className='commentIcon' />
-							<div className='comNumber'>{props.commentCounter}</div>
+							<div className='comNumber'>{commentCounter}</div>
 						</div>
 						<MdMoreHoriz className='postOptionsIcon' />
 					</Stats>

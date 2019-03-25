@@ -11,7 +11,7 @@ interface ILeftProps {
 }
 
 const Left = (props: ILeftProps) => {
-		const { title, author, content, createdAt, subforum, id } = props.post;
+		const { title, author, content, commentCounter, createdAt, subforum, id } = props.post;
 		const date = new Date(createdAt).toLocaleString();
 		return (
 			<StyledLeft>
@@ -27,7 +27,7 @@ const Left = (props: ILeftProps) => {
 						<PostToolbar>
 							<button>
 								<MdComment className='commentIcon el' />
-								<div className='el'>17 Comments</div>
+								<div className='el'>{commentCounter} Comments</div>
 							</button>
 							<button>
 								<MdShare className='shareIcon el' />

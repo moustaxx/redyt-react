@@ -12,6 +12,7 @@ export const GET_POSTS = gql`
 				name
 				id
 			}
+			commentCounter
 			createdAt
 		}
 	}
@@ -25,6 +26,7 @@ export interface IPost {
 		name: string;
 		id: string;
 	};
+	commentCounter: string;
 	createdAt: string;
 }
 

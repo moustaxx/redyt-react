@@ -13,6 +13,7 @@ export const GET_POST = gql`
 				name
 			}
 			content
+			commentCounter
 			createdAt
 			subforum {
 				name
@@ -30,10 +31,10 @@ export interface IWindowPost {
 		name: string;
 		id: string;
 	};
+	commentCounter: number;
 	createdAt: string;
 	subforum: ISubforum;
 }
-
 
 export interface IGetPostRes {
 	getPostByID: IWindowPost;
