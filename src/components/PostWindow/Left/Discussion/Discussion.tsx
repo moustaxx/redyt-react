@@ -5,8 +5,8 @@ import { MdArrowDropDown } from 'react-icons/md';
 import { StyledDiscussion, SortOptions, CommentError } from './Discussion.style';
 import { IGetCommentsByPostRes, GET_COMMENTS } from './Discussion.apollo';
 import Comment from './Comment';
-import NotLoggedIn from './NotLoggedIn';
 import LoadingSpinner from 'Components/UI/LoadingSpinner/LoadingSpinner';
+import AddComment from './AddComment';
 
 interface IDiscussionProps {
 	postID: string;
@@ -19,7 +19,7 @@ const Discussion = ({ postID }: IDiscussionProps) => {
 	if (!data) return null;
 	return (
 		<StyledDiscussion>
-			<NotLoggedIn />
+			<AddComment />
 			{data.getCommentsByPost.length ?
 				<SortOptions>
 					<button className='sort' id='sortButton'>
