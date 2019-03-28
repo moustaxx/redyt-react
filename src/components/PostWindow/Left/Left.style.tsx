@@ -69,6 +69,11 @@ export const PostToolbar = styled.div`
 		padding: 5px;
 		margin-right: 5px;
 		color: inherit;
+		&:hover {
+			background: hsla(250, 7%, 20%, 1);
+			border-radius: 4px;
+			transition: color .8s;
+		}
 		.el {
 			margin: 0 2px;
 			display: inline;
