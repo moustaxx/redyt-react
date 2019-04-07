@@ -22,7 +22,7 @@ export const StyledComment = styled.div`
 		}
 		.author {
 			font-size: 13px;
-			color: ${props => props.theme.secondarySubforumColor};
+			color: ${props => props.theme.subforum.secondary};
 			margin-right: 4px;
 		}
 		.date {

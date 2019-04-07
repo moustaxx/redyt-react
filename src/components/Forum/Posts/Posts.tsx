@@ -8,7 +8,7 @@ import { GET_POSTS, IGetPostsRes } from './Posts.apollo';
 import LoadingSpinner from 'Components/UI/LoadingSpinner/LoadingSpinner';
 
 const StyledPosts = styled.div`
-	background: ${props => props.theme.secondaryBgColor};
+	background: ${props => props.theme.background.secondary};
 	height: fit-content;
 	flex-grow: 1;
 	border-radius: 4px;

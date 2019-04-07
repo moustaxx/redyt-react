@@ -5,7 +5,7 @@ import SortMenu from './SortMenu/SortMenu';
 const StyledSettings = styled.div`
 	width: inherit;
 	height: 40px;
-	background: ${props => props.theme.secondaryBgColor};
+	background: ${props => props.theme.background.secondary};
 `;
 
 class Settings extends React.Component {

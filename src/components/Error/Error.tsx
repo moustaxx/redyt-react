@@ -23,7 +23,7 @@ const Button = styled(niceButton)`
 const Caption = styled.div`
 	margin: 20px 0;
 	.link {
-		color: ${props => props.theme.secondarySubforumColor};
+		color: ${props => props.theme.subforum.secondary};
 	}
 `;
 

@@ -21,7 +21,7 @@ export const Content = styled.div`
 	height: calc(100% - 50px);
 	max-width: 1300px;
 	margin: 0 auto;
-	background: ${props => props.theme.mainBgColor};
+	background: ${props => props.theme.background.primary};
 	/* .apolloDiv {
 		height: 100%;
 		background: #dae0e6;

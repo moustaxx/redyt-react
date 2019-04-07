@@ -47,7 +47,7 @@ export const PostContent = styled.div`
 	font-size: 14px;
 	padding-top: 3px;
 	.tag {
-		background:  ${props => props.theme.mainSubforumColor};
+		background:  ${props => props.theme.subforum.primary};
 		padding: 0 4px;
 		margin-right: 5px;
 		float: left;
@@ -60,7 +60,7 @@ export const PostContent = styled.div`
 		margin-right: 8px;
 	}
 	.attachedLink {
-		color: ${props => props.theme.secondarySubforumColor};
+		color: ${props => props.theme.subforum.secondary};
 		text-decoration: none;
 	}
 	.attachedLink:hover {

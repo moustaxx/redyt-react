@@ -1,7 +1,7 @@
 import styled from 'Theme/';
 
 export const StyledLeft = styled.div`
-	background: ${props => props.theme.secondaryBgColor};
+	background: ${props => props.theme.background.secondary};
 	width: 890px;
 	height: fit-content;
 	/* border: 1px solid ${props => props.theme.borderColor}; */

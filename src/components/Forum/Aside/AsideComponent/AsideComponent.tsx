@@ -2,7 +2,7 @@ import styled from 'Theme/';
 
 const StyledAsideComponent = styled.div`
 	margin-bottom: 27px;
-	background: ${props => props.theme.secondaryBgColor};
+	background: ${props => props.theme.background.secondary};
 	overflow: hidden;
 	/* border: 1px solid ${props => props.theme.borderColor}; */
 	border-radius: 4px;
@@ -12,7 +12,7 @@ const StyledAsideComponent = styled.div`
 		font-weight: 700;
 		letter-spacing: .5px;
 		height: 36px;
-		/* background: ${props => props.theme.tertiarySubforumColor}; */
+		/* background: ${props => props.theme.subforum.tertiary}; */
 		color: white;
 		padding: 11px;
 		box-sizing: border-box;

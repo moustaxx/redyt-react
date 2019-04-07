@@ -23,7 +23,7 @@ export const StyledLoginForm = styled.div`
 	.window {
 		width: 360px;
 		min-height: 285px;
-		background: ${props => props.theme.secondaryBgColor};
+		background: ${props => props.theme.background.secondary};
 		position: fixed;
 		box-shadow: hsla(0, 0%, 0%, 0.4) 1px 7px 17px 2px;
 		animation: fadein 0.5s;

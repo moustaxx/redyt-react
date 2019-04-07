@@ -2,7 +2,7 @@ import styled from 'Theme/';
 
 export const StyledHeader = styled.div`
 	height: 80px;
-	background: ${props => props.theme.mainSubforumColor};
+	background: ${props => props.theme.subforum.primary};
 	display: flex;
 	padding: 25px 20px;
 	box-sizing: border-box;

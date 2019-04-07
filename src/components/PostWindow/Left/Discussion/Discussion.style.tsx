@@ -44,13 +44,13 @@ export const SortOptions = styled.div`
 		}
 		.slide {
 			margin-left: 10px;
-			color: ${props => props.theme.secondarySubforumColor};
+			color: ${props => props.theme.subforum.secondary};
 		}
 		svg {
 			width: 17px;
 			height: 17px;
 			margin-bottom: 1px;
-			fill: ${props => props.theme.secondarySubforumColor};
+			fill: ${props => props.theme.subforum.secondary};
 		}
 	}
 `;

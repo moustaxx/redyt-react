@@ -3,7 +3,7 @@ import styled from 'Theme/';
 const TextBox = styled.input`
 	height: 50px;
 	width: 250px;
-	background: ${props => props.theme.searchBoxBgColor};
+	background: ${props => props.theme.background.searchBox};
 	border: 1px solid transparent;
 	border-radius: 5px;
 	padding-left: 15px;
@@ -12,7 +12,7 @@ const TextBox = styled.input`
 
 	&:focus {
 	outline: 0;
-	border: 1px solid ${props => props.theme.secondarySubforumColor};
+	border: 1px solid ${props => props.theme.subforum.secondary};
 	}
 `;
 

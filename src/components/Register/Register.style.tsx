@@ -22,7 +22,7 @@ export const StyledRegister = styled.div`
 	.window {
 		width: 360px;
 		min-height: 285px;
-		background: ${props => props.theme.secondaryBgColor};
+		background: ${props => props.theme.background.secondary};
 		position: fixed;
 		box-shadow: hsla(0, 0%, 0%, 0.4) 1px 7px 17px 2px;
 		animation: fadein 0.5s;
@@ -62,14 +62,14 @@ export const Input = styled.input`
 	height: 45px;
 	width: 100%;
 	border: 1px solid transparent;
-	background: ${props => props.theme.mainBgColor};
+	background: ${props => props.theme.background.primary};
 	padding-left: 15px;
 	margin: 6px 0;
 	color: ${props => props.theme.fontColor};
 	box-sizing: border-box;
 	&:focus {
 		outline: 0;
-		border: 1px solid ${props => props.theme.secondarySubforumColor};
+		border: 1px solid ${props => props.theme.subforum.secondary};
 	}
 `;
 export const Checkbox = styled.input`

@@ -16,7 +16,7 @@ export const StyledDropDown = styled(DropDown)`
 		width: 85%;
 		height: 30px;
 		box-sizing: border-box;
-		background: ${props => props.theme.searchBoxBgColor};
+		background: ${props => props.theme.background.searchBox};
 		&:hover {
 			border-color: #0079d3;
 		}

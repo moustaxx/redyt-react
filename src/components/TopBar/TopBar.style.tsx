@@ -3,7 +3,7 @@ import styled from 'Theme/';
 import { niceButton, invertedButton } from 'Components/UI/Button/Button';
 
 export const StyledTopBar = styled.div`
-	background: ${props => props.theme.secondaryBgColor};
+	background: ${props => props.theme.background.secondary};
 	position: sticky;
 	top: 0;
 	width: 100%;
@@ -11,7 +11,7 @@ export const StyledTopBar = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-bottom: 1px solid ${props => props.theme.mainBgColor};
+	border-bottom: 1px solid ${props => props.theme.background.primary};
 	z-index: 10;
 	box-sizing: border-box;
 	padding: 0 19px;

@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: ${props => props.theme.defaultFont}, sans-serif;
 		color: ${props => props.theme.fontColor};
-		background: ${props => props.theme.mainBgColor};
+		background: ${props => props.theme.background.primary};
 		overflow: hidden;
 	}
 	a {

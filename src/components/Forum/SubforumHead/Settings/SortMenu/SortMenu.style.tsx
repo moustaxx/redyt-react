@@ -5,7 +5,7 @@ export const StyledDropDown = styled(DropDown)`
 	position: relative;
 	left: 45px;
 	width: 155px;
-	background: ${props => props.theme.secondaryBgColor};
+	background: ${props => props.theme.background.secondary};
 	li {
 		border-bottom: 1px solid ${props => props.theme.borderColor};
 		&:last-child {
@@ -33,6 +33,6 @@ export const SortButton = styled.button`
 	& > svg {
 		width: 20px;
 		height: 20px;
-		color: ${props => props.theme.secondarySubforumColor};
+		color: ${props => props.theme.subforum.secondary};
 	}
 `;

@@ -27,7 +27,7 @@ export const StyledViewAccount = styled.div`
 			}
 		}
 		.content {
-			background: ${props => props.theme.secondaryBgColor};
+			background: ${props => props.theme.background.secondary};
 			margin: 0 53px 39px 53px;
 			padding: 32px;
 			position: relative;

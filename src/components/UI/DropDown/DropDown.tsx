@@ -14,7 +14,7 @@ export const DropDown = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	background: ${props => props.theme.secondaryBgColor};
+	background: ${props => props.theme.background.secondary};
 	padding-bottom: 10px;
 	list-style-type: none;
 	.heading {
@@ -42,7 +42,7 @@ export const DropDown = styled.div`
 		}
 	}
 	a:hover, li:hover {
-		background: ${props => Color(props.theme.secondaryBgColor).lighten(0.19).string()};
+		background: ${props => Color(props.theme.background.secondary).lighten(0.19).string()};
 	}
 `;
 
