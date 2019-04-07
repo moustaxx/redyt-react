@@ -19,6 +19,7 @@ export const StyledViewAccount = styled.div`
 					display: inline;
 					font-size: 34px;
 					text-shadow: 1px 1px 7px black;
+					color: white;
 					margin: 0 30px;
 				}
 				@media screen and (max-width: 500px) {
@@ -53,6 +54,7 @@ export const Avatar = styled.div`
 	background: black;
 	font-size: 68px;
 	font-weight: 600;
+	color: white;
 
 	display: inline-flex;
 	align-items: center;

@@ -11,6 +11,7 @@ export const StyledHeader = styled.div`
 		height: 100%;
 		.voteHere {
 			padding: 0 10px;
+			color: white;
 			&::before {
 				border-left: 1px solid ${props => props.theme.iconColor};
 				margin-right: 10px;

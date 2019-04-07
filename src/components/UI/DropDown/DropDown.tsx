@@ -42,7 +42,10 @@ export const DropDown = styled.div`
 		}
 	}
 	a:hover, li:hover {
-		background: ${props => Color(props.theme.background.secondary).lighten(0.19).string()};
+		background: ${props => props.theme.lightTheme
+			? Color(props.theme.background.secondary).darken(0.05).string()
+			: Color(props.theme.background.secondary).lighten(0.19).string()
+		};
 	}
 `;
 

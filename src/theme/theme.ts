@@ -17,6 +17,7 @@ export interface IThemeInterface {
 	};
 	borderColor: string;
 	defaultFont: string;
+	lightTheme: boolean;
 }
 
 export const theme = {
@@ -37,15 +38,28 @@ export const theme = {
 		secondary: 'hsl(204, 7%, 85%)',
 	},
 	borderColor: 'hsl(0, 0%, 24%)',
-	defaultFont: 'Source Sans Pro'
+	defaultFont: 'Source Sans Pro',
+	lightTheme: false,
 };
 
 // export const theme = {
-// 	mainSubforumColor: 'hsl(200, 21%, 39%)',
-// 	secondarySubforumColor: 'hsl(206, 100%, 41%)',
-// 	tertiarySubforumColor: 'hsl(169, 44%, 36%)',
+// 	subforum: {
+// 		primary: 'hsl(200, 21%, 39%)',
+// 		secondary: 'hsl(206, 100%, 41%)',
+// 		tertiary: 'hsl(169, 44%, 36%)',
+// 	},
 // 	fontColor: 'hsl(240, 2%, 10%)',
 // 	iconColor: 'hsl(204, 2%, 54%)',
-// 	mainBgColor: 'hsl(210, 19%, 88%)',
-// 	borderColor: 'hsl(0, 0%, 80%)'
+// 	background: {
+// 		primary: 'hsl(210, 19%, 88%)',
+// 		secondary: 'hsl(0, 0%, 100%)',
+// 		searchBox: 'hsl(210, 13%, 90%)',
+// 	},
+// 	button: {
+// 		primary: 'hsl(169,44%,36%)',
+// 		secondary: 'hsl(204, 7%, 85%)',
+// 	},
+// 	borderColor: 'hsl(210, 13%, 90%)',
+// 	defaultFont: 'Source Sans Pro',
+// 	lightTheme: true,
 // };

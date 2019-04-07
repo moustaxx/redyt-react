@@ -54,4 +54,5 @@ export const Avatar = styled.div`
 	justify-content: center;
 	text-transform: uppercase;
 	font-weight: 600;
+	color: white;
 `;

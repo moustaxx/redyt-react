@@ -9,7 +9,7 @@ export const StyledDropDown = styled(DropDown)`
 		padding-left: 24px;
 	}
 	.filter {
-		color: ${props => props.theme.fontColor}
+		color: ${props => props.theme.fontColor};
 		margin: 0 auto;
 		margin-top: 5px;
 		padding-left: 8px;

@@ -10,4 +10,5 @@ export const StyledLogo = styled.div`
 export const Img = styled.img`
 	width: 107px;
 	height: 48px;
+	filter: invert(${p => p.theme.lightTheme ? 1 : 0});
 `;

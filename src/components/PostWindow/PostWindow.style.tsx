@@ -2,7 +2,7 @@ import styled from 'Theme/';
 
 export const StyledPostWindow = styled.div`
 	position: fixed;
-	background: #0000007a;
+	background: #000000de;
 	width: 100%;
 	height: 100%;
 	z-index: 9;

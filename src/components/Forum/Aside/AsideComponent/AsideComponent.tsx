@@ -12,8 +12,11 @@ const StyledAsideComponent = styled.div`
 		font-weight: 700;
 		letter-spacing: .5px;
 		height: 36px;
-		/* background: ${props => props.theme.subforum.tertiary}; */
 		color: white;
+		background: ${props => props.theme.lightTheme
+			? props.theme.subforum.tertiary
+			: 'transparent'
+		};
 		padding: 11px;
 		box-sizing: border-box;
 	}
