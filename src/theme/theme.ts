@@ -20,7 +20,7 @@ export interface IThemeInterface {
 	lightTheme: boolean;
 }
 
-export const theme = {
+export const darkTheme = {
 	subforum: {
 		primary: 'hsl(200, 21%, 39%)',
 		secondary: 'hsl(206, 100%, 41%)',
@@ -42,24 +42,24 @@ export const theme = {
 	lightTheme: false,
 };
 
-// export const theme = {
-// 	subforum: {
-// 		primary: 'hsl(200, 21%, 39%)',
-// 		secondary: 'hsl(206, 100%, 41%)',
-// 		tertiary: 'hsl(169, 44%, 36%)',
-// 	},
-// 	fontColor: 'hsl(240, 2%, 10%)',
-// 	iconColor: 'hsl(204, 2%, 54%)',
-// 	background: {
-// 		primary: 'hsl(210, 19%, 88%)',
-// 		secondary: 'hsl(0, 0%, 100%)',
-// 		searchBox: 'hsl(210, 13%, 90%)',
-// 	},
-// 	button: {
-// 		primary: 'hsl(169,44%,36%)',
-// 		secondary: 'hsl(204, 7%, 85%)',
-// 	},
-// 	borderColor: 'hsl(210, 13%, 90%)',
-// 	defaultFont: 'Source Sans Pro',
-// 	lightTheme: true,
-// };
+export const lightTheme = {
+	subforum: {
+		primary: 'hsl(200, 21%, 39%)',
+		secondary: 'hsl(206, 100%, 41%)',
+		tertiary: 'hsl(169, 44%, 36%)',
+	},
+	fontColor: 'hsl(240, 2%, 10%)',
+	iconColor: 'hsl(204, 2%, 54%)',
+	background: {
+		primary: 'hsl(210, 19%, 88%)',
+		secondary: 'hsl(0, 0%, 100%)',
+		searchBox: 'hsl(210, 13%, 90%)',
+	},
+	button: {
+		primary: 'hsl(169,44%,36%)',
+		secondary: 'hsl(204, 7%, 85%)',
+	},
+	borderColor: 'hsl(210, 13%, 90%)',
+	defaultFont: 'Source Sans Pro',
+	lightTheme: true,
+};

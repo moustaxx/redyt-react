@@ -1,5 +1,5 @@
 import * as styledComponents from 'styled-components';
-import { theme, IThemeInterface } from './theme';
+import { darkTheme, lightTheme, IThemeInterface } from './theme';
 
 const {
 	default: styled,
@@ -10,4 +10,4 @@ const {
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<IThemeInterface>;
 
 export default styled;
-export { theme, css, createGlobalStyle, keyframes, ThemeProvider };
+export { darkTheme, lightTheme, css, createGlobalStyle, keyframes, ThemeProvider };
