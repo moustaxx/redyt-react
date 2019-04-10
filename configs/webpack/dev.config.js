@@ -12,7 +12,6 @@ module.exports = merge(baseConfig, {
 		stats: 'minimal',
 		historyApiFallback: true,
 		progress: true,
-		overlay: true,
 		port: 80,
 	},
 	plugins: [
