@@ -2,20 +2,28 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const getTransformers = require('./ts-transformers.config');
-const tsconfigPath = path.resolve(__dirname, '../../tsconfig.json');
+
+const rootPath = path.resolve(__dirname, '../../');
+const srcPath = path.resolve(rootPath, 'src');
+
+const tsconfigPath = path.resolve(rootPath, 'tsconfig.json');
+const tslintPath = path.resolve(rootPath, 'tslint.json');
 
 module.exports = {
 	name: 'base',
-	entry: './index.tsx',
-	context: path.resolve(__dirname, '../../src'),
+	entry: {
+		tslib: 'tslib',
+		main: './index.tsx',
+	},
+	context: srcPath,
 	resolve: {
 		extensions: ['.mjs', '.ts', '.tsx', '.js', '.jsx'],
 		alias: {
-			Main: path.resolve(__dirname, '../../src/'),
-			Theme: path.resolve(__dirname, '../../src/theme'),
-			Components: path.resolve(__dirname, '../../src/components'),
-			Shared: path.resolve(__dirname, '../../src/components/Shared'),
-			Assets: path.resolve(__dirname, '../../src/assets')
+			Main: srcPath,
+			Theme: path.resolve(srcPath, 'theme'),
+			Components: path.resolve(srcPath, 'components'),
+			Shared: path.resolve(srcPath, 'components/Shared'),
+			Assets: path.resolve(srcPath, 'assets')
 		}
 	},
 	output: {
@@ -23,11 +31,6 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
-				test: /\.mjs$/,
-				include: /node_modules/,
-				type: 'javascript/auto',
-			},
 			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
@@ -89,10 +92,11 @@ module.exports = {
 
 		}),
 		new ForkTsCheckerWebpackPlugin({
-			checkSyntacticErrors: true,
 			async: false,
+			checkSyntacticErrors: true,
 			useTypescriptIncrementalApi: true,
-			tsconfig: tsconfigPath
+			tsconfig: tsconfigPath,
+			tslint: tslintPath
 		}),
 	]
 };

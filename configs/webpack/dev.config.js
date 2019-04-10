@@ -8,11 +8,11 @@ module.exports = merge(baseConfig, {
 	mode: 'development',
 	devtool: 'cheap-module-eval-source-map',
 	devServer: {
-		hot: true,
-		stats: 'minimal',
 		historyApiFallback: true,
+		hot: true,
 		progress: true,
 		port: 80,
+		stats: 'minimal',
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()
