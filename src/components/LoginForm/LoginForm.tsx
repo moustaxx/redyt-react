@@ -1,5 +1,5 @@
 import * as React from 'react';
-import withApollo, { WithApolloClient } from 'react-apollo/withApollo';
+import { useApolloClient } from 'react-apollo-hooks';
 import { StyledLoginForm, Heading, StyledTextBox, Button } from './LoginForm.style';
 import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
@@ -10,39 +10,30 @@ interface ILoginFormProps {
 	closeForm: () => void;
 }
 
-interface ILoginFormState {
-	usernameInput: string;
-	passwordInput: string;
-	error: boolean;
-	loading: boolean;
-	success: boolean;
-}
-
-class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILoginFormState> {
-	public state = {
-		usernameInput: '',
-		passwordInput: '',
-		error: false,
-		loading: false,
-		success: false,
+const LoginForm = (props: ILoginFormProps) => {
+	const [usernameInput, setUsernameInput] = React.useState('');
+	const [passwordInput, setPasswordInput] = React.useState('');
+	const [loading, setLoading] = React.useState(false);
+	const [success, setSuccess] = React.useState(false);
+	const [error, setError] = React.useState(false);
+	
+	const client = useApolloClient();
+	
+	const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setUsernameInput(event.target.value);
 	};
-
-	private readonly handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		this.setState({ usernameInput: event.target.value });
-	}
-	private readonly handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		this.setState({ passwordInput: event.target.value });
-	}
-	private readonly handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		console.log('Login: ' + this.state.usernameInput + ' Password: ' + this.state.passwordInput);
+	const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setPasswordInput(event.target.value);
+	};
+	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+		console.log('Login: ' + usernameInput + ' Password: ' + passwordInput);
 		event.preventDefault();
-		this.verifyLogin();
-	}
-	private readonly verifyLogin = async () => {
-		this.setState({ loading: true });
-		const name = this.state.usernameInput;
-		const password = this.state.passwordInput;
-		const { client } = this.props;
+		verifyLogin();
+	};
+	const verifyLogin = async () => {
+		setLoading(true);
+		const name = usernameInput;
+		const password = passwordInput;
 		try {
 			const res = await client.query<ILoginRes>({
 				query: VERIFY_LOGIN,
@@ -51,41 +42,40 @@ class LoginForm extends React.Component<WithApolloClient<ILoginFormProps>, ILogi
 				errorPolicy: 'all'
 			});
 			if (res.errors) throw res.errors;
-			this.setState({ success: true });
+			setSuccess(true);
 			setTimeout(() => {
 				location.reload();
 			}, 200);
 		} catch (err) {
-			this.setState({ error: true });
+			setError(true);
 			console.error('Login error! Wrong username or password!');
 		} finally {
-			this.setState({ loading: false });
+			setLoading(false);
 		}
-	}
-	public render() {
-		return (
-			<StyledLoginForm onClick={() => this.props.closeForm()}>
-				<div className='window' onClick={e => e.stopPropagation()}>
-					<div className='xButton' onClick={() => this.props.closeForm()}><XButton /></div>
-					<div className='content'>
-						<Heading>Log in</Heading>
-						{!this.state.loading && !this.state.success ?
-							<form onSubmit={this.handleSubmit}>
-								{ this.state.error ? <span className='error'>Wrong username or password!</span> : null }
-								<StyledTextBox
-									value={this.state.usernameInput} onChange={this.handleUsernameChange}
-									type='text' placeholder='Username' required autoComplete='username' />
-								<StyledTextBox
-									value={this.state.passwordInput} onChange={this.handlePasswordChange}
-									type='password' placeholder='Password' required autoComplete='password' />
-								<Button>Log in</Button>
-							</form>
-						: null}
-						{this.state.loading ? <LoadingAnim /> : null}
-					</div>
+	};
+
+	return (
+		<StyledLoginForm onClick={() => props.closeForm()}>
+			<div className='window' onClick={e => e.stopPropagation()}>
+				<div className='xButton' onClick={() => props.closeForm()}><XButton /></div>
+				<div className='content'>
+					<Heading>Log in</Heading>
+					{!loading && !success ?
+						<form onSubmit={handleSubmit}>
+							{ error ? <span className='error'>Wrong username or password!</span> : null }
+							<StyledTextBox
+								value={usernameInput} onChange={handleUsernameChange}
+								type='text' placeholder='Username' required autoComplete='username' />
+							<StyledTextBox
+								value={passwordInput} onChange={handlePasswordChange}
+								type='password' placeholder='Password' required autoComplete='password' />
+							<Button>Log in</Button>
+						</form>
+					: null}
+					{loading ? <LoadingAnim /> : null}
 				</div>
-			</StyledLoginForm>
-		);
-	}
-}
-export default withApollo(LoginForm);
+			</div>
+		</StyledLoginForm>
+	);
+};
+export default LoginForm;
