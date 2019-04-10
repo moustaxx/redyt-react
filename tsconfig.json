@@ -1,39 +1,32 @@
 {
 	"compilerOptions": {
-		"target": "es5",
-		"plugins": [{ "name": "typescript-styled-plugin" }],
-		"module": "esnext",
+		"allowJs": true,
+		"alwaysStrict": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "src",
+		"checkJs": true,
+		"downlevelIteration": true,
+		"importHelpers": true,
 		"jsx": "react",
 		"lib": ["esnext", "dom"],
-		"allowJs": true,
-		"checkJs": true,
-		"outDir": "./dist/",
-		"removeComments": true,
-		"downlevelIteration": true,
-		"strict": true,
-		"alwaysStrict": true,
-		"noImplicitAny": true,
-		"noImplicitThis": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
-		"sourceMap": true,
-		"skipLibCheck": true,
+		"module": "esnext",
 		"moduleResolution": "node",
-		"baseUrl": "src",
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		"outDir": "./dist/",
 		"paths": {
 			"Components/*": ["components/*"],
 			"Theme": ["theme/*"],
 			"Assets/*": ["assets/*"]
 		},
-		"typeRoots": [
-			"/src/typings"
-		]
+		"plugins": [{ "name": "typescript-styled-plugin" }],
+		"removeComments": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"target": "es5"
 	},
-	"include": [
-		"src/**/*"
-	],
-	"exclude": [
-		"node_modules"
-	]
+	"exclude": [ "node_modules", "dist"],
+	"include": [ "src/**/*" ]
 }
