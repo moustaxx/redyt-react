@@ -1,5 +1,5 @@
 import * as React from 'react';
-import withApollo, { WithApolloClient } from 'react-apollo/withApollo';
+import { useMutation } from 'react-apollo-hooks';
 
 import { StyledRegister, Heading, Button, Input, Checkbox, Agreement } from './Register.style';
 import { IRegisterRes, CREATE_USER } from './Register.apollo';
@@ -10,126 +10,87 @@ interface IRegisterFormProps {
 	closeForm: () => void;
 }
 
-interface IRegisterFormState {
-	user: {
-		name: string;
-		password: string;
-		confirmPassword: string;
-	};
-	loading: boolean;
-	success: boolean;
-	passwordsNotIdentical: boolean;
-	GQLErrors: IGQLErrors;
-}
-interface IGQLErrors {
-	[index: number]: Error;
-}
+const Register = (props: IRegisterFormProps) => {
+	const [user, setUser] = React.useState({
+		name: '',
+		password: '',
+		confirmPassword: '',
+		email: '',
+	});
 
-class Register extends React.Component<WithApolloClient<IRegisterFormProps>, IRegisterFormState> {
-	public state = {
-		user: {
-			name: '',
-			password: '',
-			confirmPassword: '',
-			email: ''
-		},
-		loading: false,
-		success: false,
-		passwordsNotIdentical: false,
-		GQLErrors: [{name: '', message: ''}]
-	};
+	const [loading, setLoading] = React.useState(false);
+	const [success, setSuccess] = React.useState(false);
+	const [GQLErrors, setGQLErrors] = React.useState<Error | null>(null);
+	const [passwordsNotIdentical, setPasswordsNotIdentical] = React.useState(false);
 
-	private readonly handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
-		const { user } = this.state;
-		this.setState({
-			user: {
-				...user,
-				[name]: value
-			}
+		setUser({
+			...user,
+			[name]: value
 		});
-	}
+	};
 
-	private readonly handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		this.setState({ passwordsNotIdentical: false });
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		if (this.isPasswordsIdentical()) {
-			console.log('Username: ' + this.state.user.name + ' Password: ' + this.state.user.password);
-			this.createUser();
-		} else return false;
-	}
-
-	private readonly isPasswordsIdentical = () => {
-		if (this.state.user.password === this.state.user.confirmPassword) return true;
-		else {
-			this.setState({ passwordsNotIdentical: true });
-			return false;
-		}
-	}
-
-	private readonly createUser = async () => {
-		this.setState({ loading: true });
-		const { name, password, email} = this.state.user;
-		const { client } = this.props;
-		try {
-			const res = await client.mutate<IRegisterRes>({
-				mutation: CREATE_USER,
-				fetchPolicy: 'no-cache',
-				variables: { name, password, email },
-				errorPolicy: 'all'
-			});
-			if (res.errors) {
-				this.setState({ GQLErrors: res.errors as any });
-				throw res.errors;
-			}
-
-			this.setState({ success: true });
+		setGQLErrors(null);
+		setPasswordsNotIdentical(false);
+		if (!isPasswordsIdentical()) return setPasswordsNotIdentical(true);
+		setLoading(true);
+		const res = await createUser().catch( (err: Error) => setGQLErrors(err));
+		console.log('res:', res);
+		setLoading(false);
+		if (res) {
+			setSuccess(true);
 			location.reload();
-		} catch (err) {
-			console.error('Login error!', this.state.GQLErrors);
-		} finally {
-			this.setState({ loading: false });
 		}
-	}
+	};
 
-	public render() {
-		const { user, loading, success, passwordsNotIdentical, GQLErrors } = this.state;
-		return (
-			<StyledRegister onClick={() => this.props.closeForm()}>
-				<div className='window' onClick={e => e.stopPropagation()}>
-					<div className='xButton' onClick={() => this.props.closeForm()}><XButton /></div>
-					<div className='content'>
-						<Heading>Create account</Heading>
-						{!loading && !success ?
-							<form onSubmit={this.handleSubmit}>
-								{GQLErrors ?
-									GQLErrors.map((err, index) => <div key={index} className='error'>{err.message}</div>)
-								: null }
-								{passwordsNotIdentical ?
-									<div className='error'>Passwords are not identical!</div> : null }
-								<Input
-									value={user.name} onChange={this.handleChange} required
-									type='text' name='name' placeholder='Username' autoComplete='username' />
-								<Input
-									value={user.email} onChange={this.handleChange} required
-									type='text' name='email' placeholder='Email' autoComplete='email' />
-								<Input
-									value={user.password} onChange={this.handleChange} required
-									type='password' name='password' placeholder='Password' autoComplete='password' />
-								<Input
-									value={user.confirmPassword} onChange={this.handleChange} required
-									type='password' name='confirmPassword' placeholder='Confirm password' autoComplete='confirm-pass' />
-								<Checkbox type='checkbox' required/>
-								<Agreement>I accept Terms of Use & Privacy Policy.</Agreement>
-								<Button>Sign up</Button>
-							</form>
-						: null}
-						{loading ? <LoadingAnim /> : null}
-					</div>
+	const isPasswordsIdentical = () => {
+		if (user.password === user.confirmPassword) return true;
+		return false;
+	};
+
+	const createUser = useMutation<IRegisterRes>(CREATE_USER, {
+		variables: { name: user.name, password: user.password, email: user.email },
+	});
+
+	return (
+		<StyledRegister onClick={() => props.closeForm()}>
+			<div className='window' onClick={e => e.stopPropagation()}>
+				<div className='xButton' onClick={() => props.closeForm()}><XButton /></div>
+				<div className='content'>
+					<Heading>Create account</Heading>
+					{!loading && !success ?
+						<form onSubmit={handleSubmit}>
+							{GQLErrors ?
+								<div className='error'>{GQLErrors.message}</div>
+							: null }
+							{passwordsNotIdentical ?
+								<div className='error'>Passwords are not identical!</div> : null }
+							<Input
+								value={user.name} onChange={handleChange} required
+								type='text' name='name' placeholder='Username' autoComplete='username' />
+							<Input
+								value={user.email} onChange={handleChange} required
+								type='text' name='email' placeholder='Email' autoComplete='email' />
+							<Input
+								value={user.password} onChange={handleChange} required
+								type='password' name='password' placeholder='Password' autoComplete='password' />
+							<Input
+								value={user.confirmPassword} onChange={handleChange} required
+								type='password' name='confirmPassword' placeholder='Confirm password' autoComplete='confirm-pass' />
+							<Checkbox type='checkbox' required/>
+							<Agreement>I accept Terms of Use & Privacy Policy.</Agreement>
+							<Button>Sign up</Button>
+						</form>
+					: null}
+					{loading ? <LoadingAnim /> : null}
 				</div>
-			</StyledRegister>
-		);
-	}
-}
+			</div>
+		</StyledRegister>
+	);
+};
 
-export default withApollo(Register);
+export default Register;
