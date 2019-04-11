@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { CommentFragment, IComment } from '../../PostWindow.apollo';
 
 export const GET_SESSION_OWNER = gql`
 	query {
@@ -22,14 +23,13 @@ export interface IUserRes {
 }
 
 export const CREATE_POST = gql`
-	mutation($content: String! $postID: ID!) {
+	mutation createComment($content: String! $postID: ID!) {
 		createComment(content: $content postID: $postID) {
-			author {
-				name
-				id
-			}
-			content
+			...Comment
 		}
 	}
+	${CommentFragment}
 `;
-
+export interface ICreateComment {
+	createComment: IComment;
+}

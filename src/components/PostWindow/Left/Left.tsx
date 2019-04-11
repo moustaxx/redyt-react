@@ -11,7 +11,7 @@ interface ILeftProps {
 }
 
 const Left = (props: ILeftProps) => {
-		const { title, author, content, commentCounter, createdAt, subforum, id } = props.post;
+		const { title, author, content, commentCounter, createdAt, subforum, comments } = props.post;
 		const date = new Date(createdAt).toLocaleString();
 		return (
 			<StyledLeft>
@@ -36,7 +36,7 @@ const Left = (props: ILeftProps) => {
 						</PostToolbar>
 					</Interior>
 				</div>
-				<Discussion postID={id}/>
+				<Discussion comments={comments}/>
 			</StyledLeft>
 		);
 };

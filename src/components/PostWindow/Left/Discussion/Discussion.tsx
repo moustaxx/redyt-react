@@ -1,26 +1,20 @@
 import * as React from 'react';
-import { useQuery } from 'react-apollo-hooks';
 import { MdArrowDropDown } from 'react-icons/md';
 
-import { StyledDiscussion, SortOptions, CommentError } from './Discussion.style';
-import { IGetCommentsByPostRes, GET_COMMENTS } from './Discussion.apollo';
+import { IComment } from 'Components/PostWindow/PostWindow.apollo';
+import { StyledDiscussion, SortOptions } from './Discussion.style';
 import Comment from './Comment';
-import LoadingSpinner from 'Components/UI/LoadingSpinner/LoadingSpinner';
 import AddComment from './AddComment';
 
 interface IDiscussionProps {
-	postID: string;
+	comments: IComment[];
 }
 
-const Discussion = ({ postID }: IDiscussionProps) => {
-	const { data, loading, error } = useQuery<IGetCommentsByPostRes>(GET_COMMENTS, { variables: { postID } });
-	if (loading) return <LoadingSpinner />;
-	if (error) return <CommentError>Error! Could not show comments!</CommentError>;
-	if (!data) return null;
+const Discussion = ({ comments }: IDiscussionProps) => {
 	return (
 		<StyledDiscussion>
 			<AddComment />
-			{data.getCommentsByPost.length ?
+			{comments.length ?
 				<SortOptions>
 					<button className='sort' id='sortButton'>
 						<span>Sort</span>
@@ -31,8 +25,8 @@ const Discussion = ({ postID }: IDiscussionProps) => {
 				</SortOptions>
 			: null}
 			<div className='comments'>
-				{data.getCommentsByPost.map(({ id, content, author, createdAt }) =>
-					<Comment key={id} data={{ id, content, author, createdAt}} />
+				{comments.map(comment =>
+					<Comment key={comment.id} data={comment} />
 				)}
 			</div>
 		</StyledDiscussion>
