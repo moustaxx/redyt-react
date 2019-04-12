@@ -5,7 +5,9 @@ import { BatchHttpLink } from 'apollo-link-batch-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 const client = new ApolloClient({
-	cache: new InMemoryCache(),
+	cache: new InMemoryCache({
+		dataIdFromObject: (object: any) => object.id,
+	}),
 	link: ApolloLink.from([
 		onError(({ graphQLErrors, networkError }) => {
 			if (graphQLErrors)
