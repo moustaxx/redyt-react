@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { ISubforum } from 'Components/Forum/Forum.apollo';
 
 export const CommentFragment = gql`
-	fragment Comment on Comment {
+	fragment CommentFragment on Comment {
 		id
 		content
 		author {
@@ -12,29 +12,35 @@ export const CommentFragment = gql`
 		createdAt
 	}
 `;
+export const PostFragment = gql`
+	fragment PostFragment on Post {
+		id
+		title
+		author {
+			id
+			name
+		}
+		content
+		commentCounter
+		createdAt
+		subforum {
+			name
+			description
+		}
+		comments {
+			...CommentFragment
+		}
+	}
+	${CommentFragment}
+`;
 
 export const GET_POST = gql`
 	query($postID: ID!) {
 		getPostByID( id: $postID ){
-			id
-			title
-			author {
-				id
-				name
-			}
-			content
-			commentCounter
-			createdAt
-			subforum {
-				name
-				description
-			}
-			comments {
-				...Comment
-			}
+			...PostFragment
 		}
 	}
-	${CommentFragment}
+	${PostFragment}
 `;
 
 export interface IWindowPost {

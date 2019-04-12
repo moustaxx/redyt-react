@@ -22,10 +22,10 @@ export interface IUserRes {
 	getSessionOwner: IUser;
 }
 
-export const CREATE_POST = gql`
+export const CREATE_COMMENT = gql`
 	mutation createComment($content: String! $postID: ID!) {
 		createComment(content: $content postID: $postID) {
-			...Comment
+			...CommentFragment
 		}
 	}
 	${CommentFragment}
