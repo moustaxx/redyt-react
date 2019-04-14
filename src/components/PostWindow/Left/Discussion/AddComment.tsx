@@ -15,6 +15,8 @@ const AddComment = (props: IAddCommentProps) => {
 
 	const { data, loading, error } = useQuery<IUserRes>(GET_SESSION_OWNER);
 
+	const name = data && data.getSessionOwner ? data.getSessionOwner.name : null;
+
 	const createCommentMutation = useMutation<ICreateComment>(CREATE_COMMENT, {
 		variables: { content, postID },
 		optimisticResponse: {
@@ -24,7 +26,7 @@ const AddComment = (props: IAddCommentProps) => {
 				author: {
 					__typename: 'User',
 					id: new Date().toISOString(),
-					name: data!.getSessionOwner.name
+					name
 				},
 				content,
 				createdAt: new Date().toISOString(),
@@ -59,7 +61,6 @@ const AddComment = (props: IAddCommentProps) => {
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		console.log(content);
 		createCommentMutation();
 	};
 
