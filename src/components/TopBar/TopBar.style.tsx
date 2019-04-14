@@ -14,7 +14,6 @@ export const StyledTopBar = styled.div`
 	border-bottom: 1px solid ${props => props.theme.background.primary};
 	z-index: 10;
 	box-sizing: border-box;
-	padding: 0 19px;
 `;
 
 export const Button = styled(niceButton)`
