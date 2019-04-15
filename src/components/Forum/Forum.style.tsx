@@ -7,9 +7,6 @@ export const StyledForum = styled.div`
 	width: 100%;
 	height: calc(100vh - 50px);
 	overflow: auto;
-	@media screen and (max-width: 800px) {
-		margin: 25px 0;
-	}
 	.content {
 		display: inline-flex;
 		margin: 5px 8px;
