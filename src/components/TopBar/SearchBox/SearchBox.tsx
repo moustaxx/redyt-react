@@ -1,12 +1,17 @@
 import * as React from 'react';
-import { Form, StyledTextBox } from './SearchBox.style';
 import { MdSearch } from 'react-icons/md';
 
-const SearchBox = () => (
-	<Form>
-		<MdSearch />
-		<StyledTextBox type='text' placeholder='Search' aria-label='Search' />
-	</Form>
-);
+import searchboxStyles from './SearchBox.style';
+import TextBox from 'Components/UI/TextBox/TextBox';
+
+const SearchBox = () => {
+	const classes = searchboxStyles();
+	return (
+		<form className={classes.root}>
+			<MdSearch />
+			<TextBox className={classes.txtbx} type='text' placeholder='Search' aria-label='Search' />
+		</form>
+	);
+};
 
 export default SearchBox;

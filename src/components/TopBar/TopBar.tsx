@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Portal } from 'react-portal';
+import { withStyles } from '@material-ui/styles';
 
-import { StyledTopBar, Button, Button2 } from './TopBar.style';
+import topBarStyles, { TTopBarStyles } from './TopBar.style';
+import Button from '../UI/Button/Button';
 
 const LoginForm = React.lazy(() => import('Components/LoginForm/LoginForm'));
 const Register = React.lazy(() => import('Components/Register/Register'));
@@ -9,11 +11,11 @@ const Register = React.lazy(() => import('Components/Register/Register'));
 import Logo from './Logo/Logo';
 import SearchBox from './SearchBox/SearchBox';
 import Navigation from './Navigation/Navigation';
-import UserArea from './UserArea/UserArea';
 import { LoginStatusContext } from 'Components/App';
+import UserArea from './UserArea/UserArea';
 
 // tslint:disable-next-line:no-empty-interface
-interface ITopBarProps { }
+interface ITopBarProps extends TTopBarStyles { }
 
 interface ITopBarState {
 	isLoginFormOpen: boolean;
@@ -31,8 +33,10 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 	}
 
 	public render() {
+		const { classes } = this.props;
+
 		return (
-			<StyledTopBar>
+			<div className={classes.root}>
 				<LoginStatusContext.Consumer>{loginStatus => (
 					<>
 						<Logo />
@@ -40,12 +44,12 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 						<SearchBox />
 						{loginStatus === true ? <UserArea /> : (
 							<React.Suspense fallback={null}>
-								<Button onClick={() => this.setState(() => ({ isLoginFormOpen: true }))}>
+								<Button className={classes.btn} onClick={() => this.setState(() => ({ isLoginFormOpen: true }))}>
 									Log in
 								</Button>
-								<Button2 onClick={() => this.setState(() => ({ isRegisterOpen: true }))}>
+								<Button secondary className={classes.btn} onClick={() => this.setState(() => ({ isRegisterOpen: true }))}>
 									Sign up
-								</Button2>
+								</Button>
 								{this.state.isLoginFormOpen ?
 									<Portal>
 										<LoginForm closeForm={this.closeForm} />
@@ -60,8 +64,8 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 						)}
 					</>
 				)}</LoginStatusContext.Consumer>
-			</StyledTopBar>
+			</div>
 		);
 	}
 }
-export default TopBar;
+export default withStyles(topBarStyles)(TopBar);

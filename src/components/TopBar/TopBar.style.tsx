@@ -1,40 +1,33 @@
-import styled from 'Theme/';
+import { createStyles, WithStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/theme';
 
-import { niceButton, invertedButton } from 'Components/UI/Button/Button';
+const topBarStyles = ({ background, button }: IThemeInterface) => createStyles({
+	root: {
+		background: background.secondary,
+		position: 'sticky',
+		top: 0,
+		width: '100%',
+		height: 50,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderBottom: `1px solid ${background.primary}`,
+		zIndex: 10,
+		boxSizing: 'border-box',
+	},
+	btn: {
+		width: 120,
+		flexShrink: 0,
+		margin: '0 5px',
+		'@media screen and (max-width: 800px)': {
+			width: 40,
+		},
+		'@media screen and (max-width: 550px)': {
+			display: 'none',
+		}
+	}
+});
 
-export const StyledTopBar = styled.div`
-	background: ${props => props.theme.background.secondary};
-	position: sticky;
-	top: 0;
-	width: 100%;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-bottom: 1px solid ${props => props.theme.background.primary};
-	z-index: 10;
-	box-sizing: border-box;
-`;
+export type TTopBarStyles = WithStyles<typeof topBarStyles>;
 
-export const Button = styled(niceButton)`
-	width: 120px;
-	margin: 0 5px;
-	flex-shrink: 0;
-	@media screen and (max-width: 800px) {
-		width: 70px;
-	}
-	@media screen and (max-width: 550px) {
-		display: none;
-	}
-`;
-export const Button2 = styled(invertedButton)`
-	width: 120px;
-	margin: 0 5px;
-	flex-shrink: 0;
-	@media screen and (max-width: 800px) {
-		width: 70px;
-	}
-	@media screen and (max-width: 550px) {
-		display: none;
-	}
-`;
+export default topBarStyles;

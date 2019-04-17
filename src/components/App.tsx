@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { Route, Redirect } from 'react-router';
-import { Switch } from 'react-router-dom';
+// import { Route, Redirect } from 'react-router';
+// import { Switch } from 'react-router-dom';
 import { parse as parseCookie } from 'cookie';
 
 const TopBar = React.lazy(() => import('./TopBar/TopBar'));
 
 import MyRouter from './RouterUtils/RouterUtils';
-import Error from './Error/Error';
-import Forum from './Forum/Forum';
-import PostWindow from './PostWindow/PostWindow';
-import LoginForm from './LoginForm/LoginForm';
-import ViewAccount from './ViewAccount/ViewAccount';
+// import Error from './Error/Error';
+// import Forum from './Forum/Forum';
+// import PostWindow from './PostWindow/PostWindow';
+// import LoginForm from './LoginForm/LoginForm';
+// import ViewAccount from './ViewAccount/ViewAccount';
 
 const checkLoginStatus = () => {
 	if (!document.cookie) return false;
@@ -28,14 +28,14 @@ const App = () => {
 					<React.Suspense fallback={null}>
 						<TopBar />
 					</React.Suspense>
-					<Switch>
+					{/* <Switch>
 						<Redirect exact from='/' to='/r/Popular' />
 						<Route component={PostWindow} path='/r/:subforumName/:postID' />
 						<Route component={Forum} path='/r/:subforumName' />
 						<Route component={ViewAccount} path='/user/:userName' />
 						<Route component={LoginForm} path='/login' />
 						<Route component={Error} />
-					</Switch>
+					</Switch> */}
 				</div>
 			</LoginStatusContext.Provider>
 		}</MyRouter>

@@ -1,17 +1,19 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { MdAccountBox, MdSettings, MdWbSunny, MdPowerSettingsNew } from 'react-icons/md';
-import { StyledDropDown } from './UserDropDown.style';
+import dropDownStyles from './UserDropDown.style';
 import { SetThemeContext } from '../../../../index';
+import DropDown from 'Components/UI/DropDown/DropDown';
 
 interface IUserDropDown {
 	username: string;
 }
 
 const UserDropDown = ({ username }: IUserDropDown) => {
+	const classes = dropDownStyles();
 	return (
-		<StyledDropDown>
-			<div className='heading'>Me</div>
+		<DropDown className={classes.root}>
+			<div className={classes.heading}>Me</div>
 			<Link to={'/user/' + username}>
 				<MdAccountBox />
 				<span>My profile</span>
@@ -21,7 +23,7 @@ const UserDropDown = ({ username }: IUserDropDown) => {
 				<span>User Settings</span>
 			</Link>
 
-			<div className='heading'>View settings</div>
+			<div className={classes.heading}>View settings</div>
 			<SetThemeContext.Consumer>
 				{setTheme => (
 					<a onClick={() => setTheme()}>
@@ -35,7 +37,7 @@ const UserDropDown = ({ username }: IUserDropDown) => {
 				<span>Log out</span>
 			</Link>
 
-		</StyledDropDown>
+		</DropDown>
 	);
 };
 

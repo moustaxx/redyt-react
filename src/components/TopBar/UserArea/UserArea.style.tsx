@@ -1,58 +1,61 @@
-import styled from 'Theme/';
-
-export const StyledUserArea = styled.div`
-	flex-shrink: 0;
-	max-width: 150px;
-	height: 34px;
-	border-radius: 4px;
-	font-size: 15px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	box-sizing: border-box;
-	border: 1px solid transparent;
-	padding: 0 10px;
-	user-select: none;
-	cursor: pointer;
-	& > span {
-		overflow: hidden;
-	}
-	& > svg {
-		flex-shrink: 0;
-		color: ${props => props.theme.iconColor};
-		width: 20px;
-		height: 20px;
-	}
-	& > * {
-		display: inline;
-		vertical-align: middle;
-	}
-
-	&:hover {
-		border-color: ${props => props.theme.borderColor};
-	}
-	&:active {
-		border-color: ${props => props.theme.borderColor};
-	}
-`;
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/';
 
 const avilableColors = new Array('#000000', '#0fa21c', '#3300ff', '#984527');
 const randomColor = () => {
 	return avilableColors[Math.floor((Math.random() * avilableColors.length))];
 };
 
-export const Avatar = styled.div`
-	flex-shrink: 0;
-	width: 26px;
-	height: 26px;
-	margin-right: 5px;
-	border-radius: 50%;
-	background: ${randomColor};
+const userAreaStyles = makeStyles((theme: IThemeInterface) => ({
+	root: {
+		flexShrink: 0,
+		maxWidth: 150,
+		height: 34,
+		borderRadius: 4,
+		fontSize: 15,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		boxSizing: 'border-box',
+		border: '1px solid transparent',
+		padding: '0 10px',
+		userSelect: 'none',
+		cursor: 'pointer',
+		'& > span': {
+			overflow: 'hidden',
+		},
+		'& > svg': {
+			flexShrink: 0,
+			color: theme.iconColor,
+			width: 20,
+			height: 20,
+		},
+		'& > *': {
+			display: 'inline',
+			verticalAlign: 'middle',
+		},
+		'&:hover': {
+			borderColor: theme.borderColor,
+		},
+		'&:active': {
+			borderColor: theme.borderColor,
+		},
+	},
+	avatar: {
+		flexShrink: 0,
+		width: 26,
+		height: 26,
+		marginRight: 5,
+		borderRadius: '50%',
+		background: randomColor(),
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-transform: uppercase;
-	font-weight: 600;
-	color: white;
-`;
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		textTransform: 'uppercase',
+		fontWeight: 600,
+		color: 'white',
+	},
+}), { name: 'UserArea'});
+
+export default userAreaStyles;

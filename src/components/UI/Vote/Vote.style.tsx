@@ -1,28 +1,38 @@
-import styled from 'Theme/';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/';
 
-export const StyledVote = styled.div`
-	display: flex;
-	padding: 0 5px;
-	& > svg {
-		height: 16px;
-		width: 16px;
+const  voteStyles = makeStyles((theme: IThemeInterface) => ({
+	root: {
+		display: 'flex',
+		padding: '0 5px',
+		'& > svg': {
+			height: 16,
+			width: 16,
+		},
+		'@media screen and (max-width: 500px)': {
+			display: 'none',
+		}
+	},
+	voteDown: {
+		'&:hover': {
+			color: 'red',
+		},
+	},
+	voteUp: {
+		'&:hover': {
+			color: 'dodgerblue',
+		},
+	},
+	voted: {
+		color: 'green',
+	},
+	voteSummary: {
+		width: 34,
+		textAlign: 'center',
+		fontWeight: 600,
+		fontSize: 13,
+		cursor: 'default',
 	}
-	.voteDown:hover {
-		color: dodgerblue;
-	}
-	.voteUp:hover {
-		color: red;
-	}
+}), { name: 'Vote'});
 
-	@media screen and (max-width: 500px) {
-		display: none;
-	}
-`;
-
-export const VoteSummary = styled.div`
-	width: 34px;
-	text-align: center;
-	font-weight: 600;
-	font-size: 13px;
-	cursor: default;
-`;
+export default  voteStyles;

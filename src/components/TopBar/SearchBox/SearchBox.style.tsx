@@ -1,24 +1,29 @@
-import styled from 'Theme/';
-import TextBox from 'Components/UI/TextBox/TextBox';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/theme';
 
-export const Form = styled.form`
-	height: 70%;
-	width: 100%;
-	margin: 0 5px;
-	position: relative;
-	display: inline-flex;
-	align-items: center;
+const searchboxStyles = makeStyles(({ themeType }: IThemeInterface) => ({
+	root: {
+		height: '70%',
+		width: '100%',
+		margin: '0 5px',
+		position: 'relative',
+		display: 'inline-flex',
+		alignItems: 'center',
 
-	& > svg {
-		position: absolute;
-		left: 7px;
-		width: 21px;
-		height: 21px;
+		'& > svg': {
+			position: 'absolute',
+			left: 7,
+			width: 21,
+			height: 21,
+		}
+	},
+	txtbx: {
+		'body &': { // HACK: Fix css injection order bug
+			height: '100%',
+			width: '100%',
+			paddingLeft: 32,
+		}
 	}
-`;
+}), { name: 'Searchbox' });
 
-export const StyledTextBox = styled(TextBox)`
-	height: 100%;
-	width: 100%;
-	padding-left: 32px;
-`;
+export default searchboxStyles;

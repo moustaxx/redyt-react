@@ -1,17 +1,19 @@
+import * as React from 'react';
 import { FaSpinner } from 'react-icons/fa';
-import styled from 'Theme/';
+import { IconBaseProps } from 'react-icons/lib/cjs';
+import loadingSpinnerStyles from './LoadingSpinner.style';
 
-const LoadingSpinner = styled(FaSpinner)`
-	color: ${props => props.theme.fontColor};
-	position: relative;
-	left: 49%;
-	padding: 70px 0;
-	height: 50px;
-	width: 50px;
-	animation: spin 2s infinite linear;
-	@keyframes spin {
-		from {transform:rotate(0deg);}
-		to {transform:rotate(360deg);}
-	}
-`;
+const LoadingSpinner = ({ className, ...props }: IconBaseProps) => {
+	const classes = loadingSpinnerStyles();
+	return (
+		<FaSpinner
+			className={
+				classes.root +
+				(className ? (' ' + className) : '')
+			}
+			{...props}
+		/>
+	);
+};
+
 export default LoadingSpinner;

@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { useApolloClient } from 'react-apollo-hooks';
-import { StyledLoginForm, Heading, StyledTextBox, Button } from './LoginForm.style';
+// import { StyledLoginForm, Heading, StyledTextBox, Button } from './LoginForm.style';
 import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 import XButton from 'Components/UI/Svgs/XButton';
+import loginFormStyles from './LoginForm.style';
+import TextBox from 'Components/UI/TextBox/TextBox';
+import Button from 'Components/UI/Button/Button';
 
 interface ILoginFormProps {
 	closeForm: () => void;
@@ -54,28 +57,30 @@ const LoginForm = (props: ILoginFormProps) => {
 		}
 	};
 
+	const classes = loginFormStyles();
+
 	return (
-		<StyledLoginForm onClick={() => props.closeForm()}>
-			<div className='window' onClick={e => e.stopPropagation()}>
-				<div className='xButton' onClick={() => props.closeForm()}><XButton /></div>
-				<div className='content'>
-					<Heading>Log in</Heading>
+		<div className={classes.root} onClick={() => props.closeForm()}>
+			<div className={classes.window} onClick={e => e.stopPropagation()}>
+				<div className={classes.xButton} onClick={() => props.closeForm()}><XButton /></div>
+				<div className={classes.content}>
+					<div className={classes.heading}>Log in</div>
 					{!loading && !success ?
 						<form onSubmit={handleSubmit}>
-							{ error ? <span className='error'>Wrong username or password!</span> : null }
-							<StyledTextBox
+							{error ? <span className={classes.error}>Wrong username or password!</span> : null }
+							<TextBox className={classes.textbox}
 								value={usernameInput} onChange={handleUsernameChange}
 								type='text' placeholder='Username' required autoComplete='username' />
-							<StyledTextBox
+							<TextBox className={classes.textbox}
 								value={passwordInput} onChange={handlePasswordChange}
 								type='password' placeholder='Password' required autoComplete='password' />
-							<Button>Log in</Button>
+							<Button className={classes.btn}>Log in</Button>
 						</form>
 					: null}
 					{loading ? <LoadingAnim /> : null}
 				</div>
 			</div>
-		</StyledLoginForm>
+		</div>
 	);
 };
 export default LoginForm;

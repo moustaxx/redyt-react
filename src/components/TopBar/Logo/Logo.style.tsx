@@ -1,14 +1,18 @@
-import styled from 'Theme/';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/theme';
 
-export const StyledLogo = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 8px;
-`;
+const logoStyles = makeStyles(({themeType}: IThemeInterface) => ({
+	root: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		margin: '0 8px',
+	},
+	img: {
+		width: 107,
+		height: 48,
+		filter: `invert(${themeType === 'light' ? 1 : 0})`
+	}
+}), { name: 'Logo' });
 
-export const Img = styled.img`
-	width: 107px;
-	height: 48px;
-	filter: invert(${p => p.theme.lightTheme ? 1 : 0});
-`;
+export default logoStyles;

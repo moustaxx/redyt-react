@@ -1,4 +1,5 @@
 export interface IThemeInterface {
+	themeType: 'light' | 'dark';
 	subforum: {
 		primary: string;
 		secondary: string;
@@ -20,7 +21,8 @@ export interface IThemeInterface {
 	lightTheme: boolean;
 }
 
-export const darkTheme = {
+export const darkTheme: IThemeInterface = {
+	themeType: 'dark',
 	subforum: {
 		primary: 'hsl(200, 21%, 39%)',
 		secondary: 'hsl(206, 100%, 41%)',
@@ -42,7 +44,8 @@ export const darkTheme = {
 	lightTheme: false,
 };
 
-export const lightTheme = {
+export const lightTheme: IThemeInterface = {
+	themeType: 'light',
 	subforum: {
 		primary: 'hsl(200, 21%, 39%)',
 		secondary: 'hsl(206, 100%, 41%)',
