@@ -11,10 +11,7 @@ const tslintPath = path.resolve(rootPath, 'tslint.json');
 
 module.exports = {
 	name: 'base',
-	entry: {
-		tslib: 'tslib',
-		main: './index.tsx',
-	},
+	entry: './index.tsx',
 	context: srcPath,
 	resolve: {
 		extensions: ['.mjs', '.ts', '.tsx', '.js', '.jsx'],
