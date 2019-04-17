@@ -17,7 +17,6 @@
 		"@types/react-portal": "^4.0.2",
 		"@types/react-router": "^4.4.5",
 		"@types/react-router-dom": "^4.3.2",
-		"@types/styled-components": "^4.1.14",
 		"cache-loader": "^2.0.1",
 		"clean-webpack-plugin": "^2.0.1",
 		"color": "^3.1.0",
@@ -29,7 +28,6 @@
 		"img-loader": "^3.0.1",
 		"react-hot-loader": "4.8.3",
 		"style-loader": "^0.23.1",
-		"styled-components": "^4.2.0",
 		"stylelint": "^10.0.0",
 		"stylelint-config-recommended": "^2.2.0",
 		"stylelint-config-styled-components": "^0.1.1",
@@ -49,6 +47,7 @@
 		"webpack-merge": "^4.2.1"
 	},
 	"dependencies": {
+		"@material-ui/styles": "^4.0.0-alpha.7",
 		"@types/cookie": "^0.3.2",
 		"apollo-cache-inmemory": "^1.5.1",
 		"apollo-client": "^2.5.1",
@@ -56,6 +55,7 @@
 		"apollo-link-batch-http": "^1.2.11",
 		"apollo-link-error": "^1.1.10",
 		"apollo-link-ws": "^1.0.17",
+		"clsx": "^1.0.4",
 		"cookie": "^0.3.1",
 		"express": "^4.16.4",
 		"graphql": "^14.2.1",
