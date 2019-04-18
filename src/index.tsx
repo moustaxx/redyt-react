@@ -10,8 +10,6 @@ import App from './components/App';
 // import GlobalStyle from './globalStyle';
 import { ThemeProvider } from '@material-ui/styles';
 import { darkTheme, lightTheme } from './theme';
-import 'typeface-source-sans-pro';
-import './style.css';
 
 export const SetThemeContext = React.createContext(() => {/**/});
 
