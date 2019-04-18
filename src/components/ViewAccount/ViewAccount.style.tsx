@@ -1,72 +1,71 @@
-import styled from 'Theme/';
-import { niceButton } from 'Components/UI/Button/Button';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/';
 
-export const StyledViewAccount = styled.div`
-	width: 100%;
-	height: calc(100vh - 50px);
-	overflow: auto;
-	.container {
-		.header {
-			height: 190px;
-			background: #626262;
-			position: relative;
-			.cnt {
-				position: absolute;
-				bottom: 0;
-				left: 53px;
-			
-				.heading {
-					display: inline;
-					font-size: 34px;
-					text-shadow: 1px 1px 7px black;
-					color: white;
-					margin: 0 30px;
-				}
-				@media screen and (max-width: 500px) {
-					left: 10px;
-				}
-			}
+const viewAccountStyles = makeStyles((theme: IThemeInterface) => ({
+	root: {
+		width: '100%',
+		height: 'calc(100vh - 50px)',
+		overflow: 'auto',
+	},
+	header: {
+		height: 190,
+		background: '#626262',
+		position: 'relative',
+	},
+	cnt: {
+		position: 'absolute',
+		bottom: 0,
+		left: 53,
+		'@media screen and (max-width: 500px)': {
+			left: 10,
 		}
-		.content {
-			background: ${props => props.theme.background.secondary};
-			margin: 0 53px 39px 53px;
-			padding: 32px;
-			position: relative;
-			.caption {
-				font-size: 26px;
-			}
-			.nothing {
-				margin: 90px 0;
-				font-size: 36px;
-				text-align: center;
-				color: ${props => props.theme.iconColor};
-			}
-			@media screen and (max-width: 500px) {
-				margin: 0px;
-			}
-		}
+	},
+	heading: {
+		display: 'inline',
+		fontSize: 34,
+		textShadow: '1px 1px 7px black',
+		color: 'white',
+		margin: '0 30px',
+	},
+	content: {
+		background: theme.background.secondary,
+		margin: '0 53px 39px 53px',
+		padding: 32,
+		position: 'relative',
+		'& .caption': {
+			fontSize: 26,
+		},
+		'& .nothing': {
+			margin: '90px 0',
+			fontSize: 36,
+			textAlign: 'center',
+			color: theme.iconColor,
+		},
+		'@media screen and (max-width: 500px)': {
+			margin: 0,
+		},
+	},
+	avatar: {
+		width: 150,
+		height: 150,
+		background: 'black',
+		fontSize: 68,
+		fontWeight: 600,
+		color: 'white',
+
+		display: 'inline-flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		textTransform: 'uppercase',
+	},
+	btn: {
+		position: 'absolute',
+		top: 30,
+		right: 50,
+
+		height: 40,
+		width: 150,
 	}
-`;
+}), { name: 'ViewAccount'});
 
-export const Avatar = styled.div`
-	width: 150px;
-	height: 150px;
-	background: black;
-	font-size: 68px;
-	font-weight: 600;
-	color: white;
-
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-transform: uppercase;
-`;
-
-export const Button = styled(niceButton)`
-	position: absolute;
-	top: 30px;
-	right: 50px;
-
-	height: 40px;
-	width: 150px;
-`;
+export default viewAccountStyles;
