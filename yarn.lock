@@ -6067,11 +6067,6 @@ typeface-source-sans-pro@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-source-sans-pro/-/typeface-source-sans-pro-0.0.54.tgz#a570edf565d338b622487ec1ebe2389eb1eed62f"
   integrity sha512-4nsvldyZsOBuvR4oEuUMTquJFVssP4iIVnMEIU4paCWo2940b6r/t95sk7KwDpCablS8DprM/YlhpgqnS7gpKg==
 
-typescript-plugin-styled-components@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/typescript-plugin-styled-components/-/typescript-plugin-styled-components-1.4.2.tgz#e9599dca04eba76eae7a69af363220dc46ba1605"
-  integrity sha512-WPh/ECRNh6VxIM9ZsgSZAntzherVnYSRUsU28y4vbFfzg3TIFTLxfoUmtDML6zMNrJksq0t3RbkwBZfqOlWaXQ==
-
 typescript-styled-plugin@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/typescript-styled-plugin/-/typescript-styled-plugin-0.14.0.tgz#6691a8e673ed9eacee52c38fecd87d428eff0f71"
