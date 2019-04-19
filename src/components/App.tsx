@@ -8,7 +8,7 @@ const TopBar = React.lazy(() => import('./TopBar/TopBar'));
 import appStyles from './App.style';
 import MyRouter from './RouterUtils/RouterUtils';
 import Error from './Error/Error';
-// import Forum from './Forum/Forum';
+import Forum from './Forum/Forum';
 // import PostWindow from './PostWindow/PostWindow';
 import LoginForm from './LoginForm/LoginForm';
 import ViewAccount from './ViewAccount/ViewAccount';
@@ -33,7 +33,7 @@ const App = () => {
 					<Switch>
 						<Redirect exact from='/' to='/r/Popular' />
 						{/* <Route component={PostWindow} path='/r/:subforumName/:postID' /> */}
-						{/* <Route component={Forum} path='/r/:subforumName' /> */}
+						<Route component={Forum} path='/r/:subforumName' />
 						<Route component={ViewAccount} path='/user/:userName' />
 						<Route component={LoginForm} path='/login' />
 						<Route component={Error} />
