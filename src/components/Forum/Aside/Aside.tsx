@@ -1,32 +1,24 @@
 import * as React from 'react';
-import styled from 'Theme/';
 
 import { ISubforum } from '../Forum.apollo';
 
 import CommunityDetails from './CommunityDetails/CommunityDetails';
+import asideStyles from './Aside.style';
 
-const StyledAside = styled.div`
-	width: 310px;
-	flex-shrink: 0;
-	margin: 0 5px;
-	@media screen and (max-width: 750px) {
-		display: none;
-	}
-`;
+type TDiv = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-interface IAsideProps {
+interface IAsideProps extends TDiv {
 	subforum: ISubforum;
-	className?: string;
 }
 
-class Aside extends React.Component<IAsideProps> {
-	public render() {
-		const className = this.props.className ? this.props.className : '';
-		return (
-			<StyledAside className={className}>
-				<CommunityDetails subforum={this.props.subforum}/>
-			</StyledAside>
-		);
-	}
-}
+const Aside = ({subforum, style}: IAsideProps) => {
+	const classes = asideStyles();
+
+	return (
+		<div style={style} className={classes.root}>
+			<CommunityDetails subforum={subforum}/>
+		</div>
+	);
+};
+
 export default Aside;

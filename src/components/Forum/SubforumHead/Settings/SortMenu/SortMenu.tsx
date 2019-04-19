@@ -1,31 +1,26 @@
 import * as React from 'react';
-import { SortButton, StyledDropDown } from './SortMenu.style';
 import { MdArrowDropDown, MdWhatshot, MdAllInclusive, MdArrowDownward, MdArrowUpward } from 'react-icons/md';
+import sortMenuStyles from './SortMenu.style';
+import DropDown from 'Components/UI/DropDown/DropDown';
 
-interface IState {
-	isSortOpen: boolean;
-}
+const SortMenu = () => {
 
-class SortMenu extends React.Component<{}, IState> {
-	public state = {
-		isSortOpen: false,
-		selected: 0,
+	const classes = sortMenuStyles();
+	const [isSortOpen, setSortOpen] = React.useState(false);
+
+	const showSortMenu = () => {
+		setSortOpen(!isSortOpen);
 	};
-	private readonly showSortMenu = () => {
-		this.setState(prevState => ({
-			isSortOpen: !prevState.isSortOpen
-		}));
-	}
-	public render() {
-		return (
-			<>
-				<SortButton onClick={this.showSortMenu}>
-					<span>Sort</span>
-					<span className='slide'>HOT</span>
-					<MdArrowDropDown />
-				</SortButton>
-				{this.state.isSortOpen ?
-				<StyledDropDown>
+
+	return (
+		<>
+			<button className={classes.sortBtn} onClick={showSortMenu}>
+				<span>Sort</span>
+				<span className='slide'>HOT</span>
+				<MdArrowDropDown />
+			</button>
+			{isSortOpen ?
+				<DropDown className={classes.dropDown}>
 					<li>
 						<MdWhatshot />
 						<span>Hottest</span>
@@ -42,11 +37,10 @@ class SortMenu extends React.Component<{}, IState> {
 						<MdAllInclusive />
 						<span>Top</span>
 					</li>
-				</StyledDropDown> : null}
-			</>
-		);
-	}
-}
+				</DropDown>
+			: null}
+		</>
+	);
+};
+
 export default SortMenu;
-
-

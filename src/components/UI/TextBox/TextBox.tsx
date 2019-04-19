@@ -1,20 +1,19 @@
-import styled from 'Theme/';
+import * as React from 'react';
+import textBoxStyles from './TextBox.style';
 
-const TextBox = styled.input`
-	height: 50px;
-	width: 250px;
-	background: ${props => props.theme.background.searchBox};
-	border: 1px solid transparent;
-	border-radius: 5px;
-	padding-left: 15px;
-	box-sizing: border-box;
-	color: ${props => props.theme.fontColor};
+type TInput = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-	&:focus {
-	outline: 0;
-	border: 1px solid ${props => props.theme.subforum.secondary};
-	}
-`;
-
+const TextBox = ({ className, ...props }: TInput) => {
+	const classes = textBoxStyles();
+	return (
+		<input
+			className={
+				classes.root +
+				(className ? (' ' + className) : '')
+			}
+			{...props}
+		/>
+	);
+};
 
 export default TextBox;

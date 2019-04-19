@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MdArrowDropDown } from 'react-icons/md';
 
 import { IComment } from 'Components/PostWindow/PostWindow.apollo';
-import { StyledDiscussion, SortOptions } from './Discussion.style';
+import discussionStyles from './Discussion.style';
 import Comment from './Comment';
 import AddComment from './AddComment';
 
@@ -11,25 +11,26 @@ interface IDiscussionProps {
 }
 
 const Discussion = ({ comments }: IDiscussionProps) => {
+	const classes = discussionStyles();
 	return (
-		<StyledDiscussion>
+		<div className={classes.root}>
 			<AddComment />
 			{comments.length ?
-				<SortOptions>
-					<button className='sort' id='sortButton'>
+				<div className={classes.sortOptions}>
+					<button className={classes.sort}>
 						<span>Sort</span>
-						<span className='slide'>HOT</span>
+						<span className={classes.slide}>HOT</span>
 						<MdArrowDropDown />
 					</button>
 					{/* <SortMenu /> */}
-				</SortOptions>
+				</div>
 			: null}
-			<div className='comments'>
+			<div>
 				{comments.map(comment =>
 					<Comment key={comment.id} data={comment} />
 				)}
 			</div>
-		</StyledDiscussion>
+		</div>
 	);
 };
 

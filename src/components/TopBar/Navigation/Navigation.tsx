@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Query } from 'react-apollo';
 import { MdArrowDropDown, MdAccountBox } from 'react-icons/md';
 import { withRouter, RouteComponentProps } from 'react-router';
+import clsx from 'clsx';
 
-import { StyledNavigation, NavIcon, SubforumName, ClickOutside } from './Navigation.style';
+import navigationStyles from './Navigation.style';
 
 import SubforumIcon from 'Components/UI/Svgs/SubforumIcon';
 import { IGetSubforumRes, GET_SUBFORUM } from './Navigation.apollo';
@@ -14,22 +15,23 @@ const Navigation = (props: RouteComponentProps) => {
 	const dispatcher = splitedPath[1];
 	const name = splitedPath[2];
 	const [isNavMenuOpen, setNavStatus] = React.useState(false);
+	const classes = navigationStyles();
 	return (
-		<StyledNavigation className={`${isNavMenuOpen ? 'active' : ''}`}>
-			<div className='cnt' onClick={() => setNavStatus(!isNavMenuOpen)}>
-				<div className='cnt2'>
+		<div className={clsx(classes.root, isNavMenuOpen && 'active')}>
+			<div className={classes.cnt} onClick={() => setNavStatus(!isNavMenuOpen)}>
+				<div className={classes.cnt2}>
 
 					{dispatcher === 'r' ?
 						<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{ name }}>{
 							({ loading, error, data }) => {
 								
 								if (loading || !data || error) return (
-									<NavIcon><SubforumIcon /></NavIcon>
+									<div className={classes.navIcon}><SubforumIcon /></div>
 								);
 								return (
 									<>
-										<NavIcon><SubforumIcon /></NavIcon>
-										<SubforumName>{data.getSubforum.name}</SubforumName>
+										<div className={classes.navIcon}><SubforumIcon /></div>
+										<div className={classes.subforumName}>{data.getSubforum.name}</div>
 									</>
 								);
 							}
@@ -39,8 +41,8 @@ const Navigation = (props: RouteComponentProps) => {
 
 					{dispatcher === 'user' ?
 						<>
-							<NavIcon><MdAccountBox /></NavIcon>
-							<SubforumName>{name}</SubforumName>
+							<div className={classes.navIcon}><MdAccountBox /></div>
+							<div className={classes.subforumName}>{name}</div >
 						</>
 					: null}
 
@@ -48,11 +50,11 @@ const Navigation = (props: RouteComponentProps) => {
 				<MdArrowDropDown size={20} />
 			</div>
 			{isNavMenuOpen ? <>
-				<ClickOutside onClick={() => setNavStatus(false)}/>
+				<div className={classes.clickOutside} onClick={() => setNavStatus(false)}/>
 				<NavMenu onClick={(e: Event) => e.stopPropagation()}/>
 			</> : null}
 			{/* <Navigation /> */}
-		</StyledNavigation>
+		</div>
 	);
 };
 

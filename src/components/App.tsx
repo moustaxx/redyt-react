@@ -5,6 +5,7 @@ import { parse as parseCookie } from 'cookie';
 
 const TopBar = React.lazy(() => import('./TopBar/TopBar'));
 
+import appStyles from './App.style';
 import MyRouter from './RouterUtils/RouterUtils';
 import Error from './Error/Error';
 import Forum from './Forum/Forum';
@@ -21,6 +22,7 @@ const checkLoginStatus = () => {
 export const LoginStatusContext = React.createContext(false);
 
 const App = () => {
+	appStyles();
 	return (
 		<MyRouter>{_locationHref =>
 			<LoginStatusContext.Provider value={checkLoginStatus()}>

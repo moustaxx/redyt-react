@@ -1,17 +1,20 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { StyledDropDown } from './NavMenu.style';
+import navMenuStyles from './NavMenu.style';
 import { MdHome, MdTrendingUp, MdExtension } from 'react-icons/md';
+
+import DropDown from 'Components/UI/DropDown/DropDown';
 
 interface INavMenu {
 	onClick: (e: any) => void;
 }
 
 const NavMenu = (_: INavMenu) => {
+	const classes = navMenuStyles();
 	return (
-		<StyledDropDown>
-			<input className='filter' placeholder='Filter' />
-			<div className='heading'>Redyt feeds</div>
+		<DropDown className={classes.root}>
+			<input className={classes.filter} placeholder='Filter' />
+			<div className={classes.heading}>Redyt feeds</div>
 			<Link to={'/'}>
 				<MdHome />
 				<span>Home</span>
@@ -24,7 +27,7 @@ const NavMenu = (_: INavMenu) => {
 				<MdExtension />
 				<span>Material Design</span>
 			</Link>
-		</StyledDropDown>
+		</DropDown>
 	);
 };
 

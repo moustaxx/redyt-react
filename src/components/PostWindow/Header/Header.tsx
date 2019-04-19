@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Vote from 'Components/UI/Vote/Vote';
-import { StyledHeader, ExitButton } from './Header.style';
+import headerStyles from './Header.style';
 import XButton from 'Components/UI/Svgs/XButton';
 import { Link } from 'react-router-dom';
 
@@ -10,21 +10,22 @@ interface IHeaderProps {
 }
 
 const Header = (props: IHeaderProps) => {
+	const classes = headerStyles();
 	const postTitle = props.postTitle;
 	return (
-		<StyledHeader>
-			<div className='group'>
-				<Vote className='voteHere'/>
-				<div className='title'>{postTitle}</div>
-				<div className='space' />
+		<div className={classes.root}>
+			<div className={classes.group}>
+				<Vote className={classes.voteHere}/>
+				<div className={classes.title}>{postTitle}</div>
+				<div className={classes.space} />
 				<Link to={'/r/' + props.subforumName}>
-					<ExitButton>
+					<div className={classes.exitButton}>
 						<XButton />
 						<span>CLOSE</span>
-					</ExitButton>
+					</div>
 				</Link>
 			</div>
-		</StyledHeader>
+		</div>
 	);
 };
 

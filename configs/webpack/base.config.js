@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const getTransformers = require('./ts-transformers.config');
 
 const rootPath = path.resolve(__dirname, '../../');
 const srcPath = path.resolve(rootPath, 'src');
@@ -11,10 +10,7 @@ const tslintPath = path.resolve(rootPath, 'tslint.json');
 
 module.exports = {
 	name: 'base',
-	entry: {
-		tslib: 'tslib',
-		main: './index.tsx',
-	},
+	entry: './index.tsx',
 	context: srcPath,
 	resolve: {
 		extensions: ['.mjs', '.ts', '.tsx', '.js', '.jsx'],
@@ -46,8 +42,7 @@ module.exports = {
 						loader: 'ts-loader',
 						options: {
 							configFile: tsconfigPath,
-							happyPackMode: true,
-							getCustomTransformers: getTransformers
+							happyPackMode: true
 						}
 					}
 				]

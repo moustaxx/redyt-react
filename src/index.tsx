@@ -7,8 +7,9 @@ import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import client from './apollo';
 import App from './components/App';
 
-import GlobalStyle from './globalStyle';
-import { ThemeProvider, darkTheme, lightTheme } from './theme';
+// import GlobalStyle from './globalStyle';
+import { ThemeProvider } from '@material-ui/styles';
+import { darkTheme, lightTheme } from './theme';
 
 export const SetThemeContext = React.createContext(() => {/**/});
 
@@ -27,10 +28,7 @@ const WrappedApp = () => {
 			<ApolloHooksProvider client={client}>
 				<ThemeProvider theme={theme}>
 					<SetThemeContext.Provider value={setNewTheme}>
-						<>
-							<GlobalStyle />
-								<App />
-						</>
+						<App />
 					</SetThemeContext.Provider>
 				</ThemeProvider>
 			</ApolloHooksProvider>

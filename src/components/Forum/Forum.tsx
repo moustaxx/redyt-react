@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Query } from 'react-apollo';
+import { withStyles } from '@material-ui/styles';
 
 const Posts = React.lazy(() => import('./Posts/Posts'));
 const Aside = React.lazy(() => import('./Aside/Aside'));
@@ -8,9 +9,9 @@ import SubforumHead from './SubforumHead/SubforumHead';
 import Error from 'Components/Error/Error';
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
-import { StyledForum } from './Forum.style';
+import forumStyles, { TForumStyles } from './Forum.style';
 
-interface IForumProps {
+interface IForumProps extends TForumStyles {
 	match: {
 		params: {
 			subforumName: string;
@@ -23,6 +24,7 @@ interface IForumProps {
 
 class Forum extends React.Component<IForumProps> {
 	public render() {
+		const { classes } = this.props;
 		const subforumName = this.props.match.params.subforumName;
 		return (
 			<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{name: subforumName}}>{
@@ -30,17 +32,17 @@ class Forum extends React.Component<IForumProps> {
 					if (loading) return <LoadingAnim />;
 					if (error || !data) return <Error path={this.props.location.pathname} />;
 					return (
-						<StyledForum>
+						<div className={classes.root}>
 							<SubforumHead subforumName={data.getSubforum.name} />
-							<div className='content'>
+							<div className={classes.content}>
 								<React.Suspense fallback={null}>
-									<Aside subforum={data.getSubforum} className='aside' />
+									<Aside subforum={data.getSubforum} style={{ marginLeft: 0 }}/>
 								</React.Suspense>
 								<React.Suspense fallback={null}>
 									<Posts subforum={data.getSubforum} />
 								</React.Suspense>
 							</div>
-						</StyledForum>
+						</div>
 					);
 				}
 			}
@@ -48,4 +50,4 @@ class Forum extends React.Component<IForumProps> {
 		);
 	}
 }
-export default Forum;
+export default withStyles(forumStyles)(Forum);
