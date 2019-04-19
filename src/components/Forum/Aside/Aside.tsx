@@ -19,14 +19,14 @@ interface IAsideProps {
 	className?: string;
 }
 
-class Aside extends React.Component<IAsideProps> {
-	public render() {
-		const className = this.props.className ? this.props.className : '';
-		return (
-			<StyledAside className={className}>
-				<CommunityDetails subforum={this.props.subforum}/>
-			</StyledAside>
-		);
-	}
-}
+const Aside = (props: IAsideProps) => {
+	const className = props.className ? props.className : '';
+
+	return (
+		<StyledAside className={className}>
+			<CommunityDetails subforum={props.subforum}/>
+		</StyledAside>
+	);
+};
+
 export default Aside;
