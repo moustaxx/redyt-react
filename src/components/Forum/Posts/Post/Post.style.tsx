@@ -1,112 +1,112 @@
-import styled from 'Theme/';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/';
 
-export const StyledPost = styled.div`
-	width: 100%;
-	display: flex;
-	border: 1px solid ${props => props.theme.borderColor};
-	border-top: 1px solid transparent;
-	margin-bottom: -1px;
-	cursor: pointer;
-	box-sizing: border-box;
-	transition: .1s;
-	&:hover {
-		border: 1px solid #898989 !important;
-		z-index: 1;
-	}
-	&:first-child {
-		border-top-left-radius: 4px;
-		border-top-right-radius: 4px;
-		border-top: 1px solid ${props => props.theme.borderColor};
-	}
-	&:last-child {
-		border-bottom-left-radius: 4px;
-		border-bottom-right-radius: 4px;
-	}
-	.voteHere {
-		width: 80px;
-		border-right: 1px solid ${props => props.theme.borderColor};
-		padding-top: 8px;
-		flex-shrink: 0;
-		justify-content: center;
-	}
-`;
-
-export const Cnt = styled.div`
-	width: 100%;
-	margin-left: 8px;
-`;
-
-export const FirstLine = styled.div`
-	display: flex;
-	width: 100%;
-`;
-
-export const PostContent = styled.div`
-	display: flex;
-	flex-grow: 1;
-	font-size: 14px;
-	padding-top: 3px;
-	.tag {
-		background:  ${props => props.theme.subforum.primary};
-		padding: 0 4px;
-		margin-right: 5px;
-		float: left;
-		font-weight: normal;
-		border-radius: 4px;
-	}
-	.postHeading {
-		font-weight: 500;
-		color: ${props => props.theme.fontColor};
-		margin-right: 8px;
-	}
-	.attachedLink {
-		color: ${props => props.theme.subforum.secondary};
-		text-decoration: none;
-	}
-	.attachedLink:hover {
-		text-decoration: underline;
-	}
-`;
-
-export const Stats = styled.div`
-	flex-shrink: 0;
-	display: inline-flex;
-	justify-content: space-between;
-	& > * {
-		margin: 0 3px;
-		flex-shrink: 0;
-	}
-	.attachmentIcon {
-		display: inline-box;
-		vertical-align: middle;
-		width: 22px;
-		height: 22px;
-	}
-	.postOptionsIcon {
-		height: 100%;
-		margin-right: 10px;
-	}
-	.comments {
-		div, svg {
-			display: inline;
-			vertical-align: middle;
+const postStyles = makeStyles((theme: IThemeInterface) => ({
+	root: {
+		width: '100%',
+		display: 'flex',
+		border: `1px solid ${theme.borderColor}`,
+		borderTop: '1px solid transparent',
+		marginBottom: '-1px',
+		cursor: 'pointer',
+		boxSizing: 'border-box',
+		transition: '.1s',
+		'&:hover': {
+			border: '1px solid #898989 !important',
+			zIndex: 1,
+		},
+		'&:first-child': {
+			borderTopLeftRadius: 4,
+			borderTopRightRadius: 4,
+			borderTop: `1px solid ${theme.borderColor}`,
+		},
+		'&:last-child': {
+			borderBottomLeftRadius: 4,
+			borderBottomRightRadius: 4,
+		},
+	},
+	voteHere: {
+		width: 80,
+		borderRight: `1px solid ${theme.borderColor}`,
+		paddingTop: 8,
+		flexShrink: 0,
+		justifyContent: 'center',
+	},
+	cnt: {
+		width: '100%',
+		marginLeft: 8,
+	},
+	firstLine: {
+		display: 'flex',
+		width: '100%',
+	},
+	postContent: {
+		display: 'flex',
+		flexGrow: 1,
+		fontSize: 14,
+		paddingTop: 3,
+		'& .tag': {
+			background:  theme.subforum.primary,
+			padding: '0 4px',
+			marginRight: 5,
+			float: 'left',
+			fontWeight: 'normal',
+			borderRadius: 4,
+		},
+		'& .postHeading': {
+			fontWeight: 500,
+			color: theme.fontColor,
+			marginRight: 8,
+		},
+		'& .attachedLink': {
+			color: theme.subforum.secondary,
+			textDecoration: 'none',
+		},
+		'& .attachedLink:hover': {
+			textDecoration: 'underline',
 		}
-		.commentIcon {
-			margin-right: 4px;
+	},
+	stats: {
+		flexShrink: 0,
+		display: 'inline-flex',
+		justifyContent: 'space-between',
+		'& > *': {
+			margin: '0 3px',
+			flexShrink: 0,
+		},
+		'& .attachmentIcon': {
+			display: 'inline-box',
+			verticalAlign: 'middle',
+			width: 22,
+			height: 22,
+		},
+		'& .postOptionsIcon': {
+			height: '100%',
+			marginRight: 10,
+		},
+		'& .comments': {
+			'& div, & svg': {
+				display: 'inline',
+				verticalAlign: 'middle',
+			},
+			'& .commentIcon': {
+				marginRight: 4,
+			},
+			'& .comNumber': {
+				color: theme.iconColor,
+				fontSize: 14,
+				fontWeight: 500,
+				verticalAlign: 'bottom',
+			},
 		}
-		.comNumber {
-			color: ${props => props.theme.iconColor};
-			font-size: 14px;
-			font-weight: 500;
-			vertical-align: bottom;
-		}
+	},
+	postDate: {
+		fontSize: 12,
+		height: 20,
+		display: 'flex',
+		alignItems: 'center',
+		color: '#7c7c7c',
 	}
-`;
+}), { name: 'Post'});
 
-export const PostDate = styled.div`
-	font-size: 12px;
-	height: 20px;
-	display: flex;
-	align-items: center;
-	color: #7c7c7c;
-`;
+export default postStyles;
