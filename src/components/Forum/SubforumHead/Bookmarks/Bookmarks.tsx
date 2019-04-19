@@ -1,15 +1,13 @@
 import * as React from 'react';
-import { StyledBookmarks, Bookmark } from './Bookmarks.style';
+import bookmarksStyles from './Bookmarks.style';
 
-class Bookmarks extends React.Component {
-	public render() {
-		return (
-			<StyledBookmarks>
-				<Bookmark className='active'>Posts</Bookmark>
-			</StyledBookmarks >
-		);
-	}
-}
+const Bookmarks = () => {
+	const classes = bookmarksStyles();
+	return (
+		<div className={classes.root}>
+			<div className={classes.bookmark + ' active'}>Posts</div>
+		</div >
+	);
+};
+
 export default Bookmarks;
-
-

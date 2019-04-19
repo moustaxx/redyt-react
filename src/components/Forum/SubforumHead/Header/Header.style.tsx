@@ -1,14 +1,19 @@
-import styled from 'Theme/';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/';
 
-export const StyledHeader = styled.div`
-	height: 80px;
-	background: ${props => props.theme.subforum.primary};
-	display: flex;
-	padding: 25px 20px;
-	box-sizing: border-box;
-`;
-export const Title = styled.div`
-	font-size: 23px;
-	color: white;
-	align-self: flex-end;
-`;
+const headerStyles = makeStyles((theme: IThemeInterface) => ({
+	root: {
+		height: 80,
+		background: theme.subforum.primary,
+		display: 'flex',
+		padding: '25px 20px',
+		boxSizing: 'border-box',
+	},
+	title: {
+		fontSize: 23,
+		color: 'white',
+		alignSelf: 'flex-end',
+	}
+}), { name: 'Header' });
+
+export default headerStyles;

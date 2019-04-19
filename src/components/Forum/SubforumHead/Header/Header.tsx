@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { StyledHeader, Title } from './Header.style';
+import headerStyles from './Header.style';
 
 interface IHeaderProps {
 	subforumName: string;
 }
 
-class Header extends React.Component<IHeaderProps> {
-	public render() {
-		return (
-			<StyledHeader>
-				<Title>{this.props.subforumName}</Title>
-			</StyledHeader >
-		);
-	}
-}
+const Header = (props: IHeaderProps) => {
+	const classes = headerStyles();
+	return (
+		<div className={classes.root}>
+			<div className={classes.title}>{props.subforumName}</div>
+		</div >
+	);
+};
+
 export default Header;

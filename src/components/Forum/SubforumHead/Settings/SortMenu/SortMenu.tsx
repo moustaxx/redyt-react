@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { SortButton, StyledDropDown } from './SortMenu.style';
 import { MdArrowDropDown, MdWhatshot, MdAllInclusive, MdArrowDownward, MdArrowUpward } from 'react-icons/md';
+import sortMenuStyles from './SortMenu.style';
+import DropDown from 'Components/UI/DropDown/DropDown';
 
 const SortMenu = () => {
 
+	const classes = sortMenuStyles();
 	const [isSortOpen, setSortOpen] = React.useState(false);
 
 	const showSortMenu = () => {
@@ -12,13 +14,13 @@ const SortMenu = () => {
 
 	return (
 		<>
-			<SortButton onClick={showSortMenu}>
+			<button className={classes.sortBtn} onClick={showSortMenu}>
 				<span>Sort</span>
 				<span className='slide'>HOT</span>
 				<MdArrowDropDown />
-			</SortButton>
+			</button>
 			{isSortOpen ?
-				<StyledDropDown>
+				<DropDown className={classes.dropDown}>
 					<li>
 						<MdWhatshot />
 						<span>Hottest</span>
@@ -35,7 +37,7 @@ const SortMenu = () => {
 						<MdAllInclusive />
 						<span>Top</span>
 					</li>
-				</StyledDropDown>
+				</DropDown>
 			: null}
 		</>
 	);
