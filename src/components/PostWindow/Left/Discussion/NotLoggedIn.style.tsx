@@ -1,24 +1,26 @@
-import styled from 'Theme/';
-import { niceButton } from 'Components/UI/Button/Button';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/';
 
-export const StyledNotLoggedIn = styled.div`
-	border: 1px solid  ${props => props.theme.borderColor};
-	border-radius: 5px;
-	margin: 15px 5px;
-	color: #878a8c;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 5px 10px;
-
-	.cnt {
-		display: flex;
+const notLoggedInStyles = makeStyles((theme: IThemeInterface) => ({
+	root: {
+		border: '1px solid ' + theme.borderColor,
+		borderRadius: 5,
+		margin: '15px 5px',
+		color: '#878a8c',
+		boxSizing: 'border-box',
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		padding: '5px 10px',
+	},
+	cnt: {
+		display: 'flex',
+	},
+	btn: {
+		margin: '2px 5px',
+		fontSize: 14,
+		width: 100,
 	}
-`;
+}), { name: 'NotLoggedIn'});
 
-export const Button = styled(niceButton)`
-	margin: 2px 5px;
-	font-size: 14px;
-	width: 100px;
-`;
+export default notLoggedInStyles;

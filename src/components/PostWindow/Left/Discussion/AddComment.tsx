@@ -2,16 +2,19 @@ import * as React from 'react';
 import { useQuery, useMutation } from 'react-apollo-hooks';
 import { withRouter, RouteComponentProps } from 'react-router';
 
-import { StyledAddComment, Button } from './AddComment.style';
+import addCommentStyles from './AddComment.style';
 import NotLoggedIn from './NotLoggedIn';
 import { GET_SESSION_OWNER, IUserRes, CREATE_COMMENT, ICreateComment } from './AddComment.apollo';
 import { PostFragment, IWindowPost } from '../../PostWindow.apollo';
+import Button from 'Components/UI/Button/Button';
 
 interface IAddCommentProps extends RouteComponentProps<{ postID: string }> {}
 
 const AddComment = (props: IAddCommentProps) => {
 	const postID = props.match.params.postID;
 	const [content, setContent] = React.useState('');
+
+	const classes = addCommentStyles();
 
 	const { data, loading, error } = useQuery<IUserRes>(GET_SESSION_OWNER);
 
@@ -68,10 +71,17 @@ const AddComment = (props: IAddCommentProps) => {
 	if (error) return <NotLoggedIn />;
 
 	return (
-		<StyledAddComment onSubmit={handleSubmit}>
-			<textarea maxLength={900} required placeholder='Type your comment here...' value={content} onChange={handleChange} />
-			<Button>Submit</Button>
-		</StyledAddComment>
+		<form className={classes.root} onSubmit={handleSubmit}>
+			<textarea
+				className={classes.textarea}
+				maxLength={900}
+				required
+				placeholder='Type your comment here...'
+				value={content}
+				onChange={handleChange}
+			/>
+			<Button className={classes.btn}>Submit</Button>
+		</form>
 	);
 };
 

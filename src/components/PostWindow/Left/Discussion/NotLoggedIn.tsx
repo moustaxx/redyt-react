@@ -1,11 +1,14 @@
 import * as React from 'react';
-
-import { StyledNotLoggedIn, Button } from './NotLoggedIn.style';
 import { Portal } from 'react-portal';
+
+import notLoggedInStyles from './NotLoggedIn.style';
+import Button from 'Components/UI/Button/Button';
 const LoginForm = React.lazy(() => import('Components/LoginForm/LoginForm'));
 const Register = React.lazy(() => import('Components/Register/Register'));
 
 const NotLoggedIn = () => {
+	const classes = notLoggedInStyles();
+
 	const [isLoginFormOpen, setLoginFormStatus] = React.useState(false);
 	const [isRegisterOpen, setRegisterStatus] = React.useState(false);
 	const closeForm = () => {
@@ -13,11 +16,11 @@ const NotLoggedIn = () => {
 		setRegisterStatus(false);
 	};
 	return (
-		<StyledNotLoggedIn>
+		<div className={classes.root}>
 			<span>Log in to add a comment.</span>
-			<div className='cnt'>
-				<Button onClick={() => setLoginFormStatus(true)}>Log in</Button>
-				<Button onClick={() => setRegisterStatus(true)}>Sign up</Button>
+			<div className={classes.cnt}>
+				<Button className={classes.btn} onClick={() => setLoginFormStatus(true)}>Log in</Button>
+				<Button className={classes.btn} onClick={() => setRegisterStatus(true)}>Sign up</Button>
 			</div>
 			{isLoginFormOpen ?
 				<Portal>
@@ -33,7 +36,7 @@ const NotLoggedIn = () => {
 					</React.Suspense>
 				</Portal>
 				: null}
-		</StyledNotLoggedIn>
+		</div>
 	);
 };
 

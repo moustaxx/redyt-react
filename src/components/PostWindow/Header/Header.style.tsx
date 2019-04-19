@@ -1,59 +1,64 @@
-import styled from 'Theme/';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/';
 
-export const StyledHeader = styled.div`
-	flex: 0 0 48px;
-	background: black;
-	.group {
-		margin: 0 auto;
-		max-width: 1220px;
-		display: flex;
-		align-items: center;
-		height: 100%;
-		.voteHere {
-			padding: 0 10px;
-			color: white;
-			&::before {
-				border-left: 1px solid ${props => props.theme.iconColor};
-				margin-right: 10px;
-				height: 16px;
-				content: "";
-			}
-			&::after {
-				border-right: 1px solid ${props => props.theme.iconColor};
-				margin-left: 10px;
-				height: 16px;
-				content: "";
-			}
+const headerStyles = makeStyles((theme: IThemeInterface) => ({
+	root: {
+		flex: '0 0 48px',
+		background: 'black',
+	},
+	group: {
+		margin: '0 auto',
+		maxWidth: 1220,
+		display: 'flex',
+		alignItems: 'center',
+		height: '100%',
+	},
+	title: {
+		color: '#d4d4d4',
+		'@media screen and (max-width: 500px)': {
+			marginLeft: 20,
 		}
-		.title {
-			color: #d4d4d4;
-			@media screen and (max-width: 500px) {
-				margin-left: 20px;
-			}
+	},
+	space: {
+		flexGrow: 1,
+	},
+	voteHere: {
+		padding: '0 10px',
+		color: 'white',
+		'&::before': {
+			borderLeft: '1px solid ' + theme.iconColor,
+			marginRight: 10,
+			height: 16,
+			content: '"',
+		},
+		'&::after': {
+			borderRight: '1px solid ' + theme.iconColor,
+			marginLeft: 10,
+			height: 16,
+			content: '"',
 		}
-		.space {
-			flex-grow: 1;
+	},
+	exitButton: {
+		flexShrink: 0,
+		cursor: 'pointer',
+		userSelect: 'none',
+		height: 48,
+		textAlign: 'center',
+		fontSize: 17,
+		color: 'gray',
+		lineHeight: 2.7,
+		padding: '0 8px',
+		transition: '0.2s',
+		marginRight: 10,
+		'&:hover': {
+			background: '#edeff1',
+		},
+		'& *': {
+			display: 'inline',
+			verticalAlign: 'middle',
 		}
 	}
-	`;
 
-export const ExitButton = styled.div`
-	flex-shrink: 0;
-	cursor: pointer;
-	user-select: none;
-	height: 48px;
-	text-align: center;
-	font-size: 17px;
-	color: gray;
-	line-height: 2.7;
-	padding: 0 8px;
-	transition: 0.2s;
-	margin-right: 10px;
-	&:hover {
-		background: #edeff1;
-	}
-	* {
-		display: inline;
-		vertical-align: middle;
-	}
-`;
+}), { name: 'Header'});
+
+export default headerStyles;

@@ -1,46 +1,51 @@
-import styled from 'Theme/';
+import { makeStyles } from '@material-ui/styles';
+import { IThemeInterface } from 'Theme/';
 
-export const StyledComment = styled.div`
-	margin: 15px 0;
-	.subComment {
-		margin-left: 15px;
+const commentStyles = makeStyles((theme: IThemeInterface) => ({
+	root: {
+		margin: '15px 0',
+	},
+	cnt: {
+		display: 'flex',
+	},
+	voteHere: {
+		width: 30,
+		paddingTop: 5,
+		marginRight: 10,
+		flexShrink: 0,
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'unset',
+		display: 'flex',
+	},
+	author: {
+		display: 'inline',
+		fontSize: 13,
+		color: theme.subforum.secondary,
+		marginRight: 4,
+	},
+	date: {
+		display: 'inline',
+		fontSize: 13,
+		color: '#808486',
+	},
+	essence: {
+		display: 'block',
+		margin: '2px 0',
+		lineHeight: 1.5,
+	},
+	toolbar: {
+		fontSize: 13,
+		fontWeight: 500,
+		color: '#808486',
+	},
+	share: {
+		display: 'inline',
+		marginRight: 6,
+	},
+	reply: {
+		display: 'inline',
 	}
-	.cnt {
-		display: flex;
-		div {
-			display: inline;
-		}
-		.voteHere {
-			width: 30px;
-			padding-top: 5px;
-			margin-right: 10px;
-			flex-shrink: 0;
-			flex-direction: column;
-			align-items: center;
-			justify-content: unset;
-			display: flex;
-		}
-		.author {
-			font-size: 13px;
-			color: ${props => props.theme.subforum.secondary};
-			margin-right: 4px;
-		}
-		.date {
-			font-size: 13px;
-			color: #808486;
-		}
-		.essence {
-			display: block;
-			margin: 2px 0;
-			line-height: 21px;
-		}
-		.toolbar {
-			font-size: 13px;
-			font-weight: 500;
-			color: #808486;
-			.share {
-				margin-right: 6px;
-			}
-		}
-	}
-`;
+}), { name: 'Comment'});
+
+export default commentStyles;
