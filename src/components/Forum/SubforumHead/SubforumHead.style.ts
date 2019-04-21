@@ -1,8 +1,20 @@
 import { makeStyles } from '@material-ui/styles';
 import { IThemeInterface } from 'Theme/';
 
-const bookmarksStyles = makeStyles((theme: IThemeInterface) => ({
-	root: {
+const subforumHeadStyles = makeStyles((theme: IThemeInterface) => ({
+	titleContainer: {
+		height: 80,
+		background: theme.subforum.primary,
+		display: 'flex',
+		padding: '25px 20px',
+		boxSizing: 'border-box',
+	},
+	title: {
+		fontSize: 23,
+		color: 'white',
+		alignSelf: 'flex-end',
+	},
+	bookmarkContainer: {
 		width: 'inherit',
 		height: 40,
 		background: theme.background.primary,
@@ -22,6 +34,6 @@ const bookmarksStyles = makeStyles((theme: IThemeInterface) => ({
 			color: theme.subforum.secondary,
 		}
 	}
-}), { name: 'Bookmarks'});
+}), { name: 'SubfrorumHead' });
 
-export default bookmarksStyles;
+export default subforumHeadStyles;
