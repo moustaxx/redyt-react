@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-import { CommentFragment, IComment } from '../../PostWindow.apollo';
+import { CommentFragment, IComment } from '../../PostView.apollo';
 
 export const GET_SESSION_OWNER = gql`
 	query {

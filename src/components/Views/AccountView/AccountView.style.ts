@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/styles';
 import { IThemeInterface } from 'Theme/';
 
-const viewAccountStyles = makeStyles((theme: IThemeInterface) => ({
+const accountViewStyles = makeStyles((theme: IThemeInterface) => ({
 	root: {
 		width: '100%',
 		height: 'calc(100vh - 50px)',
@@ -66,6 +66,6 @@ const viewAccountStyles = makeStyles((theme: IThemeInterface) => ({
 		height: 40,
 		width: 150,
 	}
-}), { name: 'ViewAccount'});
+}), { name: 'AccountView'});
 
-export default viewAccountStyles;
+export default accountViewStyles;

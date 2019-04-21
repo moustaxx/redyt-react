@@ -6,7 +6,7 @@ const Posts = React.lazy(() => import('./Posts/Posts'));
 const Aside = React.lazy(() => import('./Aside/Aside'));
 
 import SubforumHead from './SubforumHead/SubforumHead';
-import Error from 'Components/Error/Error';
+import Error from 'Components/Views/Error/Error';
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 import forumStyles, { TForumStyles } from './Forum.style';

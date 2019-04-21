@@ -7,8 +7,6 @@ const forumStyles = (theme: IThemeInterface) => createStyles({
 		display: 'flex',
 		flexDirection: 'column',
 		width: '100%',
-		height: 'calc(100vh - 50px)',
-		overflow: 'auto',
 	},
 	content: {
 		display: 'inline-flex',

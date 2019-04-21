@@ -2,15 +2,15 @@ import * as React from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { withRouter, RouteComponentProps } from 'react-router';
 
-import { GET_USER_DATA, IUserRes } from './ViewAccount.apollo';
+import { GET_USER_DATA, IUserRes } from './AccountView.apollo';
 
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 import Button from 'Components/UI/Button/Button';
-import viewAccountStyles from './ViewAccount.style';
-import Error from 'Components/Error/Error';
+import accountViewStyles from './AccountView.style';
+import Error from 'Components/Views/Error/Error';
 
-const ViewAccount = (props: RouteComponentProps<{userName: string}>) => {
-	const classes = viewAccountStyles();
+const AccountView = (props: RouteComponentProps<{userName: string}>) => {
+	const classes = accountViewStyles();
 
 	const name = props.match.params.userName;
 	const { data, loading, error } = useQuery<IUserRes>(GET_USER_DATA, {
@@ -37,4 +37,4 @@ const ViewAccount = (props: RouteComponentProps<{userName: string}>) => {
 		</div>
 	);
 };
-export default withRouter(ViewAccount);
+export default withRouter(AccountView);

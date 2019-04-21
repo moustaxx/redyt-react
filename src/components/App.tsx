@@ -7,11 +7,11 @@ const TopBar = React.lazy(() => import('./TopBar/TopBar'));
 
 import appStyles from './App.style';
 import MyRouter from './RouterUtils/RouterUtils';
-import Error from './Error/Error';
+import Error from './Views/Error/Error';
 import Forum from './Forum/Forum';
-import PostWindow from './PostWindow/PostWindow';
+import PostView from './Views/PostView/PostView';
 import LoginForm from './LoginForm/LoginForm';
-import ViewAccount from './ViewAccount/ViewAccount';
+import AccountView from './Views/AccountView/AccountView';
 
 const checkLoginStatus = () => {
 	if (!document.cookie) return false;
@@ -32,9 +32,9 @@ const App = () => {
 					</React.Suspense>
 					<Switch>
 						<Redirect exact from='/' to='/r/Popular' />
-						<Route component={PostWindow} path='/r/:subforumName/:postID' />
+						<Route component={PostView} path='/r/:subforumName/:postID' />
 						<Route component={Forum} path='/r/:subforumName' />
-						<Route component={ViewAccount} path='/user/:userName' />
+						<Route component={AccountView} path='/user/:userName' />
 						<Route component={LoginForm} path='/login' />
 						<Route component={Error} />
 					</Switch>

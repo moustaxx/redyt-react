@@ -16,7 +16,6 @@ const appStyles = makeStyles((theme: IThemeInterface) => ({
 			fontFamily: theme.defaultFont + ', sans-serif',
 			color: theme.fontColor,
 			background: theme.background.primary,
-			overflow: 'hidden',
 		},
 		a: {
 			textDecoration: 'none',

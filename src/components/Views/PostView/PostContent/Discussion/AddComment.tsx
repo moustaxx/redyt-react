@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps } from 'react-router';
 import addCommentStyles from './AddComment.style';
 import NotLoggedIn from './NotLoggedIn';
 import { GET_SESSION_OWNER, IUserRes, CREATE_COMMENT, ICreateComment } from './AddComment.apollo';
-import { PostFragment, IWindowPost } from '../../PostWindow.apollo';
+import { PostFragment, IWindowPost } from '../../PostView.apollo';
 import Button from 'Components/UI/Button/Button';
 
 interface IAddCommentProps extends RouteComponentProps<{ postID: string }> {}

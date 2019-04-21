@@ -1,12 +1,11 @@
 import { makeStyles } from '@material-ui/styles';
 import { IThemeInterface } from 'Theme/';
 
-const leftStyles = makeStyles((theme: IThemeInterface) => ({
+const postContentStyles = makeStyles((theme: IThemeInterface) => ({
 	root: {
 		background: theme.background.secondary,
-		width: 890,
 		height: 'fit-content',
-		/* border: `1px solid ${theme.borderColor}`, */
+		flexGrow: 1,
 		borderRadius: 4,
 		margin: '0 5px',
 	},
@@ -81,6 +80,6 @@ const leftStyles = makeStyles((theme: IThemeInterface) => ({
 			verticalAlign: 'middle',
 		}
 	}
-}), { name: 'Left'});
+}), { name: 'PostContent'});
 
-export default leftStyles;
+export default postContentStyles;

@@ -69,7 +69,7 @@ const navigationStyles = makeStyles(({ borderColor }: IThemeInterface) => ({
 	},
 	clickOutside: {
 		position: 'absolute',
-		width: '100vw',
+		width: '98vw',
 		height: '100vh',
 		top: 0,
 		left: 0,

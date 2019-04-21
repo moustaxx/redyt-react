@@ -1,17 +1,18 @@
 import * as React from 'react';
-import Discussion from './Discussion/Discussion';
-import leftStyles from './Left.style';
-import { IWindowPost } from '../PostWindow.apollo';
-import Vote from 'Components/UI/Vote/Vote';
-import { MdComment, MdShare } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { MdComment, MdShare } from 'react-icons/md';
 
-interface ILeftProps {
+import { IWindowPost } from '../PostView.apollo';
+import postContentStyles from './PostContent.style';
+import Discussion from './Discussion/Discussion';
+import Vote from 'Components/UI/Vote/Vote';
+
+interface IPostContentProps {
 	post: IWindowPost;
 }
 
-const Left = (props: ILeftProps) => {
-	const classes = leftStyles();
+const PostContent = (props: IPostContentProps) => {
+	const classes = postContentStyles();
 	const { title, author, content, commentCounter, createdAt, subforum, comments } = props.post;
 	const date = new Date(createdAt).toLocaleString();
 	return (
@@ -41,4 +42,4 @@ const Left = (props: ILeftProps) => {
 		</div>
 	);
 };
-export default Left;
+export default PostContent;
