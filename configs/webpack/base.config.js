@@ -30,22 +30,13 @@ module.exports = {
 			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
-				use: [
-					'cache-loader',
-					{
-						loader: 'thread-loader',
-						options: {
-							workers: require('os').cpus().length - 1
-						}
-					},
-					{
-						loader: 'ts-loader',
-						options: {
-							configFile: tsconfigPath,
-							happyPackMode: true
-						}
+				use: {
+					loader: 'ts-loader',
+					options: {
+						configFile: tsconfigPath,
+						transpileOnly: true
 					}
-				]
+				}
 			},
 			{
 				test: /\.(jpe?g|png|gif|svg)$/i,
@@ -63,13 +54,13 @@ module.exports = {
 			},
 			{
 				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-				use: [{
+				use: {
 					loader: 'file-loader',
 					options: {
 						name: '[name].[ext]',
 						outputPath: 'fonts/'
 					}
-				}]
+				}
 			},
 			{
 				test: /\.css$/,
