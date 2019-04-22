@@ -1,9 +1,9 @@
-import { createStyles, WithStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import { IThemeInterface } from 'Theme/theme';
 
-const topBarStyles = ({ background, button }: IThemeInterface) => createStyles({
+const topBarStyles = makeStyles((theme: IThemeInterface) => ({
 	root: {
-		background: background.secondary,
+		background: theme.background.secondary,
 		position: 'sticky',
 		top: 0,
 		width: '100%',
@@ -11,7 +11,7 @@ const topBarStyles = ({ background, button }: IThemeInterface) => createStyles({
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		borderBottom: `1px solid ${background.primary}`,
+		borderBottom: `1px solid ${theme.background.primary}`,
 		zIndex: 10,
 		boxSizing: 'border-box',
 	},
@@ -26,8 +26,6 @@ const topBarStyles = ({ background, button }: IThemeInterface) => createStyles({
 			display: 'none',
 		}
 	}
-});
-
-export type TTopBarStyles = WithStyles<typeof topBarStyles>;
+}), { name: 'TopBar' });
 
 export default topBarStyles;
