@@ -1,7 +1,7 @@
-import { createStyles, WithStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import { IThemeInterface } from 'Theme/';
 
-const forumStyles = (theme: IThemeInterface) => createStyles({
+const forumStyles = makeStyles((theme: IThemeInterface) => ({
 	root: {
 		boxSizing: 'border-box',
 		display: 'flex',
@@ -19,8 +19,6 @@ const forumStyles = (theme: IThemeInterface) => createStyles({
 		padding: '30px 0',
 		fontSize: 24,
 	}
-});
-
-export type TForumStyles = WithStyles<typeof forumStyles>;
+}), { name: 'Forum'});
 
 export default forumStyles;
