@@ -57,12 +57,14 @@ const LoginForm = (props: ILoginFormProps) => {
 		}
 	};
 
+	const stopPropagation = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation();
+
 	const classes = loginFormStyles();
 
 	return (
-		<div className={classes.root} onClick={() => props.closeForm()}>
-			<div className={classes.window} onClick={e => e.stopPropagation()}>
-				<div className={classes.xButton} onClick={() => props.closeForm()}><XButton /></div>
+		<div className={classes.root} onClick={props.closeForm}>
+			<div className={classes.window} onClick={stopPropagation}>
+				<div className={classes.xButton} onClick={props.closeForm}><XButton /></div>
 				<div className={classes.content}>
 					<div className={classes.heading}>Log in</div>
 					{!loading && !success ?

@@ -40,7 +40,6 @@ const Register = (props: IRegisterFormProps) => {
 		if (!isPasswordsIdentical()) return setPasswordsNotIdentical(true);
 		setLoading(true);
 		const res = await createUser().catch( (err: Error) => setGQLErrors(err));
-		console.log('res:', res);
 		setLoading(false);
 		if (res) {
 			setSuccess(true);
@@ -57,12 +56,15 @@ const Register = (props: IRegisterFormProps) => {
 		variables: { name: user.name, password: user.password, email: user.email },
 	});
 
+
+	const stopPropagation = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation();
+
 	const classes = registerStyles();
 
 	return (
-		<div className={classes.root} onClick={() => props.closeForm()}>
-			<div className={classes.window} onClick={e => e.stopPropagation()}>
-				<div className={classes.xButton} onClick={() => props.closeForm()}><XButton /></div>
+		<div className={classes.root} onClick={props.closeForm}>
+			<div className={classes.window} onClick={stopPropagation}>
+				<div className={classes.xButton} onClick={props.closeForm}><XButton /></div>
 				<div className={classes.content}>
 					<div className={classes.heading}>Create account</div>
 					{!loading && !success ?
