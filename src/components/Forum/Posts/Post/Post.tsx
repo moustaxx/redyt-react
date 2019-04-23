@@ -19,8 +19,11 @@ const Post = (props: IPostProps) => {
 	const date = new Date(createdAt).toLocaleString();
 	const subforumName = props.match.params.subforumName;
 
+	const setLocation = () => props.history.push(subforumName + '/' + id);
+	const stopPropagation = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => e.stopPropagation();
+
 	return (
-		<div className={classes.root} onClick={() => props.history.push(subforumName + '/' + id)}>
+		<div className={classes.root} onClick={setLocation}>
 			<Vote className={classes.voteHere} voteBalance={props.voteBalance} />
 			<div className={classes.cnt}>
 				<div className={classes.firstLine}>
@@ -42,7 +45,7 @@ const Post = (props: IPostProps) => {
 				</div>
 				<div className={classes.postDate}>
 					<span>
-						Posted by <Link onClick={e => e.stopPropagation()} to={'/user/' + author.name}>{author.name}</Link> {date}
+						Posted by <Link onClick={stopPropagation} to={'/user/' + author.name}>{author.name}</Link> {date}
 					</span>
 				</div>
 			</div>

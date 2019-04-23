@@ -15,12 +15,16 @@ const NotLoggedIn = () => {
 		setLoginFormStatus(false);
 		setRegisterStatus(false);
 	};
+
+	const setLoginFormStatusTrue = () => setLoginFormStatus(true);
+	const setRegisterStatusTrue = () => setRegisterStatus(true);
+
 	return (
 		<div className={classes.root}>
 			<span>Log in to add a comment.</span>
 			<div className={classes.cnt}>
-				<Button className={classes.btn} onClick={() => setLoginFormStatus(true)}>Log in</Button>
-				<Button className={classes.btn} onClick={() => setRegisterStatus(true)}>Sign up</Button>
+				<Button className={classes.btn} onClick={setLoginFormStatusTrue}>Log in</Button>
+				<Button className={classes.btn} onClick={setRegisterStatusTrue}>Sign up</Button>
 			</div>
 			{isLoginFormOpen ?
 				<Portal>
