@@ -37,4 +37,4 @@ const Forum = (props: IForumProps) => {
 	);
 };
 
-export default Forum;
+export default React.memo(Forum);
