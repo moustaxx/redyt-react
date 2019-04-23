@@ -7,7 +7,6 @@ import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import client from './apollo';
 import App from './components/App';
 
-// import GlobalStyle from './globalStyle';
 import { ThemeProvider } from '@material-ui/styles';
 import { darkTheme, lightTheme } from './theme';
 

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useApolloClient } from 'react-apollo-hooks';
-// import { StyledLoginForm, Heading, StyledTextBox, Button } from './LoginForm.style';
 import { VERIFY_LOGIN, ILoginRes } from './LoginForm.apollo';
 
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
