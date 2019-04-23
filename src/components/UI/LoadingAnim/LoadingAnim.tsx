@@ -4,15 +4,13 @@ import { IThemeInterface } from 'Theme/';
 
 const loadingAnimStyles = makeStyles((theme: IThemeInterface) => ({
 	root: {
-		'& .dots-loading-container': {
-			width: 66,
-			animation: 'expand .75s ease-in-out infinite alternate',
-			top: '50%',
-			left: '50%',
-			marginLeft: '-33px',
-			marginTop: 30,
-			position: 'absolute',
-		},
+		width: 66,
+		position: 'absolute',
+		top: '50%',
+		left: '50%',
+		transform: 'translate(-50%, -50%)',
+		animation: 'expand .75s ease-in-out infinite alternate',
+
 		'& .dot': {
 			width: 13,
 			height: 13,
@@ -102,12 +100,10 @@ const LoadingAnim = () => {
 	const classes = loadingAnimStyles();
 	return (
 		<div className={classes.root}>
-			<div className='dots-loading-container'>
-				<div className='dot dot-a' />
-				<div className='dot dot-b' />
-				<div className='dot dot-c' />
-				<div className='dot dot-d' />
-			</div>
+			<div className='dot dot-a' />
+			<div className='dot dot-b' />
+			<div className='dot dot-c' />
+			<div className='dot dot-d' />
 		</div>
 	);
 };

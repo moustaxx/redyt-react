@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { FaSpinner } from 'react-icons/fa';
-import { IconBaseProps } from 'react-icons/lib/cjs';
+import clsx from 'clsx';
+
 import loadingSpinnerStyles from './LoadingSpinner.style';
 
-const LoadingSpinner = ({ className, ...props }: IconBaseProps) => {
+type TDiv = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+const LoadingSpinner = ({ className, ...props }: TDiv) => {
 	const classes = loadingSpinnerStyles();
 	return (
-		<FaSpinner
-			className={
-				classes.root +
-				(className ? (' ' + className) : '')
-			}
-			{...props}
-		/>
+		<div className={clsx(classes.root, className && className)}>
+			<div />
+			<div />
+			<div />
+		</div>
 	);
 };
 

@@ -15,7 +15,7 @@ const Posts = (props: IPostsProps) => {
 	const classes = postsStyles();
 
 	const { data, loading, error } = useQuery<IGetPostsRes>(GET_POSTS, { variables: { subforumID: props.subforum.id}});
-	if (loading) return <LoadingSpinner />;
+	if (loading) return <div className={classes.root} style={{minHeight: 128}}><LoadingSpinner /></div >;
 	if (error) return <span className={classes.warn}>{error.message}</span>;
 	if (!data) return null;
 	if (!data.getPostsBySubforum.length) return <span className={classes.warn}>I've got puppies to show you...</span>;

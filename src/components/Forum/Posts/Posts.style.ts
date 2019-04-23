@@ -7,6 +7,7 @@ const postsStyles = makeStyles((theme: IThemeInterface) => ({
 		height: 'fit-content',
 		flexGrow: 1,
 		borderRadius: 4,
+		position: 'relative',
 	},
 	warn: {
 		height: '30vh',
