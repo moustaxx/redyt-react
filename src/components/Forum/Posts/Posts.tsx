@@ -18,7 +18,11 @@ const Posts = (props: IPostsProps) => {
 	if (loading) return <div className={classes.root} style={{minHeight: 128}}><LoadingSpinner /></div >;
 	if (error) return <span className={classes.warn}>{error.message}</span>;
 	if (!data) return null;
-	if (!data.getPostsBySubforum.length) return <span className={classes.warn}>I've got puppies to show you...</span>;
+	if (!data.getPostsBySubforum.length) return (
+		<div className={classes.root}>
+			<span className={classes.warn}>I've got puppies to show you...</span>
+		</div>
+	);
 
 	return (
 		<div className={classes.root}>
