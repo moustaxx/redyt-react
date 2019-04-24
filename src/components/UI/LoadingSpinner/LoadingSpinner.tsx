@@ -8,7 +8,7 @@ type TDiv = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDi
 const LoadingSpinner = ({ className, ...props }: TDiv) => {
 	const classes = loadingSpinnerStyles();
 	return (
-		<div className={clsx(classes.root, className && className)}>
+		<div className={clsx(classes.root, className)}>
 			<div />
 			<div />
 			<div />

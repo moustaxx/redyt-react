@@ -26,20 +26,20 @@ const NotLoggedIn = () => {
 				<Button className={classes.btn} onClick={setLoginFormStatusTrue}>Log in</Button>
 				<Button className={classes.btn} onClick={setRegisterStatusTrue}>Sign up</Button>
 			</div>
-			{isLoginFormOpen ?
+			{isLoginFormOpen &&
 				<Portal>
 					<React.Suspense fallback={null}>
 						<LoginForm closeForm={closeForm} />
 					</React.Suspense>
 				</Portal>
-				: null}
-			{isRegisterOpen ?
+			}
+			{isRegisterOpen &&
 				<Portal>
 					<React.Suspense fallback={null}>
 						<Register closeForm={closeForm} />
 					</React.Suspense>
 				</Portal>
-				: null}
+			}
 		</div>
 	);
 };

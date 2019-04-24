@@ -91,7 +91,7 @@ const Register = (props: IRegisterFormProps) => {
 							<Button className={classes.btn}>Sign up</Button>
 						</form>
 					: null}
-					{loading ? <LoadingAnim /> : null}
+					{loading && <LoadingAnim />}
 				</div>
 			</div>
 		</div>

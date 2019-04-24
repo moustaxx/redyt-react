@@ -18,7 +18,7 @@ const PostView = (props: IPostViewProps) => {
 
 	const { data, error, loading } = useQuery<IGetPostRes>(GET_POST, { variables: { postID } });
 	if (loading) return <LoadingAnim />;
-	if (error || !data) return <span className={classes.warn}>{error ? error.message : null}</span>;
+	if (error || !data) return <span className={classes.warn}>{error && error.message}</span>;
 
 	return (
 		<div className={classes.root}>
