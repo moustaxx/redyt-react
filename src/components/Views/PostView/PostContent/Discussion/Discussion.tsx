@@ -15,7 +15,7 @@ const Discussion = ({ comments }: IDiscussionProps) => {
 	return (
 		<div className={classes.root}>
 			<AddComment />
-			{comments.length &&
+			{comments.length ?
 				<div className={classes.sortOptions}>
 					<button className={classes.sort}>
 						<span>Sort</span>
@@ -24,7 +24,7 @@ const Discussion = ({ comments }: IDiscussionProps) => {
 					</button>
 					{/* <SortMenu /> */}
 				</div>
-			}
+			: null}
 			<div>
 				{comments.map(comment =>
 					<Comment key={comment.id} data={comment} />
