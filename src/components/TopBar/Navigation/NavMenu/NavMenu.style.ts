@@ -6,19 +6,6 @@ const navMenuStyles = makeStyles((theme: IThemeInterface) => ({
 		borderTop: 'none',
 		width: 270,
 	},
-	filter: {
-		color: theme.fontColor,
-		margin: '0 auto',
-		marginTop: 5,
-		paddingLeft: 8,
-		width: '85%',
-		height: 30,
-		boxSizing: 'border-box',
-		background: theme.background.searchBox,
-		'&:hover': {
-			borderColor: '#0079d3',
-		}
-	},
 	heading: {
 		paddingLeft: 13,
 		marginBottom: 10,

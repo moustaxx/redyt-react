@@ -13,7 +13,6 @@ const NavMenu = (_: INavMenu) => {
 	const classes = navMenuStyles();
 	return (
 		<DropDown className={classes.root}>
-			<input className={classes.filter} placeholder='Filter' />
 			<div className={classes.heading}>Redyt feeds</div>
 			<Link to={'/'}>
 				<MdHome />
