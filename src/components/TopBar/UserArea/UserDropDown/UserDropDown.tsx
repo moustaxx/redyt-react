@@ -26,7 +26,8 @@ const UserDropDown = ({ username }: IUserDropDown) => {
 			<div className={classes.heading}>View settings</div>
 			<SetThemeContext.Consumer>
 				{setTheme => (
-					<a onClick={setTheme}>
+					// tslint:disable-next-line: jsx-no-lambda
+					<a onClick={() => setTheme}>
 						<MdWbSunny />
 						<span>Dark mode</span>
 					</a>

@@ -10,17 +10,20 @@ import Error from 'Components/Views/Error/Error';
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 import forumStyles from './Forum.style';
+import { SetThemeContext } from '../../index';
 
-interface IForumProps extends RouteComponentProps<{subforumName: string}> {}
+interface IForumProps extends RouteComponentProps<{ subforumName: string }> { }
 
 const Forum = (props: IForumProps) => {
-
-	const classes = forumStyles();
 	const { subforumName } = props.match.params;
 	
+	const classes = forumStyles();
+	const setNewTheme = React.useContext(SetThemeContext);
+
 	const { data, error, loading } = useQuery<IGetSubforumRes>(GET_SUBFORUM, { variables: { name: subforumName } });
 	if (loading) return <LoadingAnim />;
 	if (error || !data) return <Error path={props.location.pathname} />;
+	setNewTheme('overwrite', data.getSubforum.colors);
 
 	return (
 		<div className={classes.root}>

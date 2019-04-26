@@ -9,17 +9,25 @@ import App from './components/App';
 
 import { ThemeProvider } from '@material-ui/styles';
 import { darkTheme, lightTheme } from './theme';
+import { IColors } from 'Components/Forum/Forum.apollo';
 
-export const SetThemeContext = React.createContext(() => {/**/});
+export const SetThemeContext = React.createContext(
+	(a: 'overwrite' | 'toggle' = 'toggle', b?: IColors | false) => {/**/}
+);
 
 const WrappedApp = () => {
 	const [theme, setTheme] = React.useState(darkTheme);
 	const [isDarkThemeOn, setIsDarkThemeOn] = React.useState(true);
 
-	const setNewTheme = () => {
-		if (isDarkThemeOn) setTheme(lightTheme);
-		else setTheme(darkTheme);
-		setIsDarkThemeOn(!isDarkThemeOn);
+	const setNewTheme = (type: 'overwrite' | 'toggle' = 'toggle', subforum?: IColors | false) => {
+		if (type === 'toggle') {
+			if (isDarkThemeOn) setTheme(lightTheme);
+			else setTheme(darkTheme);
+			setIsDarkThemeOn(!isDarkThemeOn);
+		} else if (subforum) {
+			const newTheme = { ...theme, subforum };
+			if (JSON.stringify(theme) !== JSON.stringify(newTheme)) setTheme(newTheme);
+		}
 	};
 
 	return (
