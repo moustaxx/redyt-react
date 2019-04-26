@@ -23,7 +23,7 @@ const buttonStyles = makeStyles(({ background, button }: IThemeInterface) => ({
 	secondary: {
 		color: button.primary,
 		border: `1px solid ${button.primary}`,
-		background: background.secondary,
+		background: button.secondary,
 
 		'&:hover': {
 			background: button.secondary,
