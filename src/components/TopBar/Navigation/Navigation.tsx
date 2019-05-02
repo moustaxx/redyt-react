@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Query } from 'react-apollo';
-import { MdArrowDropDown, MdAccountBox } from 'react-icons/md';
+import { MdArrowDropDown, MdAccountBox, MdSentimentVeryDissatisfied, MdAccessTime } from 'react-icons/md';
 import { withRouter, RouteComponentProps } from 'react-router';
 import clsx from 'clsx';
 
@@ -21,38 +21,38 @@ const Navigation = (props: RouteComponentProps) => {
 	const stopPropagation = (e: Event) => e.stopPropagation();
 
 	const classes = navigationStyles();
-
+	const skip = dispatcher !== 'r';
 	return (
 		<div className={clsx(classes.root, isNavMenuOpen && 'active')}>
 			<div className={classes.cnt} onClick={toggleNavStatus}>
-				<div className={classes.cnt2}>
+				<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{ name }} skip={skip}>{
+					({ loading, error, data }) => {
+						let nameee: string;
+						let Icon = MdAccessTime;
 
-					{dispatcher === 'r' &&
-						<Query<IGetSubforumRes> query={GET_SUBFORUM} variables={{ name }}>{
-							({ loading, error, data }) => {
+						if (loading) nameee = 'Loading...';
+						else if (!data || error) {
+							nameee = 'Error... :(';
+							Icon = MdSentimentVeryDissatisfied;
+						}
+						else {
+							if (skip) nameee = name;
+							else nameee = data.getSubforum.name;
 
-								if (loading || !data || error) return (
-									<div className={classes.navIcon}><SubforumIcon /></div>
-								);
-								return (
-									<>
-										<div className={classes.navIcon}><SubforumIcon /></div>
-										<div className={classes.subforumName}>{data.getSubforum.name}</div>
-									</>
-								);
+							switch (dispatcher) {
+								case 'user': Icon = MdAccountBox; break;
+								case 'r': Icon = SubforumIcon;
 							}
 						}
-						</Query>
-					}
 
-					{dispatcher === 'user' &&
-						<>
-							<div className={classes.navIcon}><MdAccountBox /></div>
-							<div className={classes.subforumName}>{name}</div >
-						</>
+						return (
+							<div className={classes.cnt2}>
+								<div className={classes.navIcon}><Icon /></div>
+								<div className={classes.subforumName}>{nameee}</div>
+							</div>
+						);
 					}
-
-				</div>
+				}</Query>
 				<MdArrowDropDown size={20} />
 			</div>
 			{isNavMenuOpen &&
