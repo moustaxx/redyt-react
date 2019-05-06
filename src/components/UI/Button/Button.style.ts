@@ -11,6 +11,7 @@ const buttonStyles = makeStyles(({ background, button }: IThemeInterface) => ({
 		textTransform: 'uppercase',
 
 		background: button.primary,
+		transition: '.2s background-color',
 		color: 'white',
 
 		'&:hover': {
@@ -35,6 +36,12 @@ const buttonStyles = makeStyles(({ background, button }: IThemeInterface) => ({
 			borderColor: Color(button.primary).darken(0.20).string(),
 			color: Color(button.primary).darken(0.20).string(),
 		},
+	},
+	popup: {
+		margin: '10px 0',
+		height: 45,
+		width: '100%',
+		borderRadius: 0,
 	}
 }), { name: 'Button' });
 

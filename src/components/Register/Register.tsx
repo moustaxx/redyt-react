@@ -89,7 +89,7 @@ const Register = (props: IRegisterFormProps) => {
 								type='password' name='confirmPassword' placeholder='Confirm password' autoComplete='confirm-pass' />
 							<input className={classes.checkbox} type='checkbox' required/>
 							<span className={classes.agreement}>I accept Terms of Use & Privacy Policy.</span>
-							<Button className={classes.btn}>Sign up</Button>
+							<Button popup>Sign up</Button>
 						</form>
 					: null}
 					{loading && <LoadingAnim />}

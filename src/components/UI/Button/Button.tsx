@@ -6,14 +6,16 @@ import buttonStyles from './Button.style';
 type TButton = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 interface IButtonProps extends TButton {
 	secondary?: boolean;
+	popup?: boolean;
 }
 
-const Button = ({ className, secondary, ...props}: IButtonProps) => {
+const Button = ({ className, secondary, popup, ...props}: IButtonProps) => {
 	const classes = buttonStyles();
 	return (
 		<button
 			className={clsx(classes.root,
 				secondary && classes.secondary,
+				popup && classes.popup,
 				className,
 			)}
 			{...props}

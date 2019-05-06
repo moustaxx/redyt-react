@@ -75,7 +75,7 @@ const LoginForm = (props: ILoginFormProps) => {
 							<TextBox wide
 								value={passwordInput} onChange={handlePasswordChange}
 								type='password' placeholder='Password' required autoComplete='password' />
-							<Button className={classes.btn}>Log in</Button>
+							<Button popup>Log in</Button>
 						</form>
 					: null}
 					{loading && <LoadingAnim />}

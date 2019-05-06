@@ -46,13 +46,6 @@ const loginFormStyles = makeStyles((theme: IThemeInterface) => ({
 		padding: '0px 0 20px 0',
 		userSelect: 'none',
 	},
-	btn: {
-		margin: '10px 0',
-		height: 45,
-		width: '100%',
-		borderRadius: 0,
-		background: '#0067b8',
-	},
 	'@keyframes fadein': {
 		from: { opacity: 0 },
 		to: { opacity: 1 }

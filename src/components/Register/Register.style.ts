@@ -46,13 +46,6 @@ const registerStyles = makeStyles((theme: IThemeInterface) => ({
 		padding: '0px 0 20px 0',
 		userSelect: 'none',
 	},
-	btn: {
-		margin: '10px 0',
-		height: 45,
-		width: '100%',
-		borderRadius: 0,
-		background: '#0067b8',
-	},
 	checkbox: {
 		margin: 5,
 		verticalAlign: 'middle',
