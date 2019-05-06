@@ -7,7 +7,7 @@ const dropDownStyles = makeStyles((theme: IThemeInterface) => ({
 		position: 'absolute',
 		width: 200,
 		top: 43,
-		right: 20,
+		right: 5,
 	},
 	heading: {
 		paddingLeft: 13,

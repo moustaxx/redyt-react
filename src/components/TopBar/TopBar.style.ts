@@ -14,6 +14,7 @@ const topBarStyles = makeStyles((theme: IThemeInterface) => ({
 		borderBottom: `1px solid ${theme.background.primary}`,
 		zIndex: 10,
 		boxSizing: 'border-box',
+		padding: '0 4px',
 	},
 	btn: {
 		width: 120,
