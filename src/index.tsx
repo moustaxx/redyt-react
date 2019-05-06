@@ -17,14 +17,14 @@ export const SetThemeContext = React.createContext(
 const WrappedApp = () => {
 	const [theme, setTheme] = React.useState(darkTheme);
 	const [isDarkThemeOn, setIsDarkThemeOn] = React.useState(true);
-
-	const setNewTheme = (type: 'overwrite' | 'toggle' = 'toggle', subforum?: IColors | false) => {
+	
+	const setNewTheme = (type: 'overwrite' | 'toggle' = 'toggle', colors?: IColors | false) => {
 		if (type === 'toggle') {
 			if (isDarkThemeOn) setTheme(lightTheme);
 			else setTheme(darkTheme);
 			setIsDarkThemeOn(!isDarkThemeOn);
-		} else if (subforum) {
-			const newTheme = { ...theme, subforum };
+		} else if (colors) {
+			const newTheme = Object.assign({}, theme, colors);
 			if (JSON.stringify(theme) !== JSON.stringify(newTheme)) setTheme(newTheme);
 		}
 	};

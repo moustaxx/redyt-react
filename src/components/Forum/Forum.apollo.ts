@@ -7,9 +7,15 @@ export const GET_SUBFORUM = gql`
 			description
 			name
 			colors {
-				primary
-				secondary
-				tertiary
+				subforum {
+					primary
+					secondary
+					tertiary
+				}
+				button {
+					primary
+					secondary
+				}
 			}
 		}
 	}
@@ -23,9 +29,15 @@ export interface ISubforum {
 }
 
 export interface IColors {
-	primary: string;
-	secondary: string;
-	tertiary: string;
+	subforum: {
+		primary: string;
+		secondary: string;
+		tertiary: string;
+	};
+	button: {
+		primary: string;
+		secondary: string;
+	};
 }
 
 export interface IGetSubforumRes {
