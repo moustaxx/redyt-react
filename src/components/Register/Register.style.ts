@@ -53,25 +53,6 @@ const registerStyles = makeStyles((theme: IThemeInterface) => ({
 		borderRadius: 0,
 		background: '#0067b8',
 	},
-	textbox: {
-		height: 45,
-		width: '100%',
-		margin: '6px 0',
-	},
-	input: {
-		height: 45,
-		width: '100%',
-		border: '1px solid transparent',
-		background: theme.background.primary,
-		paddingLeft: 15,
-		margin: '6px 0',
-		color: theme.fontColor,
-		boxSizing: 'border-box',
-		'&:focus': {
-			outline: 0,
-			border: `1px solid ${theme.subforum.secondary}`,
-		}
-	},
 	checkbox: {
 		margin: 5,
 		verticalAlign: 'middle',

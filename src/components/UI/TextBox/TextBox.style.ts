@@ -16,6 +16,13 @@ const textBoxStyles = makeStyles((theme: IThemeInterface) => ({
 			outline: 0,
 			border: `1px solid ${theme.subforum.secondary}`,
 		}
+	},
+	wide: {
+		width: '100%',
+		border: '1px solid transparent',
+		background: theme.background.primary,
+		margin: '6px 0',
+		borderRadius: 2,
 	}
 }), { name: 'TextBox' });
 

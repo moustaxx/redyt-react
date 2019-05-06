@@ -69,10 +69,10 @@ const LoginForm = (props: ILoginFormProps) => {
 					{!loading && !success ?
 						<form onSubmit={handleSubmit}>
 							{error && <span className={classes.error}>Wrong username or password!</span> }
-							<TextBox className={classes.textbox}
+							<TextBox wide
 								value={usernameInput} onChange={handleUsernameChange}
 								type='text' placeholder='Username' required autoComplete='username' />
-							<TextBox className={classes.textbox}
+							<TextBox wide
 								value={passwordInput} onChange={handlePasswordChange}
 								type='password' placeholder='Password' required autoComplete='password' />
 							<Button className={classes.btn}>Log in</Button>

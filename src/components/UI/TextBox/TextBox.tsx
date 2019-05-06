@@ -4,11 +4,15 @@ import clsx from 'clsx';
 
 type TInput = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-const TextBox = ({ className, ...props }: TInput) => {
+interface IInputProps extends TInput {
+	wide?: boolean;
+}
+
+const TextBox = ({ className, wide, ...props }: IInputProps) => {
 	const classes = textBoxStyles();
 	return (
 		<input
-			className={clsx(classes.root, className)}
+			className={clsx(classes.root, wide && classes.wide, className)}
 			{...props}
 		/>
 	);

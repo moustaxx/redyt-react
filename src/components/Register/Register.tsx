@@ -6,6 +6,7 @@ import { IRegisterRes, CREATE_USER } from './Register.apollo';
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 import XButton from 'Components/UI/Svgs/XButton';
 import Button from 'Components/UI/Button/Button';
+import TextBox from 'Components/UI/TextBox/TextBox';
 
 interface IRegisterFormProps {
 	closeForm: () => void;
@@ -74,16 +75,16 @@ const Register = (props: IRegisterFormProps) => {
 							: null }
 							{passwordsNotIdentical ?
 								<div className={classes.error}>Passwords are not identical!</div> : null }
-							<input className={classes.input}
+							<TextBox wide
 								value={user.name} onChange={handleChange} required
 								type='text' name='name' placeholder='Username' autoComplete='username' />
-							<input className={classes.input}
+							<TextBox wide
 								value={user.email} onChange={handleChange} required
 								type='text' name='email' placeholder='Email' autoComplete='email' />
-							<input className={classes.input}
+							<TextBox wide
 								value={user.password} onChange={handleChange} required
 								type='password' name='password' placeholder='Password' autoComplete='password' />
-							<input className={classes.input}
+							<TextBox wide
 								value={user.confirmPassword} onChange={handleChange} required
 								type='password' name='confirmPassword' placeholder='Confirm password' autoComplete='confirm-pass' />
 							<input className={classes.checkbox} type='checkbox' required/>

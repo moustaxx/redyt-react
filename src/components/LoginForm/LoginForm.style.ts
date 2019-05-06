@@ -53,11 +53,6 @@ const loginFormStyles = makeStyles((theme: IThemeInterface) => ({
 		borderRadius: 0,
 		background: '#0067b8',
 	},
-	textbox: {
-		height: 45,
-		width: '100%',
-		margin: '6px 0',
-	},
 	'@keyframes fadein': {
 		from: { opacity: 0 },
 		to: { opacity: 1 }
