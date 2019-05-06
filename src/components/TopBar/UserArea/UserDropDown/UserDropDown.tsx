@@ -18,7 +18,7 @@ const UserDropDown = ({ username }: IUserDropDown) => {
 				<MdAccountBox />
 				<span>My profile</span>
 			</Link>
-			<Link to={'/'}>
+			<Link to={'/settings'}>
 				<MdSettings />
 				<span>User Settings</span>
 			</Link>

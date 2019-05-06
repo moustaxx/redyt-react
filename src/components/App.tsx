@@ -12,6 +12,7 @@ import Forum from './Forum/Forum';
 import PostView from './Views/PostView/PostView';
 import LoginForm from './LoginForm/LoginForm';
 import AccountView from './Views/AccountView/AccountView';
+import SettingsView from './Views/SettingsView/SettingsView';
 
 const checkLoginStatus = () => {
 	if (!document.cookie) return false;
@@ -35,6 +36,7 @@ const App = () => {
 						<Route component={PostView} path='/r/:subforumName/:postID' />
 						<Route component={Forum} path='/r/:subforumName' />
 						<Route component={AccountView} path='/user/:userName' />
+						<Route component={SettingsView} path='/settings' />
 						<Route component={LoginForm} path='/login' />
 						<Route component={Error} />
 					</Switch>

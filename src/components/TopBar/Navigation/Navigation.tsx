@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useQuery } from 'react-apollo-hooks';
-import { MdArrowDropDown, MdAccountBox, MdSentimentVeryDissatisfied, MdAccessTime } from 'react-icons/md';
+import { MdArrowDropDown, MdAccountBox, MdSentimentVeryDissatisfied, MdAccessTime, MdSettings } from 'react-icons/md';
 import { withRouter, RouteComponentProps } from 'react-router';
 import clsx from 'clsx';
 
@@ -32,11 +32,13 @@ const Navigation = (props: RouteComponentProps) => {
 		switch (dispatcher) {
 			case 'user': Icon = MdAccountBox; break;
 			case 'r': Icon = SubforumIcon; break;
+			case 'settings': Icon = MdSettings; break;
 			default: Icon = MdSentimentVeryDissatisfied;
 		}
 
 		if (skip && name) subforumName = name;
 		else if (data && !error) subforumName = data.getSubforum.name;
+		else if (dispatcher === 'settings') subforumName = 'Settings';
 		else subforumName = 'Error... :(';
 	}
 

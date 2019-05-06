@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { withRouter, RouteComponentProps } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import { GET_USER_DATA, IUserRes } from './AccountView.apollo';
 
@@ -19,13 +20,16 @@ const AccountView = (props: RouteComponentProps<{userName: string}>) => {
 	if (loading) return <LoadingAnim />;
 	if (error) return <Error message={'User not found!'} />;
 	if (!data) return null;
+
+	const newName = data.getUserByName.name;
+	
 	return (
 		<div className={classes.root}>
 			<div>
 				<div className={classes.header}>
 					<div className={classes.cnt}>
-						<div className={classes.avatar}>{data.getUserByName.name[0]}</div>
-						<div className={classes.heading}>{data.getUserByName.name}</div>
+						<div className={classes.avatar}>{newName[0]}</div>
+						<div className={classes.heading}><Link to={'/user/' + newName}>{newName}</Link></div>
 					</div>
 				</div>
 				<div className={classes.content}>
