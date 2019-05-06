@@ -36,8 +36,8 @@ export const darkTheme: IThemeInterface = {
 		searchBox: 'hsl(228, 10%, 12%)',
 	},
 	button: {
-		primary: 'hsl(169,44%,36%)',
-		secondary: 'hsl(204, 7%, 85%)',
+		primary: 'hsl(210, 79%, 46%)',
+		secondary: 'transparent',
 	},
 	borderColor: 'hsl(0, 0%, 24%)',
 	defaultFont: 'Source Sans Pro',
@@ -59,8 +59,8 @@ export const lightTheme: IThemeInterface = {
 		searchBox: 'hsl(210, 13%, 90%)',
 	},
 	button: {
-		primary: 'hsl(169,44%,36%)',
-		secondary: 'hsl(204, 7%, 85%)',
+		primary: 'hsl(210, 79%, 46%)',
+		secondary: 'transparent',
 	},
 	borderColor: 'hsl(210, 13%, 90%)',
 	defaultFont: 'Source Sans Pro',
