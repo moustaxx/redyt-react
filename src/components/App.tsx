@@ -9,7 +9,6 @@ import appStyles from './App.style';
 import MyRouter from './RouterUtils/RouterUtils';
 import Error from './Views/Error/Error';
 import Forum from './Forum/Forum';
-import PostView from './Views/PostView/PostView';
 import LoginForm from './LoginForm/LoginForm';
 import AccountView from './Views/AccountView/AccountView';
 import SettingsView from './Views/SettingsView/SettingsView';
@@ -33,7 +32,6 @@ const App = () => {
 					</React.Suspense>
 					<Switch>
 						<Redirect exact from='/' to='/r/Popular' />
-						<Route component={PostView} path='/r/:subforumName/:postID' />
 						<Route component={Forum} path='/r/:subforumName' />
 						<Route component={AccountView} path='/user/:userName' />
 						<Route component={SettingsView} path='/settings' />

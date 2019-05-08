@@ -1,15 +1,17 @@
 import * as React from 'react';
+import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
 
-import AsideChild from '../AsideChild/AsideChild';
-import Button from 'Components/UI/Button/Button';
 import { ISubforum } from 'components/Forum/Forum.apollo';
 import communityDetailsStyles from './CommunityDetails.style';
+import AsideChild from '../AsideChild/AsideChild';
+import Button from 'Components/UI/Button/Button';
 
-interface ICommunityDetailsProps {
+interface ICommunityDetailsProps extends RouteComponentProps<{ subforumName: string }> {
 	subforum: ISubforum;
 }
 const CommunityDetails = (props: ICommunityDetailsProps) => {
 	const classes = communityDetailsStyles();
+	const subforumName = props.match.params.subforumName;
 
 	const { name, description } = props.subforum;
 	return (
@@ -30,11 +32,11 @@ const CommunityDetails = (props: ICommunityDetailsProps) => {
 					</div>
 					<div className={classes.description}>{description}</div>
 					<Button className={classes.btn}>SUBSCRIBE</Button>
-					<Button className={classes.btn}>CREATE POST</Button>
+					<Link to={'/r/' + subforumName + '/submit'}><Button className={classes.btn}>CREATE POST</Button></Link>
 				</div>
 			</AsideChild>
 		</div>
 	);
 };
 
-export default CommunityDetails;
+export default withRouter(CommunityDetails);

@@ -19,7 +19,6 @@ const textBoxStyles = makeStyles((theme: IThemeInterface) => ({
 	},
 	wide: {
 		width: '100%',
-		border: '1px solid transparent',
 		background: theme.background.primary,
 		margin: '6px 0',
 		borderRadius: 2,

@@ -1,18 +1,22 @@
 import * as React from 'react';
 import { useQuery } from 'react-apollo-hooks';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, Switch, Route } from 'react-router';
 
 const Posts = React.lazy(() => import('./Posts/Posts'));
 const Aside = React.lazy(() => import('./Aside/Aside'));
 
+import { SetThemeContext } from '../../index';
+import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
+import forumStyles from './Forum.style';
 import SubforumHead from './SubforumHead/SubforumHead';
 import Error from 'Components/Views/Error/Error';
-import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
+import PostView from 'Components/Views/PostView/PostView';
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
-import forumStyles from './Forum.style';
-import { SetThemeContext } from '../../index';
+import CreatePost from 'Components/Forum/CreatePost/CreatePost';
 
-interface IForumProps extends RouteComponentProps<{ subforumName: string }> { }
+interface IForumProps extends RouteComponentProps<{ subforumName: string }> {
+	children?: JSX.Element;
+}
 
 const Forum = (props: IForumProps) => {
 	const { subforumName } = props.match.params;
@@ -32,9 +36,17 @@ const Forum = (props: IForumProps) => {
 				<React.Suspense fallback={null}>
 					<Aside subforum={data.getSubforum} style={{ marginLeft: 0 }} />
 				</React.Suspense>
-				<React.Suspense fallback={null}>
-					<Posts subforum={data.getSubforum} />
-				</React.Suspense>
+				<Switch>
+					<Route render={p => ( /* tslint:disable-next-line: jsx-no-lambda */
+						<CreatePost subforumID={data.getSubforum.id} {...p} />
+					)} path='/r/:subforumName/submit' exact />
+					<Route component={PostView} path='/r/:subforumName/:postID' />
+					<Route render={p => ( /* tslint:disable-next-line: jsx-no-lambda */
+						<React.Suspense fallback={null}>
+							<Posts subforum={data.getSubforum} {...p} />
+						</React.Suspense>
+					)} path='/r/:subforumName' />
+				</Switch>
 			</div>
 		</div>
 	);
