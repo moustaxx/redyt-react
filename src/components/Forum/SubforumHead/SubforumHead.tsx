@@ -7,7 +7,7 @@ interface ISubforumHeadProps {
 	subforumName: string;
 }
 
-const SubfrorumHead = (props: ISubforumHeadProps) => {
+const SubforumHead = (props: ISubforumHeadProps) => {
 	const classes = subforumHeadStyles();
 
 	return (
@@ -20,4 +20,4 @@ const SubfrorumHead = (props: ISubforumHeadProps) => {
 	);
 };
 
-export default SubfrorumHead;
+export default SubforumHead;
