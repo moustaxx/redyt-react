@@ -11,7 +11,7 @@ const buttonStyles = makeStyles(({ background, button }: IThemeInterface) => ({
 		padding: '0 16px',
 
 		background: button.primary,
-		transition: '.2s background-color',
+		transition: '.2s background-color, .2s border, .2s color',
 		color: 'white',
 
 		'&:hover': {
