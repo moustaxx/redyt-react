@@ -19,7 +19,7 @@ const Post = (props: IPostProps) => {
 	const date = new Date(createdAt).toLocaleString();
 	const subforumName = props.match.params.subforumName;
 
-	const setLocation = () => props.history.push(subforumName + '/' + id);
+	const setLocation = () => props.history.push('/r/' + subforumName + '/' + id);
 	const stopPropagation = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => e.stopPropagation();
 
 	return (
@@ -30,7 +30,7 @@ const Post = (props: IPostProps) => {
 					<div className={classes.postContent}>
 						<div className='postHeading'>
 							<div className='tag' />
-							<Link to={id} className='postTitle'>{title}</Link>
+							<Link to={'/r/' + subforumName + '/' + id} className='postTitle'>{title}</Link>
 							<span className='attachedLink' />
 						</div>
 					</div>
