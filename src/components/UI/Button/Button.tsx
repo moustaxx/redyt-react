@@ -23,4 +23,4 @@ const Button = ({ className, secondary, popup, ...props}: IButtonProps) => {
 	);
 };
 
-export default Button;
+export default React.memo(Button);

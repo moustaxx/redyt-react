@@ -18,4 +18,4 @@ const TextBox = ({ className, wide, ...props }: IInputProps) => {
 	);
 };
 
-export default TextBox;
+export default React.memo(TextBox);
