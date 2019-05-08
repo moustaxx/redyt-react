@@ -7,8 +7,8 @@ const textBoxStyles = makeStyles((theme: IThemeInterface) => ({
 		width: 250,
 		background: theme.background.searchBox,
 		border: '1px solid transparent',
-		borderRadius: 5,
-		paddingLeft: 15,
+		borderRadius: 4,
+		paddingLeft: 16,
 		boxSizing: 'border-box',
 		color: theme.fontColor,
 

@@ -4,11 +4,11 @@ import * as Color from 'color';
 
 const buttonStyles = makeStyles(({ background, button }: IThemeInterface) => ({
 	root: {
-		width: 200,
-		height: 34,
+		height: 32,
 		borderRadius: 4,
 		fontSize: 15,
 		textTransform: 'uppercase',
+		padding: '0 16px',
 
 		background: button.primary,
 		transition: '.2s background-color',
