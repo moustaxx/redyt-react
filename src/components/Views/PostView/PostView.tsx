@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps, Link } from 'react-router-dom';
 import { useQuery } from 'react-apollo-hooks';
+import { MdComment, MdShare } from 'react-icons/md';
 
 import { GET_POST, IGetPostRes } from './PostView.apollo';
 import postViewStyles from './PostView.style';
 
-import PostContent from './PostContent/PostContent';
-import Aside from 'Components/Forum/Aside/Aside';
+import Discussion from './Discussion/Discussion';
+import Vote from 'Components/UI/Vote/Vote';
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 
 interface IPostViewProps extends RouteComponentProps<{ postID: string }> {}
@@ -20,10 +21,32 @@ const PostView = (props: IPostViewProps) => {
 	if (loading) return <LoadingAnim />;
 	if (error || !data) return <span className={classes.warn}>{error && error.message}</span>;
 
+	const { title, author, content, commentCounter, createdAt, subforum, comments } = data.getPostByID;
+	const date = new Date(createdAt).toLocaleString();
 	return (
 		<div className={classes.root}>
-			<PostContent post={data.getPostByID}/>
-			<Aside subforum={data.getPostByID.subforum}/>
+			<div className={classes.gg1}>
+				<Vote className='voteHere' />
+				<div className={classes.interior}>
+					<div>
+						<span className={classes.subForumName}>{subforum.name}</span>
+						<span className={classes.postTime}>Posted by <Link to={`/user/${author.name}`}>{author.name}</Link> {date}</span>
+					</div>
+					<div className={classes.title}>{title}</div>
+					<div className={classes.essence}>{content}</div>
+					<div className={classes.postToolBar}>
+						<button>
+							<MdComment className='commentIcon el' />
+							<div className='el'>{commentCounter} Comments</div>
+						</button>
+						<button>
+							<MdShare className='shareIcon el' />
+							<div className='el'>Share</div>
+						</button>
+					</div>
+				</div>
+			</div>
+			<Discussion comments={comments} />
 		</div >
 	);
 };

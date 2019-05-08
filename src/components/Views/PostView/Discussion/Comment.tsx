@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import commentStyles from './Comment.style';
-import { IComment } from '../../PostView.apollo';
+import { IComment } from '../PostView.apollo';
 
 interface ICommentProps {
 	data: IComment;

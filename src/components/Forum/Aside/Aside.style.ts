@@ -5,7 +5,7 @@ const asideStyles = makeStyles((theme: IThemeInterface) => ({
 	root: {
 		width: 310,
 		flexShrink: 0,
-		margin: '0 5px',
+		margin: '0 4px',
 		'@media screen and (max-width: 750px)': {
 			display: 'none',
 		}
