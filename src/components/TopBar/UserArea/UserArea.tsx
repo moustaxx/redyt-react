@@ -15,7 +15,8 @@ const UserArea = () => {
 
 	const { data, loading, error } = useQuery<IUserRes>(GET_SESSION_OWNER);
 	if (loading) return <div>Loading...</div>;
-	if (error || !data) return null;
+	if (error) return <div>{error.message}</div>;
+	if (!data) return null;
 
 	return (
 		<div className={classes.root} onClick={toggleNavStatus}>

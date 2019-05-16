@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation, useApolloClient } from 'react-apollo-hooks';
 
 import { LOG_OUT, IUserRes } from './UserDropDown.apollo';
+import { LoginStatusContext } from 'Components/App';
 import { SetThemeContext } from '../../../../index';
 import dropDownStyles from './UserDropDown.style';
 
@@ -17,11 +18,14 @@ const UserDropDown = ({ username }: IUserDropDown) => {
 	const classes = dropDownStyles();
 
 	const setTheme = React.useContext(SetThemeContext);
+	const { setLoginStatus } = React.useContext(LoginStatusContext);
 	const logOut = useMutation<IUserRes>(LOG_OUT);
 	const client = useApolloClient();
+
 	const handleLogOut = async () => {
 		await logOut();
-		client.resetStore();
+		setLoginStatus(false);
+		await client.resetStore();
 	};
 
 	return (

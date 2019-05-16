@@ -1,34 +1,42 @@
 import * as React from 'react';
 import { Route, Redirect } from 'react-router';
-import { Switch } from 'react-router-dom';
+import { Switch, BrowserRouter } from 'react-router-dom';
 import { parse as parseCookie } from 'cookie';
 
 const TopBar = React.lazy(() => import('./TopBar/TopBar'));
 
 import appStyles from './App.style';
-import MyRouter from './RouterUtils/RouterUtils';
 import Error from './Views/Error/Error';
 import Forum from './Forum/Forum';
 import LoginForm from './LoginForm/LoginForm';
 import AccountView from './Views/AccountView/AccountView';
 import SettingsView from './Views/SettingsView/SettingsView';
 
-const checkLoginStatus = () => {
-	if (!document.cookie) return false;
-	const cookies = parseCookie(document.cookie);
-	return cookies.logged_in === 'true' ? true : false;
-};
+interface ILoginStatusContext {
+	loginStatus: boolean;
+	setLoginStatus: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export const LoginStatusContext = React.createContext(false);
+export const LoginStatusContext = React.createContext<ILoginStatusContext>({
+	loginStatus: false,
+	setLoginStatus: () => ({})
+});
 
 const App = () => {
 	appStyles();
+
+	const [loginStatus, setLoginStatus] = React.useState(() => {
+		if (!document.cookie) return false;
+		const cookies = parseCookie(document.cookie);
+		return cookies.logged_in === 'true' ? true : false;
+	});
+	
 	return (
-		<MyRouter>{_locationHref =>
-			<LoginStatusContext.Provider value={checkLoginStatus()}>
+		<LoginStatusContext.Provider value={{ loginStatus, setLoginStatus }}>
+			<BrowserRouter>
 				<div id='app'>
 					<React.Suspense fallback={null}>
-						<TopBar />
+						<TopBar loginStatus={loginStatus} />
 					</React.Suspense>
 					<Switch>
 						<Redirect exact from='/' to='/r/Popular' />
@@ -39,8 +47,8 @@ const App = () => {
 						<Route component={Error} />
 					</Switch>
 				</div>
-			</LoginStatusContext.Provider>
-		}</MyRouter>
+			</BrowserRouter>
+		</LoginStatusContext.Provider>
 	);
 };
 export default React.memo(App);

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Portal } from 'react-portal';
 
-import { LoginStatusContext } from 'Components/App';
 import topBarStyles from './TopBar.style';
 import Button from '../UI/Button/Button';
 
@@ -13,12 +12,12 @@ import SearchBox from './SearchBox/SearchBox';
 import Navigation from './Navigation/Navigation';
 import UserArea from './UserArea/UserArea';
 
-// interface ITopBarProps { }
+interface ITopBarProps {
+	loginStatus: boolean;
+}
 
-const TopBar = () => {
+const TopBar = ({ loginStatus }: ITopBarProps) => {
 	const classes = topBarStyles();
-
-	const loginStatus = React.useContext(LoginStatusContext);
 
 	const [isLoginFormOpen, setLoginFormOpen] = React.useState(false);
 	const [isRegisterOpen, setRegisterOpen] = React.useState(false);
@@ -36,7 +35,7 @@ const TopBar = () => {
 			<Logo />
 			<Navigation />
 			<SearchBox />
-			{loginStatus === true ? <UserArea /> : (
+			{loginStatus ? <UserArea /> : (
 				<React.Suspense fallback={null}>
 					<Button className={classes.btn} onClick={OpenLoginForm}>
 						Log in
