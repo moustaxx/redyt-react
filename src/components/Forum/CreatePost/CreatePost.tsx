@@ -20,7 +20,7 @@ const CreatePost = (props: ICreatePostProps) => {
 	});
 
 	const createPost = useMutation<ICreatePostRes>(CREATE_POST, {
-		variables: { title: post.title, content: post.content, subforum: '' },
+		variables: { title: post.title, content: post.content, subforum: props.subforumID },
 	});
 	
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
