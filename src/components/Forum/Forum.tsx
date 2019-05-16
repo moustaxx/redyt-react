@@ -38,7 +38,7 @@ const Forum = (props: IForumProps) => {
 				</React.Suspense>
 				<Switch>
 					<Route render={p => ( /* tslint:disable-next-line: jsx-no-lambda */
-						<CreatePost subforumID={data.getSubforum.id} {...p} />
+						<CreatePost subforumName={subforumName} subforumID={data.getSubforum.id} {...p} />
 					)} path='/r/:subforumName/submit' exact />
 					<Route component={PostView} path='/r/:subforumName/:postID' />
 					<Route render={p => ( /* tslint:disable-next-line: jsx-no-lambda */

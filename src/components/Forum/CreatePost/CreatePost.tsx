@@ -1,26 +1,50 @@
 import * as React from 'react';
 import { useMutation } from 'react-apollo-hooks';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { isApolloError } from 'apollo-client';
 
 import { ICreatePostRes, CREATE_POST } from './CreatePost.apollo';
+import { GET_POSTS, IGetPostsRes } from '../Posts/Posts.apollo';
 import createPostStyles from './CreatePost.style';
 import TextBox from 'Components/UI/TextBox/TextBox';
 import Button from 'Components/UI/Button/Button';
 
-interface ICreatePostProps {
+interface ICreatePostProps extends RouteComponentProps<{}> {
+	subforumName: string;
 	subforumID: string;
 }
 
 const CreatePost = (props: ICreatePostProps) => {
 
 	const classes = createPostStyles();
+	const [error, setError] = React.useState('');
 	const [post, setPostData] = React.useState({
 		title: '',
 		content: '',
 		tag: '',
 	});
 
-	const createPost = useMutation<ICreatePostRes>(CREATE_POST, {
+	const createPostMutation = useMutation<ICreatePostRes>(CREATE_POST, {
 		variables: { title: post.title, content: post.content, subforum: props.subforumID },
+		update: (proxy, mutationResult) => {
+			const { createPost } = mutationResult.data!;
+			const options = {
+				query: GET_POSTS,
+				variables: { subforumID: props.subforumID }
+			};
+			try {
+				const getPostsData = proxy.readQuery<IGetPostsRes>(options)!;
+				const postExists = getPostsData.getPostsBySubforum.find(p => p.id === createPost.id);
+				if (postExists) return;
+	
+				proxy.writeQuery({
+					...options,
+					data: {
+						getPostsBySubforum: [createPost, ...getPostsData.getPostsBySubforum]
+					}
+				});
+			} catch (err) { return; }
+		},
 	});
 	
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,16 +55,21 @@ const CreatePost = (props: ICreatePostProps) => {
 		});
 	};
 
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		createPost();
+		// tslint:disable-next-line: no-unnecessary-initializer
+		const { data = undefined } = await createPostMutation().catch((err: Error) => {
+			if (!isApolloError(err)) return setError('Unknown error');
+			return setError(err.message);
+		}) || {};
+		if (data) props.history.push(`/r/${props.subforumName}/${data!.createPost.id}`);
 	};
-
 
 	return (
 		<div className={classes.root}>
 			<form onSubmit={handleSubmit}>
-			<div className={classes.heading}>Create post</div>
+				<div className={classes.heading}>Create post</div>
+				{error && <div style={{color: 'red'}}>{error}</div>}
 				<TextBox
 					wide
 					required
@@ -65,4 +94,4 @@ const CreatePost = (props: ICreatePostProps) => {
 	);
 };
 
-export default CreatePost;
+export default withRouter(CreatePost);
