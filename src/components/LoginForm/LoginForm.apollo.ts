@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const VERIFY_LOGIN = gql`
-	query($name: String! $password: String!) {
+	query verifyLogin($name: String! $password: String!) {
 		verifyLogin(name: $name, password: $password) {
 			id
 		}

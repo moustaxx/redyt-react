@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const GET_SUBFORUM = gql`
-	query($name: String!) {
+	query getSubforum($name: String!) {
 		getSubforum(name: $name) {
 			id
 			name

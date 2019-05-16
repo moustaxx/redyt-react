@@ -35,7 +35,7 @@ export const PostFragment = gql`
 `;
 
 export const GET_POST = gql`
-	query($postID: ID!) {
+	query getPostByID($postID: ID!) {
 		getPostByID( id: $postID ){
 			...PostFragment
 		}

@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const GET_USER_DATA = gql`
-	query($name: String!) {
+	query getUserByName($name: String!) {
 		getUserByName(name: $name) {
 			name
 			id

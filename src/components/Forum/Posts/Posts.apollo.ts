@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const GET_POSTS = gql`
-	query($subforumID: ID!) {
+	query getPostsBySubforum ($subforumID: ID!) {
 		getPostsBySubforum(
 			subforum: $subforumID
 		){
