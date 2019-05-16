@@ -21,4 +21,4 @@ const Aside = ({subforum, style}: IAsideProps) => {
 	);
 };
 
-export default Aside;
+export default React.memo(Aside);

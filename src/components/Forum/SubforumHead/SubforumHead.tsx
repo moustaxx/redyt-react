@@ -20,4 +20,4 @@ const SubforumHead = (props: ISubforumHeadProps) => {
 	);
 };
 
-export default SubforumHead;
+export default React.memo(SubforumHead);
