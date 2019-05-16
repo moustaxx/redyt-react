@@ -13,8 +13,8 @@ interface ILoginFormProps {
 }
 
 const LoginForm = (props: ILoginFormProps) => {
-	const [usernameInput, setUsernameInput] = React.useState('');
-	const [passwordInput, setPasswordInput] = React.useState('');
+	const [usernameInput, setUsernameInput] = React.useState('admin');
+	const [passwordInput, setPasswordInput] = React.useState('admin');
 	const [loading, setLoading] = React.useState(false);
 	const [success, setSuccess] = React.useState(false);
 	const [error, setError] = React.useState(false);
@@ -28,7 +28,6 @@ const LoginForm = (props: ILoginFormProps) => {
 		setPasswordInput(event.target.value);
 	};
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		console.log('Login: ' + usernameInput + ' Password: ' + passwordInput);
 		event.preventDefault();
 		verifyLogin();
 	};
