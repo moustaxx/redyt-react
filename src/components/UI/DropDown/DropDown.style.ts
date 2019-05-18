@@ -39,6 +39,9 @@ const dropDownStyles = makeStyles((theme: IThemeInterface) => ({
 			? Color(theme.background.secondary).darken(0.05).string()
 			: Color(theme.background.secondary).lighten(0.19).string()
 		},
+	},
+	slim: {
+		width: 'auto',
 	}
 }), { name: 'DropDown' });
 

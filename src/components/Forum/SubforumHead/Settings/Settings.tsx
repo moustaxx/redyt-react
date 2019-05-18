@@ -23,8 +23,8 @@ const Settings = () => {
 	return (
 		<div className={classes.root}>
 			<button className={classes.sortBtn} onClick={showSortMenu}>
-				<span>Sort by</span>
-				<span className='slide'>{choice}</span>
+				<span>Sort by </span>
+				<span className={classes.choice}>{choice}</span>
 				<MdArrowDropDown />
 			</button>
 			{isSortOpen &&

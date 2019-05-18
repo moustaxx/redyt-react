@@ -23,7 +23,6 @@ const settingsStyles = makeStyles((theme: IThemeInterface) => ({
 		letterSpacing: 0.5,
 		color: theme.iconColor,
 		background: 'transparent',
-		padding: '0 10px',
 		'& .slide': {
 			marginLeft: 8,
 		},
@@ -32,6 +31,10 @@ const settingsStyles = makeStyles((theme: IThemeInterface) => ({
 			height: 20,
 			color: theme.subforum.secondary,
 		},
+	},
+	choice: {
+		color: theme.subforum.secondary,
+		paddingLeft: 4,
 	}
 }), { name: 'Settings'});
 
