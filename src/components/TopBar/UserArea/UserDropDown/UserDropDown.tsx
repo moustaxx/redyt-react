@@ -4,7 +4,7 @@ import { useMutation, useApolloClient } from 'react-apollo-hooks';
 
 import { LOG_OUT, IUserRes } from './UserDropDown.apollo';
 import { LoginStatusContext } from 'Components/App';
-import { SetThemeContext } from '../../../../index';
+import SetThemeContext from 'Src/contexts/SetThemeContext';
 import dropDownStyles from './UserDropDown.style';
 
 import { MdAccountBox, MdSettings, MdWbSunny, MdPowerSettingsNew } from 'react-icons/md';

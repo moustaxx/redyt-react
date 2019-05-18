@@ -8,11 +8,8 @@ import App from './components/App';
 
 import { ThemeProvider } from '@material-ui/styles';
 import { darkTheme, lightTheme } from './theme';
+import SetThemeContext from './contexts/SetThemeContext';
 import { IColors } from 'Components/Forum/Forum.apollo';
-
-export const SetThemeContext = React.createContext(
-	(a: 'overwrite' | 'toggle' = 'toggle', b?: IColors | false) => {/**/}
-);
 
 const WrappedApp = () => {
 	const [theme, setTheme] = React.useState(darkTheme);

@@ -6,7 +6,7 @@ const Posts = React.lazy(() => import('./Posts/Posts'));
 const Aside = React.lazy(() => import('./Aside/Aside'));
 
 import SortPostsContext from 'Src/contexts/SortPostsContext';
-import { SetThemeContext } from '../../index';
+import SetThemeContext from 'Src/contexts/SetThemeContext';
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
 import forumStyles from './Forum.style';
 import SubforumHead from './SubforumHead/SubforumHead';

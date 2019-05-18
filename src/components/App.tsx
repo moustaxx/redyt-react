@@ -24,7 +24,7 @@ export const LoginStatusContext = React.createContext<ILoginStatusContext>({
 
 const App = () => {
 	appStyles();
-
+	
 	const [loginStatus, setLoginStatus] = React.useState(() => {
 		if (!document.cookie) return false;
 		const cookies = parseCookie(document.cookie);
