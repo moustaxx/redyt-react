@@ -15,7 +15,7 @@ interface IUserDropDown {
 	onClick: (e: any) => void;
 }
 
-const UserDropDown = ({ username }: IUserDropDown) => {
+const UserDropDown = ({ username, onClick }: IUserDropDown) => {
 	const classes = dropDownStyles();
 
 	const setTheme = React.useContext(SetThemeContext);
@@ -30,7 +30,7 @@ const UserDropDown = ({ username }: IUserDropDown) => {
 	};
 
 	return (
-		<DropDown className={classes.root}>
+		<DropDown userArea onClick={onClick}>
 			<div className={classes.heading}>Me</div>
 			<Link to={'/user/' + username}>
 				<MdAccountBox />

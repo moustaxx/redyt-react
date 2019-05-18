@@ -4,10 +4,11 @@ import { MdArrowDropDown, MdAccountBox, MdSentimentVeryDissatisfied, MdAccessTim
 import { withRouter, RouteComponentProps } from 'react-router';
 import clsx from 'clsx';
 
+import { IGetSubforumRes, GET_SUBFORUM } from './Navigation.apollo';
 import navigationStyles from './Navigation.style';
 
 import SubforumIcon from 'Components/UI/Svgs/SubforumIcon';
-import { IGetSubforumRes, GET_SUBFORUM } from './Navigation.apollo';
+import ClickOutside from 'Components/UI/ClickOutside/ClickOutside';
 import NavMenu from './NavMenu/NavMenu';
 
 const Navigation = (props: RouteComponentProps) => {
@@ -53,7 +54,7 @@ const Navigation = (props: RouteComponentProps) => {
 			</div>
 			{isNavMenuOpen &&
 				<>
-					<div className={classes.clickOutside} onClick={toggleNavStatus} />
+					<ClickOutside onClick={toggleNavStatus} />
 					<NavMenu onClick={stopPropagation} />
 				</>
 			}

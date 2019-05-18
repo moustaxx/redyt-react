@@ -12,7 +12,7 @@ interface INavMenu {
 const NavMenu = (_: INavMenu) => {
 	const classes = navMenuStyles();
 	return (
-		<DropDown className={classes.root}>
+		<DropDown navigation>
 			<div className={classes.heading}>Redyt feeds</div>
 			<Link to={'/'}>
 				<MdHome />

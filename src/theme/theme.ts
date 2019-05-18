@@ -32,7 +32,7 @@ export const darkTheme: IThemeInterface = {
 	iconColor: 'hsl(204, 2%, 54%)',
 	background: {
 		primary: 'hsl(228, 10%, 10%)',
-		secondary: 'hsl(220, 12%, 14%)',
+		secondary: 'hsl(228, 12%, 14%)',
 		searchBox: 'hsl(228, 10%, 12%)',
 	},
 	button: {

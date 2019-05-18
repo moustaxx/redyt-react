@@ -7,13 +7,17 @@ type TDiv = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDi
 
 interface IDropDownProps extends TDiv {
 	slim?: boolean;
+	navigation?: boolean;
+	userArea?: boolean;
+	onClick?: (e: any) => void;
 }
 
-const DropDown = ({ className, slim, ...props }: IDropDownProps) => {
+const DropDown = ({ className, slim, navigation, userArea, ...props }: IDropDownProps) => {
 	const classes = dropDownStyles();
 	return (
 		<div
-			className={clsx(classes.root, slim && classes.slim, className)}
+			className={clsx(classes.root, slim && classes.slim, navigation && classes.navigation,
+				userArea && classes.userArea, className)}
 			{...props}
 		/>
 	);

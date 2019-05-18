@@ -17,7 +17,7 @@ const dropDownStyles = makeStyles((theme: IThemeInterface) => ({
 		flexDirection: 'column',
 		justifyContent: 'center',
 		background: theme.background.secondary,
-		paddingBottom: 10,
+		padding: '8px 0',
 		listStyleType: 'none',
 		'& a, & li': {
 			height: 38,
@@ -30,7 +30,7 @@ const dropDownStyles = makeStyles((theme: IThemeInterface) => ({
 			'& > svg': {
 				width: 20,
 				height: 20,
-				margin: '0 7px',
+				margin: '0 8px',
 				color: theme.iconColor
 			},
 		},
@@ -41,8 +41,18 @@ const dropDownStyles = makeStyles((theme: IThemeInterface) => ({
 		},
 	},
 	slim: {
-		width: 'auto',
-	}
+		width: 150,
+	},
+	navigation: {
+		borderTop: 'none',
+		width: 270,
+	},
+	userArea: {
+		borderTop: 'none',
+		position: 'absolute',
+		top: 43,
+		right: 5,
+	},
 }), { name: 'DropDown' });
 
 export default dropDownStyles;

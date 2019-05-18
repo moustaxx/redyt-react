@@ -67,14 +67,9 @@ const navigationStyles = makeStyles(({ borderColor }: IThemeInterface) => ({
 		verticalAlign: 'middle',
 		marginLeft: 3,
 	},
-	clickOutside: {
-		position: 'absolute',
-		width: '98vw',
-		height: '100vh',
-		top: 0,
-		left: 0,
-		cursor: 'initial',
-	}
+	navMenu: {
+		width: 200,
+	},
 }), { name: 'Navigation' });
 	
 export default navigationStyles;

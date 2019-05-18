@@ -5,6 +5,7 @@ import { MdArrowDropDown } from 'react-icons/md';
 import { GET_SESSION_OWNER, IUserRes } from './UserArea.apollo';
 import userAreaStyles from './UserArea.style';
 import UserDropDown from './UserDropDown/UserDropDown';
+import ClickOutside from 'Components/UI/ClickOutside/ClickOutside';
 
 const UserArea = () => {
 	const [isDropDownOpen, setNavStatus] = React.useState(false);
@@ -27,7 +28,7 @@ const UserArea = () => {
 			{isDropDownOpen &&
 				<>
 					<UserDropDown username={data.getSessionOwner.name} onClick={stopPropagation} />
-					<div className={classes.clickOutside} onClick={toggleNavStatus} />
+					<ClickOutside onClick={toggleNavStatus} />
 				</>
 			}
 		</div>

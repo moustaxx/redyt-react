@@ -2,10 +2,6 @@ import { makeStyles } from '@material-ui/styles';
 import { IThemeInterface } from 'Theme/';
 
 const navMenuStyles = makeStyles((theme: IThemeInterface) => ({
-	root: {
-		borderTop: 'none',
-		width: 270,
-	},
 	heading: {
 		paddingLeft: 13,
 		marginBottom: 10,

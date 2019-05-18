@@ -10,7 +10,6 @@ const settingsStyles = makeStyles((theme: IThemeInterface) => ({
 	dropDown: {
 		position: 'relative',
 		left: 45,
-		width: 155,
 	},
 	sortBtn: {
 		display: 'flex',
