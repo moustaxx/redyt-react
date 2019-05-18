@@ -15,11 +15,10 @@ module.exports = {
 	resolve: {
 		extensions: ['.mjs', '.ts', '.tsx', '.js', '.jsx'],
 		alias: {
-			Main: srcPath,
-			Theme: path.resolve(srcPath, 'theme'),
 			Components: path.resolve(srcPath, 'components'),
-			Shared: path.resolve(srcPath, 'components/Shared'),
-			Assets: path.resolve(srcPath, 'assets')
+			Theme: path.resolve(srcPath, 'theme'),
+			Assets: path.resolve(srcPath, 'assets'),
+			Src: srcPath
 		}
 	},
 	output: {

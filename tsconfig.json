@@ -18,7 +18,8 @@
 		"paths": {
 			"Components/*": ["components/*"],
 			"Theme": ["theme/*"],
-			"Assets/*": ["assets/*"]
+			"Assets/*": ["assets/*"],
+			"Src/*": ["*"]
 		},
 		"plugins": [{ "name": "typescript-styled-plugin" }],
 		"removeComments": true,
