@@ -56,6 +56,14 @@ const userAreaStyles = makeStyles((theme: IThemeInterface) => ({
 		fontWeight: 600,
 		color: 'white',
 	},
+	clickOutside: {
+		position: 'absolute',
+		width: '98vw',
+		height: '100vh',
+		top: 0,
+		left: 0,
+		cursor: 'initial',
+	},
 }), { name: 'UserArea'});
 
 export default userAreaStyles;

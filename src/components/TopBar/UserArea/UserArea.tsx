@@ -10,6 +10,7 @@ const UserArea = () => {
 	const [isDropDownOpen, setNavStatus] = React.useState(false);
 
 	const toggleNavStatus = () => setNavStatus(!isDropDownOpen);
+	const stopPropagation = (e: Event) => e.stopPropagation();
 
 	const classes = userAreaStyles();
 
@@ -23,7 +24,12 @@ const UserArea = () => {
 			<div className={classes.avatar}>{data.getSessionOwner.name[0]}</div>
 			<span>{data.getSessionOwner.name}</span>
 			<MdArrowDropDown />
-			{isDropDownOpen && <UserDropDown username={data.getSessionOwner.name} />}
+			{isDropDownOpen &&
+				<>
+					<UserDropDown username={data.getSessionOwner.name} onClick={stopPropagation} />
+					<div className={classes.clickOutside} onClick={toggleNavStatus} />
+				</>
+			}
 		</div>
 	);
 };

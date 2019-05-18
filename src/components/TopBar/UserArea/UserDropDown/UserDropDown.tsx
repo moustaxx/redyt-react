@@ -12,6 +12,7 @@ import DropDown from 'Components/UI/DropDown/DropDown';
 
 interface IUserDropDown {
 	username: string;
+	onClick: (e: any) => void;
 }
 
 const UserDropDown = ({ username }: IUserDropDown) => {
