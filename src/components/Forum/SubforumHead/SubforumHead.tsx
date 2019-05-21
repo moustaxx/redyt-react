@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import Settings from './Settings/Settings';
 import subforumHeadStyles from './SubforumHead.style';
@@ -13,7 +14,11 @@ const SubforumHead = (props: ISubforumHeadProps) => {
 	return (
 		<div style={{width: '100%'}}>
 			<div className={classes.titleContainer}>
-				<div className={classes.title}>{props.subforumName}</div>
+				<Link to={`/r/${props.subforumName}`}>
+					<div className={classes.title}>
+						{props.subforumName}
+					</div>
+				</Link>
 			</div>
 			<Settings />
 		</div >

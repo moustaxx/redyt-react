@@ -106,6 +106,9 @@ const postStyles = makeStyles((theme: IThemeInterface) => ({
 		display: 'flex',
 		alignItems: 'center',
 		color: '#7c7c7c',
+		'& a:hover': {
+			textDecoration: 'underline',
+		}
 	}
 }), { name: 'Post'});
 

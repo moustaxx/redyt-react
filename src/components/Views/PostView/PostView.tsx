@@ -29,7 +29,7 @@ const PostView = (props: IPostViewProps) => {
 				<Vote className='voteHere' />
 				<div className={classes.interior}>
 					<div>
-						<span className={classes.subForumName}>{subforum.name}</span>
+						<Link to={`/r/${subforum.name}`} className={classes.subForumName}>{subforum.name}</Link>
 						<span className={classes.postTime}>Posted by <Link to={`/user/${author.name}`}>{author.name}</Link> {date}</span>
 					</div>
 					<div className={classes.title}>{title}</div>
