@@ -5,7 +5,7 @@ import { RouteComponentProps, Switch, Route } from 'react-router';
 const Posts = React.lazy(() => import('./Posts/Posts'));
 const Aside = React.lazy(() => import('./Aside/Aside'));
 
-import SortPostsContext from 'Src/contexts/SortPostsContext';
+import SortContext from 'Src/contexts/SortContext';
 import SetThemeContext from 'Src/contexts/SetThemeContext';
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
 import forumStyles from './Forum.style';
@@ -24,7 +24,8 @@ const Forum = (props: IForumProps) => {
 	
 	const classes = forumStyles();
 	const setNewTheme = React.useContext(SetThemeContext);
-	const [postsOrder, setOrder] = React.useState();
+	const [postsOrder, setPostsOrder] = React.useState();
+	const [commentsOrder, setCommentsOrder] = React.useState();
 
 	const { data, error, loading } = useQuery<IGetSubforumRes>(GET_SUBFORUM, { variables: { name: subforumName } });
 	if (loading) return <LoadingAnim />;
@@ -32,7 +33,7 @@ const Forum = (props: IForumProps) => {
 	setNewTheme('overwrite', data.getSubforum.colors);
 
 	return (
-		<SortPostsContext.Provider value={{ postsOrder, setOrder }}>
+		<SortContext.Provider value={{ postsOrder, setPostsOrder, commentsOrder, setCommentsOrder }}>
 			<div className={classes.root}>
 				<SubforumHead subforumName={data.getSubforum.name} />
 				<div className={classes.content}>
@@ -52,7 +53,7 @@ const Forum = (props: IForumProps) => {
 					</Switch>
 				</div>
 			</div>
-		</SortPostsContext.Provider>
+		</SortContext.Provider>
 	);
 };
 

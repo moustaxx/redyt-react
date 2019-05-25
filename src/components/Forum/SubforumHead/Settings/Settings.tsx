@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { MdArrowDropDown, MdArrowDownward, MdArrowUpward } from 'react-icons/md';
-import SortPostsContext from 'Src/contexts/SortPostsContext';
+import SortContext from 'Src/contexts/SortContext';
 
 import settingsStyles from './Settings.style';
 import DropDown from 'Components/UI/DropDown/DropDown';
@@ -12,7 +12,7 @@ const Settings = () => {
 	const [isSortOpen, setSortOpen] = React.useState(false);
 	const stopPropagation = (e: Event) => e.stopPropagation();
 
-	const { setOrder } = React.useContext(SortPostsContext);
+	const { setPostsOrder } = React.useContext(SortContext);
 	const [choice, setChoice] = React.useState<string>('latest');
 	
 	const showSortMenu = () => {
@@ -21,7 +21,7 @@ const Settings = () => {
 
 	const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		setChoice(e.currentTarget.dataset.name!);
-		setOrder(e.currentTarget.dataset.name!);
+		setPostsOrder(e.currentTarget.dataset.name!);
 	};
 
 	return (

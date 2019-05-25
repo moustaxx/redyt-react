@@ -6,33 +6,29 @@ const discussionStyles = makeStyles((theme: IThemeInterface) => ({
 		width: '95%',
 		margin: '0 auto',
 	},
-	sortOptions: {
-		textTransform: 'uppercase',
-		margin: '10px 10px',
-		fontSize: 14,
+	dropDown: {
+		position: 'absolute',
 	},
-	sort: {
+	sortBtn: {
+		display: 'flex',
+		alignItems: 'center',
 		textTransform: 'uppercase',
 		fontSize: 11,
 		fontWeight: 700,
 		letterSpacing: 0.5,
 		color: theme.iconColor,
-		padding: '0 10px',
-
-		'& span, svg': {
-			display: 'inline',
-			verticalAlign: 'middle',
+		'& .slide': {
+			marginLeft: 8,
 		},
-		'& svg': {
-			width: 17,
-			height: 17,
-			marginBottom: 1,
-			fill: theme.subforum.secondary,
-		}
+		'& > svg': {
+			width: 20,
+			height: 20,
+			color: theme.subforum.secondary,
+		},
 	},
-	slide: {
-		marginLeft: 10,
+	choice: {
 		color: theme.subforum.secondary,
+		paddingLeft: 4,
 	}
 }), { name: 'Discussion'});
 

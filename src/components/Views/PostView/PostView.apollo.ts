@@ -35,8 +35,8 @@ export const PostFragment = gql`
 `;
 
 export const GET_POST = gql`
-	query getPostByID($postID: ID!) {
-		getPostByID( id: $postID ){
+	query getPostByID($postID: ID! $commentsOrder: Order) {
+		getPostByID( id: $postID, commentsOrder: $commentsOrder ){
 			...PostFragment
 		}
 	}

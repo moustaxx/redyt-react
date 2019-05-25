@@ -3,8 +3,8 @@ import { IThemeInterface } from 'Theme/';
 
 const clickOutsideStyles = makeStyles((theme: IThemeInterface) => ({
 	root: {
-		position: 'absolute',
-		width: '98vw',
+		position: 'fixed',
+		width: '100vw',
 		height: '100vh',
 		top: 0,
 		left: 0,

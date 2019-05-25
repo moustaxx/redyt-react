@@ -5,6 +5,7 @@ import { MdComment, MdShare } from 'react-icons/md';
 
 import { GET_POST, IGetPostRes } from './PostView.apollo';
 import postViewStyles from './PostView.style';
+import SortContext from 'Src/contexts/SortContext';
 
 import Discussion from './Discussion/Discussion';
 import Vote from 'Components/UI/Vote/Vote';
@@ -16,8 +17,9 @@ const PostView = (props: IPostViewProps) => {
 
 	const classes = postViewStyles();
 	const postID = props.match.params.postID;
+	const { commentsOrder } = React.useContext(SortContext);
 
-	const { data, error, loading } = useQuery<IGetPostRes>(GET_POST, { variables: { postID } });
+	const { data, error, loading } = useQuery<IGetPostRes>(GET_POST, { variables: { postID, commentsOrder } });
 	if (loading) return <LoadingAnim />;
 	if (error || !data) return <span className={classes.warn}>{error && error.message}</span>;
 

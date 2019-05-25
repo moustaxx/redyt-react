@@ -19,6 +19,7 @@ const dropDownStyles = makeStyles((theme: IThemeInterface) => ({
 		background: theme.background.secondary,
 		padding: '8px 0',
 		listStyleType: 'none',
+		userSelect: 'none',
 		'& a, & li': {
 			height: 38,
 			display: 'flex',

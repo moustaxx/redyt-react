@@ -4,7 +4,7 @@ import { useQuery } from 'react-apollo-hooks';
 import Post from './Post/Post';
 import { ISubforum } from '../Forum.apollo';
 import { GET_POSTS, IGetPostsRes, IPost } from './Posts.apollo';
-import SortPostsContext from 'Src/contexts/SortPostsContext';
+import SortContext from 'Src/contexts/SortContext';
 
 import LoadingSpinner from 'Components/UI/LoadingSpinner/LoadingSpinner';
 import postsStyles from './Posts.style';
@@ -15,7 +15,7 @@ interface IPostsProps {
 
 const Posts = (props: IPostsProps) => {
 	const classes = postsStyles();
-	const { postsOrder } = React.useContext(SortPostsContext);
+	const { postsOrder } = React.useContext(SortContext);
 
 	const { data, loading, error } = useQuery<IGetPostsRes>(GET_POSTS, {
 		variables: { subforumID: props.subforum.id, postsOrder }
