@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MdArrowDropDown, MdArrowDownward, MdArrowUpward } from 'react-icons/md';
 
-import { IComment } from 'Components/Views/PostView/PostView.apollo';
+import { IComment } from 'Components/Forum/PostView/PostView.apollo';
 import discussionStyles from './Discussion.style';
 import Comment from './Comment';
 import AddComment from './AddComment';

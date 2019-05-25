@@ -7,11 +7,13 @@ const Aside = React.lazy(() => import('./Aside/Aside'));
 
 import SortContext from 'Src/contexts/SortContext';
 import SetThemeContext from 'Src/contexts/SetThemeContext';
+
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
 import forumStyles from './Forum.style';
+
 import SubforumHead from './SubforumHead/SubforumHead';
+import PostView from './PostView/PostView';
 import Error from 'Components/Views/Error/Error';
-import PostView from 'Components/Views/PostView/PostView';
 import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
 import CreatePost from 'Components/Forum/CreatePost/CreatePost';
 
