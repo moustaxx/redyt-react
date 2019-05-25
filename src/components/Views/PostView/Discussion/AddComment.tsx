@@ -18,12 +18,11 @@ const AddComment = (props: IAddCommentProps) => {
 
 	const { data, loading, error } = useQuery<IUserRes>(GET_SESSION_OWNER);
 
-	const name = data && data.getSessionOwner ? data.getSessionOwner.name : null;
+	const name = data && data.getSessionOwner ? data.getSessionOwner.name : '';
 
 	const createCommentMutation = useMutation<ICreateComment>(CREATE_COMMENT, {
 		variables: { content, postID },
 		optimisticResponse: {
-			__typename: 'Mutation',
 			createComment: {
 				__typename: 'Comment',
 				author: {
