@@ -9,7 +9,7 @@ import SortContext from 'Src/contexts/SortContext';
 
 import Discussion from './Discussion/Discussion';
 import Vote from 'Components/UI/Vote/Vote';
-import LoadingAnim from 'Components/UI/LoadingAnim/LoadingAnim';
+import LoadingSpinner from 'Components/UI/LoadingSpinner/LoadingSpinner';
 
 interface IPostViewProps extends RouteComponentProps<{ postID: string }> {}
 
@@ -20,7 +20,7 @@ const PostView = (props: IPostViewProps) => {
 	const { commentsOrder } = React.useContext(SortContext);
 
 	const { data, error, loading } = useQuery<IGetPostRes>(GET_POST, { variables: { postID, commentsOrder } });
-	if (loading) return <LoadingAnim />;
+	if (loading) return <div className={classes.root} style={{ minHeight: 128 }}><LoadingSpinner /></div >;
 	if (error || !data) return <span className={classes.warn}>{error && error.message}</span>;
 
 	const { title, author, content, commentCounter, createdAt, subforum, comments } = data.getPostByID;

@@ -11,6 +11,7 @@ const postViewStyles = makeStyles((theme: IThemeInterface) => ({
 		flexGrow: 1,
 		flexDirection: 'column',
 		borderRadius: 4,
+		position: 'relative',
 		'& a:hover': {
 			textDecoration: 'underline',
 		}
