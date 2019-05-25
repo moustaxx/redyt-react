@@ -13,7 +13,7 @@ interface IDiscussionProps {
 const Discussion = ({ comments }: IDiscussionProps) => {
 	const classes = discussionStyles();
 	return (
-		<div className={classes.root}>
+		<section id='comments' className={classes.root}>
 			<AddComment />
 			{comments.length ?
 				<div className={classes.sortOptions}>
@@ -30,7 +30,7 @@ const Discussion = ({ comments }: IDiscussionProps) => {
 					<Comment key={comment.id} data={comment} />
 				)}
 			</div>
-		</div>
+		</section>
 	);
 };
 

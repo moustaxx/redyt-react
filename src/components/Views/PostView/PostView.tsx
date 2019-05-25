@@ -35,10 +35,12 @@ const PostView = (props: IPostViewProps) => {
 					<div className={classes.title}>{title}</div>
 					<div className={classes.essence}>{content}</div>
 					<div className={classes.postToolBar}>
-						<button>
-							<MdComment className='commentIcon el' />
-							<div className='el'>{commentCounter} Comments</div>
-						</button>
+						<a href='#comments'>
+							<button>
+								<MdComment className='commentIcon el' />
+								<div className='el'>{commentCounter} Comments</div>
+							</button>
+						</a>
 						<button>
 							<MdShare className='shareIcon el' />
 							<div className='el'>Share</div>
