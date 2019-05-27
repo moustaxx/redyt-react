@@ -23,11 +23,21 @@ interface IForumProps extends RouteComponentProps<{ subforumName: string }> {
 
 const Forum = (props: IForumProps) => {
 	const { subforumName } = props.match.params;
-	
+
 	const classes = forumStyles();
 	const themeDispatch = React.useContext(ThemeContext);
 	const [postsOrder, setPostsOrder] = React.useState();
 	const [commentsOrder, setCommentsOrder] = React.useState();
+
+	const sortCtx = React.useMemo(
+		() => ({
+			postsOrder,
+			commentsOrder,
+			setPostsOrder,
+			setCommentsOrder
+		}),
+		[postsOrder, commentsOrder]
+	);
 
 	const { data, error, loading } = useQuery<IGetSubforumRes>(GET_SUBFORUM, { variables: { name: subforumName } });
 	if (loading) return <LoadingAnim />;
@@ -35,7 +45,7 @@ const Forum = (props: IForumProps) => {
 	themeDispatch({ type: 'overwrite', payload: data.getSubforum.colors });
 
 	return (
-		<SortContext.Provider value={{ postsOrder, setPostsOrder, commentsOrder, setCommentsOrder }}>
+		<SortContext.Provider value={sortCtx}>
 			<div className={classes.root}>
 				<SubforumHead subforumName={data.getSubforum.name} />
 				<div className={classes.content}>
