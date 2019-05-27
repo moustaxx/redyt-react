@@ -7,31 +7,18 @@ import client from './apollo';
 import App from './components/App';
 
 import { ThemeProvider } from '@material-ui/styles';
-import { darkTheme, lightTheme } from './theme';
-import SetThemeContext from './contexts/SetThemeContext';
-import { IColors } from 'Components/Forum/Forum.apollo';
+import ThemeContext from './contexts/ThemeContext';
+import useThemeReducer from './reducers/useThemeReducer';
 
 const WrappedApp = () => {
-	const [theme, setTheme] = React.useState(darkTheme);
-	const [isDarkThemeOn, setIsDarkThemeOn] = React.useState(true);
-	
-	const setNewTheme = (type: 'overwrite' | 'toggle' = 'toggle', colors?: IColors | false) => {
-		if (type === 'toggle') {
-			if (isDarkThemeOn) setTheme(lightTheme);
-			else setTheme(darkTheme);
-			setIsDarkThemeOn(!isDarkThemeOn);
-		} else if (colors) {
-			const newTheme = Object.assign({}, theme, colors);
-			if (JSON.stringify(theme) !== JSON.stringify(newTheme)) setTheme(newTheme);
-		}
-	};
+	const [{ theme }, themeDispatch] = useThemeReducer();
 
 	return (
 		<ApolloProvider client={client}>
 			<ThemeProvider theme={theme}>
-				<SetThemeContext.Provider value={setNewTheme}>
+				<ThemeContext.Provider value={themeDispatch}>
 					<App />
-				</SetThemeContext.Provider>
+				</ThemeContext.Provider>
 			</ThemeProvider>
 		</ApolloProvider>
 	);

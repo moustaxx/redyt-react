@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation, useApolloClient } from 'react-apollo-hooks';
+import { MdAccountBox, MdSettings, MdWbSunny, MdPowerSettingsNew } from 'react-icons/md';
 
 import { LOG_OUT, IUserRes } from './UserDropDown.apollo';
 import { LoginStatusContext } from 'Components/App';
-import SetThemeContext from 'Src/contexts/SetThemeContext';
+import ThemeContext from 'Src/contexts/ThemeContext';
 import dropDownStyles from './UserDropDown.style';
 
-import { MdAccountBox, MdSettings, MdWbSunny, MdPowerSettingsNew } from 'react-icons/md';
 import DropDown from 'Components/UI/DropDown/DropDown';
 
 interface IUserDropDown {
@@ -18,7 +18,7 @@ interface IUserDropDown {
 const UserDropDown = ({ username, onClick }: IUserDropDown) => {
 	const classes = dropDownStyles();
 
-	const setTheme = React.useContext(SetThemeContext);
+	const themeDispatch = React.useContext(ThemeContext);
 	const { setLoginStatus } = React.useContext(LoginStatusContext);
 	const logOut = useMutation<IUserRes>(LOG_OUT);
 	const client = useApolloClient();
@@ -42,7 +42,7 @@ const UserDropDown = ({ username, onClick }: IUserDropDown) => {
 			</Link>
 
 			<div className={classes.heading}>View settings</div>
-			<a onClick={() => setTheme('toggle') /* tslint:disable-line: jsx-no-lambda */}>
+			<a onClick={() => themeDispatch({ type: 'toggle' }) /* tslint:disable-line: jsx-no-lambda */}>
 				<MdWbSunny />
 				<span>Dark mode</span>
 			</a>

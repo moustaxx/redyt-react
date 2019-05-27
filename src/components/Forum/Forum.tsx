@@ -6,7 +6,7 @@ const Posts = React.lazy(() => import('./Posts/Posts'));
 const Aside = React.lazy(() => import('./Aside/Aside'));
 
 import SortContext from 'Src/contexts/SortContext';
-import SetThemeContext from 'Src/contexts/SetThemeContext';
+import ThemeContext from 'Src/contexts/ThemeContext';
 
 import { GET_SUBFORUM, IGetSubforumRes } from './Forum.apollo';
 import forumStyles from './Forum.style';
@@ -25,14 +25,14 @@ const Forum = (props: IForumProps) => {
 	const { subforumName } = props.match.params;
 	
 	const classes = forumStyles();
-	const setNewTheme = React.useContext(SetThemeContext);
+	const themeDispatch = React.useContext(ThemeContext);
 	const [postsOrder, setPostsOrder] = React.useState();
 	const [commentsOrder, setCommentsOrder] = React.useState();
 
 	const { data, error, loading } = useQuery<IGetSubforumRes>(GET_SUBFORUM, { variables: { name: subforumName } });
 	if (loading) return <LoadingAnim />;
 	if (error || !data) return <Error path={props.location.pathname} />;
-	setNewTheme('overwrite', data.getSubforum.colors);
+	themeDispatch({ type: 'overwrite', payload: data.getSubforum.colors });
 
 	return (
 		<SortContext.Provider value={{ postsOrder, setPostsOrder, commentsOrder, setCommentsOrder }}>
