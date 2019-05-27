@@ -24,15 +24,16 @@ export const LoginStatusContext = React.createContext<ILoginStatusContext>({
 
 const App = () => {
 	appStyles();
-	
+
 	const [loginStatus, setLoginStatus] = React.useState(() => {
 		if (!document.cookie) return false;
 		const cookies = parseCookie(document.cookie);
 		return cookies.logged_in === 'true' ? true : false;
 	});
-	
+	const loginCtxValue = React.useMemo(() => ({ loginStatus, setLoginStatus }), [loginStatus]);
+
 	return (
-		<LoginStatusContext.Provider value={{ loginStatus, setLoginStatus }}>
+		<LoginStatusContext.Provider value={loginCtxValue}>
 			<BrowserRouter>
 				<div id='app'>
 					<React.Suspense fallback={null}>
