@@ -23,6 +23,7 @@
 		},
 		"plugins": [{ "name": "typescript-styled-plugin" }],
 		"removeComments": true,
+		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
