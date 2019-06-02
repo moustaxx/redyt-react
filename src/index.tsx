@@ -6,6 +6,7 @@ import { ApolloProvider } from 'react-apollo-hooks';
 import client from './apollo';
 import App from './components/App';
 
+import 'react-quill/dist/quill.snow.css';
 import { ThemeProvider } from '@material-ui/styles';
 import ThemeContext from './contexts/ThemeContext';
 import useThemeReducer from './reducers/useThemeReducer';

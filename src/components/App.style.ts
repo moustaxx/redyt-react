@@ -23,7 +23,7 @@ const appStyles = makeStyles((theme: IThemeInterface) => ({
 			outline: 0,
 			cursor: 'pointer',
 		},
-		'button, li': {
+		button: {
 			cursor: 'pointer',
 			outline: 0,
 			background: 'transparent',

@@ -2,12 +2,14 @@ import * as React from 'react';
 import { useMutation } from 'react-apollo-hooks';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { isApolloError } from 'apollo-client';
+import ReactQuill from 'react-quill';
 
 import { ICreatePostRes, CREATE_POST } from './CreatePost.apollo';
 import { GET_POSTS, IGetPostsRes } from '../Posts/Posts.apollo';
 import createPostStyles from './CreatePost.style';
 import TextBox from 'Components/UI/TextBox/TextBox';
 import Button from 'Components/UI/Button/Button';
+import { MdWarning } from 'react-icons/md';
 
 interface ICreatePostProps extends RouteComponentProps<{}> {
 	subforumName: string;
@@ -47,12 +49,22 @@ const CreatePost = (props: ICreatePostProps) => {
 		},
 	});
 	
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-		const { name, value } = event.target;
+	const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const { value } = event.target;
 		setPostData({
 			...post,
-			[name]: value
+			title: value
 		});
+	};
+	const handleCntChange = (value: string) => {
+		if (value.length > 1000) setError('Post is too long');
+		else {
+			setError('');
+			setPostData({
+				...post,
+				content: value
+			});
+		}
 	};
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -69,7 +81,6 @@ const CreatePost = (props: ICreatePostProps) => {
 		<div className={classes.root}>
 			<form onSubmit={handleSubmit}>
 				<div className={classes.heading}>Create post</div>
-				{error && <div style={{color: 'red'}}>{error}</div>}
 				<TextBox
 					wide
 					required
@@ -77,17 +88,16 @@ const CreatePost = (props: ICreatePostProps) => {
 					maxLength={200}
 					placeholder='Title'
 					value={post.title}
-					onChange={handleChange}
+					onChange={handleTitleChange}
+					className='titleBox'
 				/>
-				<textarea
-					className={classes.textarea}
-					required
-					name='content'
-					maxLength={900}
-					placeholder='Text...'
+				<ReactQuill
 					value={post.content}
-					onChange={handleChange}
+					onChange={handleCntChange}
+					className={classes.quill}
+					placeholder='Text...'
 				/>
+				{error && <div className={classes.warn}><MdWarning /><span>{error}</span></div>}
 				<Button>Submit</Button>
 			</form>
 		</div>

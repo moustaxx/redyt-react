@@ -35,7 +35,7 @@ const PostView = (props: IPostViewProps) => {
 						<span className={classes.postTime}>Posted by <Link to={`/user/${author.name}`}>{author.name}</Link> {date}</span>
 					</div>
 					<div className={classes.title}>{title}</div>
-					<div className={classes.essence}>{content}</div>
+					<div className={classes.essence} dangerouslySetInnerHTML={{ __html: content }} />
 					<div className={classes.postToolBar}>
 						<a href='#comments'>
 							<button>
