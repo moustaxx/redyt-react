@@ -63,9 +63,11 @@ export interface IComment {
 	author: {
 		name: string;
 		id: string;
+		__typename?: string;
 	};
 	postID?: string;
 	createdAt: string;
+	__typename?: string;
 }
 
 export interface IGetPostRes {
